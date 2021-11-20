@@ -1,0 +1,10 @@
+if we want to use cout/cin as many times as we want then we have to use
+"using namespace std"
+
+
+***************Shortcircuit Evaluation****************
+in shortcircuit when the statement itself is sufficient for true condition
+then it will never look at second statement
+In || the shortcircuit happen when it occurs true condition in first statement
+In && the shortcircuit happen when it occurs false conditon in first statement
+
