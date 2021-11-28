@@ -19,5 +19,5 @@ int main(){
     
     // The purpose of typedef is for readeabilty of the program only
 
-
+ return 0;
 }
