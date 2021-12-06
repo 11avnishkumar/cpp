@@ -2,10 +2,12 @@
 using namespace std;
 
 int main(){
-    int first_number,second_number,result;
+    int a,b,result;
     cout<<"****************Bitwise And operator calculator***********"<<endl;
     cout<<"Please enter two numbers: ";
-    cin>>first_number>>second_number;
-    result = first_number & second_number;
-    cout<<"Your result is:"<<result;
+    cin>>a>>b;
+    result = a | b;
+    cout<<"Bitwise OR :"<<result<<endl;
+    result = a & b;
+    cout<<"Bitwise AND :"<<result;
 }
