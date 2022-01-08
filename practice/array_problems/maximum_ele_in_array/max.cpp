@@ -1,9 +1,15 @@
 #include<iostream>
 using namespace std;
 int main(){
-    int a[5] = {4,5,6,7,9},sum=0;
-    for(int i=0;i<5;i++)
-       sum = sum + a[i];
-    cout<<sum<<endl;   
+    // Progaram to find maximum number from the array
+    int a[10],n=10,max;
+    cout<<"Enter 10 elements:"<<endl;
+    for(int i=0;i<n;i++)
+       cin>>a[i];
+    max = a[0];
+    for(int i=0;i<n;i++)
+        if(a[i]>max)
+          max = a[i];
+    cout<<"The maximum element is:"<<max<<endl;        
     return 0;
 }

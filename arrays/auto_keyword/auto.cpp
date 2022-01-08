@@ -1,7 +1,7 @@
 #include<iostream>
 using namespace std;
 int main(){
-    //Example of autokeyword
+    //Example of auto keyword
     char c[] = {41,'a','b','c',73}; //char  type of array
      
 	    for(auto x:c)
