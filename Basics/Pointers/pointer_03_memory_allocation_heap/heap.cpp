@@ -10,7 +10,7 @@ int main(){
 
     /*
     before assigning null value to the pointer we must first delete the memory
-    allocated to the array first otherwise it cause the memory leakeag problem
+    allocated to the array first, otherwise it cause the memory leakeag problem
     */
 
     delete []p; //This syntax means delete the memory which is allocated to array
@@ -19,7 +19,7 @@ int main(){
     p = nullptr; //This is modern c++ syntax to assign a pointer null value
 
     /*
-    instead of writing p = NULL
+    Instead of writing p = NULL
     p=nullptr is known as literal
     */
     return 0;

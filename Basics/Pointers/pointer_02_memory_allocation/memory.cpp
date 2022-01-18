@@ -7,6 +7,10 @@ int main(){
     int a[size]; //The size of the memeory will be created whatever size the
     //user will provide
     cout<<"This is the size of memory in bytes: "<<sizeof a<<endl;
+    /*Whatever the size will be provided by the user will be multiplied
+    by 4 i.e (size * 4),because each interger hold size of 4 byte.
+    */
+
     /*
     Now again if we want to increase the size of the array
     Then we can not follow the above approach again to increase the size
@@ -17,7 +21,6 @@ int main(){
      cout<<"Enter number of elements:";
      cin>>size;
      int a[size];
-     return 0;
 
     Remember: once a array created of any size in the program it can not
     Modified in any circumstances.
