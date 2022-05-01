@@ -1,0 +1,13 @@
+There are three type of errors occur in Programming
+
+1.Syntax Error
+   This type of error can we removed with the help of compiler.
+
+2.Logical Error
+  This type of error can we removed with the help of Debugger.
+
+3.Runtime Error
+  Runtime error occurs by user's mistake and not by developers and this is known as exception
+  This type of error can we removed by exception handling.
+  If resource that a program need to do their job  not found then
+  also exception occurs.

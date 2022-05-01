@@ -2,19 +2,11 @@
 using namespace std;
 class Complex{
   
-  private:
-
+  public:
   int real;
   int img;
-
-  public:
-  // Constructor
-  Complex(int a=0,int b=0){
-    real = a;
-    img = b;
-  }
-
-  Complex add(Complex c){
+  // operator overloading
+  Complex operator + (Complex c){
     Complex temp;
     temp.real = real+c.real;
     temp.img = img+c.img;
@@ -22,12 +14,29 @@ class Complex{
 
   }
 
+  /*
+  Complex add(Complex c){
+    Complex temp;
+    temp.real = real+c.real;
+    temp.img = img+c.img;
+    return temp;
+
+  }
+  */
+
 };
+
+
 int main(){
   // Program to demonstrate the operator overloading.
-  Complex c1(5,6);
-  Complex c2(8,7);
-  Complex c3;
+  Complex c1,c2,c3;
+  c1.real = 5; c1.img=3;
+  c2.real = 10;c2.img=5;
+  // c3=c1.add(c2);
+  c3 = c1 + c2;
+  cout<<c3.real<<"+i"<<c3.img<<endl;
 
   return 0;
 }
+
+// above is the example of operator overloading

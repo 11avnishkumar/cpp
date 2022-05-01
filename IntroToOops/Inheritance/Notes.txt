@@ -1,0 +1,45 @@
+Inheritance
+
+Technical definition: it is the processing of inheriting the memeber and method of the class
+to another class.
+
+Base class: The class from which the new class will inherit.
+Derived class: The new class which will form after inheriting from the base class.
+
+Advantages of inheritance:
+* Reusability
+* Time saving
+
+An example of Base class and derived class
+
+class Base(){
+
+    public:
+    void display(){
+        cout<<"display base"<<endl;
+    }
+
+};
+
+class Derived:public Base(){
+// This class is inherited publically
+// Now this class can access the display function
+// There is lot's of features that could be added here
+
+}
+
+int main(){
+    // calling the base class
+    base d;
+    d.display()
+
+    //calling the derived class
+    derived d2;
+    d2.display()
+}
+
+***********************isA and hasA***********************
+- classes can be used in two ways and it is common for many object oriented languages
+- isA relationship and hasA relationship
+
+

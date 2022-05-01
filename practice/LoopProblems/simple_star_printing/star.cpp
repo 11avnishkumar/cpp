@@ -2,10 +2,12 @@
 using namespace std;
 int main(){
     
-    for(int i=0;i<4;i++){
-        for(int j=0;j<4;j++){
-            cout<<"*"<<" ";
-            
+    for(int rows=0;rows<5;rows++){
+        for(int cols = 0; cols<5; cols++){
+            if(cols>=rows)
+                cout<<"*";
+            else
+                cout<<" ";           
         }
         cout<<endl;
     }
