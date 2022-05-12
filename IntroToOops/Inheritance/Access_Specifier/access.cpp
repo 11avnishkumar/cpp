@@ -1,20 +1,22 @@
-# include<iostream>
+#include<iostream>
 using namespace std;
-    
+
 /* program for using using access specifiers */
 class rectangle
 {
-private:
-	int length;
-	int breadth;
-public:
+    private:
+    	int length;
+    	int breadth;
+    public:
+
 	void setlength(int l)
 	{
 		if(l>0)
 			length=l;
-	        else
+        else
 		  	length=1;
 	}
+
 	void setbreadth( int b)
 	{
 		if(b>0)
@@ -32,13 +34,14 @@ public:
 	}
 	int area()
 	{
-		return length*breadth;
+		return length * breadth;
 	}
 	int perimeter()
 	{
 		return 2*(length+breadth);
 	}
 };
+
 int main()
 {
 	rectangle r1;
@@ -50,7 +53,7 @@ int main()
 	cout<<"breadth: "<<r1.getbreadth()<<endl;
 }
 
-// Three types of acess specifier:- 
-// public 
-// private 
+// Three types of acess specifier:-
+// public
+// private
 // protected

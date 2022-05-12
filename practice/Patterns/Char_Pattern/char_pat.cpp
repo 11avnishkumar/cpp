@@ -14,13 +14,15 @@ int main(){
   }
   return 0;
 }
-/* 
+/*
+
 // The above pogram will give us the following output
+
 A
 AB
 ABC
 ABCD
-ABCDE
-
+ABCDE....
+....
 
 */

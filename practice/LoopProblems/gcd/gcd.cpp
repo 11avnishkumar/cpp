@@ -9,9 +9,9 @@ int main(){
         if(n>m)
          n = n - m;
         else if(m>n)
-         m = m - n; 
+         m = m - n;
     }
-    cout<<"The gcd of two number is: "<<m<<endl; 
+    cout<<"The gcd of two number is: "<<m<<endl;
     //We can put m or n any variable to get the answer because they both variable will
     //equal at the end
     return 0;
