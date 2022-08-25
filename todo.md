@@ -1,0 +1,21 @@
+# Todo
+
+- [ ] Basics
+  - [ ] Data Type
+- [ ] Intermediate
+  - [ ] Arrays
+  - [ ] Functions
+  - [ ] Structure
+- [ ] Advance
+  - [ ] Introduction to OOps
+    - [ ] Polymorphism
+    - [ ] Inheritance
+    - [ ] Abstraction
+    - [ ] Encapsulation
+- [ ] Miscllaneous
+  - [ ] New Features of C++ 11
+    - [ ] Constructor Deligation
+    - [ ] Ellipsis
+    - [ ] Final Keyword
+    - [ ] Lamda Expression
+    - [ ] Smart Pointers
