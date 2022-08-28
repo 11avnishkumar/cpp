@@ -1,4 +1,4 @@
-# Table of Content
+# Table of Contents
 
 * Basics
   * Data Type
@@ -7,6 +7,9 @@
   * Arrays
   * Structure
   * Function
+    * Call by Value
+    * Call by Refrence
+    * Call by Address
   * Variable(Global and Local)
   * String
   * Pointers
@@ -16,6 +19,9 @@
     * Pointer Arithmatic
     * Pointer to Array
   * Storage Class
+    * Register
+    * Auto
+    * Static
 
 * Advance
   * Introduction to OOps
@@ -80,7 +86,7 @@
 * [Graph]($Graph)
 * [Asymptotic Notation]($Asymptotic_notation)
 
-## What is a data structure<a name="datastructure"></a>?
+## What is a data structure<a name="#datastructure"></a>?
 
 Data Structure is -
 A techninque to store elements so that they can be used efficiently and effectively.
@@ -91,4 +97,4 @@ When a function call itself then it is called recursion.
 
 * Recursion is costly because it uses stack internally.
 
-## Datastructure By Love Babbar
+## Problem Solving
