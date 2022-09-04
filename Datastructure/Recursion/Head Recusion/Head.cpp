@@ -1,20 +1,18 @@
+/* 
+Write a Program to implement Head Recursion
+*/
+
 #include<iostream>
 using namespace std;
 void fun(int n){
     if(n>0){
-        cout<<" "<<n;
         fun(n-1);
-        fun(n-1);
-
+        cout<<n<<endl;
     }
 }
 int main(){
-    int result;
-    fun(3);
+    int x = 3;
+    fun(x);
     return 0;
 }
-/* 
-Output of the program
-3 2 1 1 2 1 1
 
-*/

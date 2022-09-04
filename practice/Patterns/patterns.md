@@ -1,9 +1,21 @@
-#### Char Paterns
+# Patterns
 
-A
-AB
-ABC
-ABCD
-ABCDE
+Location: Practice / Patterns
 
-#### Star patterns
+## Char patterns
+
+A  
+A B  
+A B C  
+A B C D  
+A B C D E  
+
+## Star patterns
+
+Here the pipe charters are here  
+|* * * * * *  
+|* * * * *  
+|* * * *  
+|* * *  
+|* *  
+|*

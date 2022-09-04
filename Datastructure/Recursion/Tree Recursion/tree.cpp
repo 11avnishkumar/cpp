@@ -1,23 +1,19 @@
+/* 
+
+Program using Tree Recursion
+*/
 #include<iostream>
 using namespace std;
 void fun(int n){
     if(n>0){
+        cout<<" "<<n;
         fun(n-1);
-        cout<<n<<endl;
+        fun(n-1);
+
     }
 }
 int main(){
-    int x = 3;
-    fun(x);
+    int result;
+    fun(3);
     return 0;
 }
-/* 
-Output:
-1
-2
-3
-if 'endl' is not used then it will be
-1 2 3
-
-
-*/

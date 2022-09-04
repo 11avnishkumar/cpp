@@ -1,6 +1,9 @@
-// Program to show the concept of indirect recursion
+/* 
+Program to show the concept of indirect recursion
+*/
 #include<iostream>
 using namespace std;
+
 void funB(int n);
 // Function A
 void funA(int n){
@@ -20,6 +23,3 @@ int main(){
     funA(20);
     return 0;
 }
-/*  
-20 19 9 8 4 3 1
-*/

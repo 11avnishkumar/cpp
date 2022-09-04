@@ -1,9 +1,10 @@
 # Table of Contents
 
-* Basics
-  * Data Type
-    * Enum
-    * Type Def
+
+* [Basics](#Basics)
+* Data Type
+  * Enum
+  * Type Def
   * Arrays
   * Structure
   * Function
@@ -85,16 +86,3 @@
 * [Hashing]($Hashing)
 * [Graph]($Graph)
 * [Asymptotic Notation]($Asymptotic_notation)
-
-## What is a data structure<a name="#datastructure"></a>?
-
-Data Structure is -
-A techninque to store elements so that they can be used efficiently and effectively.
-
-## What is Recursion?
-
-When a function call itself then it is called recursion.
-
-* Recursion is costly because it uses stack internally.
-
-## Problem Solving

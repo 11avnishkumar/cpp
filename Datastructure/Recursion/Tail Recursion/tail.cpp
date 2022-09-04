@@ -1,5 +1,10 @@
+/* 
+Program to implement Tail Recursion
+*/
+
 #include<iostream>
 using namespace std;
+
 void fun(int n){
     if(n>0){
         cout<<n<<endl;
@@ -11,13 +16,4 @@ int main(){
     fun(x);
     return 0;
 }
-/* 
-Output:
-3
-2
-1
-if 'endl' is not used then it will be
-3 2 1
 
-
-*/
