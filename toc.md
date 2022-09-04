@@ -1,6 +1,5 @@
 # Table of Contents
 
-
 * [Basics](#Basics)
 * Data Type
   * Enum
@@ -86,3 +85,5 @@
 * [Hashing]($Hashing)
 * [Graph]($Graph)
 * [Asymptotic Notation]($Asymptotic_notation)
+
+### <a name='Basics'></a>Basics
