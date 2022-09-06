@@ -91,6 +91,24 @@ What is Matrices?
 * Matrix mostly used in the field of computer science to represent various type of data.
 
 ## Tree
+
+* A tree is the collection of Nodes or Vertices and edges.
+* if there are (N) nodes then there will be (N - 1) edges.
+* Some terminologies related to tree.
+  * Root
+  * Parent
+  * Child
+  * Siblings
+  * Descendants
+  * Ancestors
+  * Degree of a Node
+  * Internal and External Node
+  * Levels
+  * Height
+  * Forest  
+* What is Binary Tree?
+  * A Tree having atmost two children.
+
 ## Graph
 
 * A graph G (V,E) is the set of vertices and edges.  
