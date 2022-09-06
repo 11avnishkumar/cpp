@@ -2,6 +2,11 @@
 
 * [Basics](#Basics)
 * Data Type
+  * Integer
+  * Long Integer
+  * Float
+  * Double
+  * Long Double
   * Enum
   * Type Def
   * Arrays
@@ -10,8 +15,15 @@
     * Call by Value
     * Call by Refrence
     * Call by Address
-  * Variable(Global and Local)
+    * Return by value
+    * Return by address
+  * Variable
+    * Global
+    * Local
   * String
+    * Copy
+    * Replace
+    * Concatenate
   * Pointers
     * Introduction to Pointer
     * Memory allocation
@@ -22,7 +34,6 @@
     * Register
     * Auto
     * Static
-
 * Advance
   * Introduction to OOps
     * Polymorphism
@@ -38,6 +49,7 @@
 ## Datastructure Using C++
 
 * [Introduction](#datastructure)
+  * Definition
 * [Recursion](#Recursion)
   * Head Recursion
   * Tail Recursion
@@ -46,6 +58,7 @@
   * Nested Recursion
   * Combination
   * Factorial
+  * Sum of N Natural Number
   * Power
   * Fibbonacci Series
   * Taylor Series
@@ -68,9 +81,9 @@
   * Max
   * Search (Liner and Binary)
   * Set Opeations on Array(Union,Intersection,Difference)
+  * Reverse (Using an Auxiliary array)
   * Rotation
   * Shifting (Left Shift and Right Shift)
-
 * [Strings](#Strings)
 * [Matrices](#Matrices)
   * Diagonal Matrix
@@ -85,5 +98,3 @@
 * [Hashing]($Hashing)
 * [Graph]($Graph)
 * [Asymptotic Notation]($Asymptotic_notation)
-
-### <a name='Basics'></a>Basics

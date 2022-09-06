@@ -30,7 +30,7 @@ public:
     int DeleteElement(int index);
     int Max();
     int Min();
-    int Get();
+    int Get(int index);
     void Set(int index, int element);
     void Concat();
     void Merge();
@@ -76,7 +76,18 @@ void Array::InsertElement(int index, int element){
     }
 }
 
-
+/* Insert at sorted position */
+void Array::InsertSorted(int element){
+    int i = length - 1;
+    if(length == size)
+        return;
+    while(A[i]>element){
+        A[i+1] = [i];
+        i--;
+    }
+    A[i+1] = element;
+    length++;
+}
 
 /* To display elements into the array */
 void Array::DisplayElement(){
@@ -161,7 +172,14 @@ void Array::Set(int index, int element){
     A[index] = element;
 }
 
-/* ***************** Linear Search ****************** */
+/* Get method */
+int Array::Get(int index){
+    if(index<length && index>=0)
+        return A[index];
+    return -1;
+}
+
+/*  Linear Search  */
 
  int Array::LinearSearch(int key){
     for(int index = 0; index<length; index++){
@@ -245,34 +263,34 @@ int Array::RBinarySearch(int a[], int low, int high, int key){
 int main(){
   
   /* Create instance of the class */
-  Array op;
+  Array arr;
   
-/* Array Operations */
+/* Array operations */
   cout<<"\nDisplay: ";
-  op.DisplayElement();
-  op.InsertElement(4,15); // take index and element as argument
-  op.AppendElement(17); // take element as argument
-  op.AppendElement(18); // take element as argument
-  op.AppendElement(19); // take element as argument
-  cout<<("\nDeleted elements: %d",op.DeleteElement(2));
+  arr.DisplayElement();
+  arr.InsertElement(4,15); 
+  arr.AppendElement(17);   
+  arr.AppendElement(18); 
+  arr.AppendElement(19); 
+  cout<<("\nDeleted elements: %d",arr.DeleteElement(2));
   cout<<("\nDisplay: ");
-  op.DisplayElement();
-  cout<<("\nIterative:Sum of elements %d",op.Sum());  
-  cout<<("\nRecursive:Sum of elements %d",op.RecursiveSum(A,5));  
-  cout<<("\nAverage: %f",op.Avg());
-  cout<<("\nSetopeations:");
-  op.Set(9,100);
-  cout<<("\nMaximum: %d",op.Max());
-  cout<<("\nMinimum: %d",op.Min());
+  arr.DisplayElement();
+  cout<<("\nIterative:Sum of elements %d",arr.Sum());  
+  cout<<("\nRecursive:Sum of elements %d",arr.RecursiveSum(A,5));  
+  cout<<("\nAverage: %f",arr.Avg());
+  cout<<("\nSetarreations:");
+  arr.Set(9,100);
+  cout<<("\nMaximum: %d",arr.Max());
+  cout<<("\nMinimum: %d",arr.Min());
   cout<<("\nDisplay: ");
-  op.DisplayElement();
-  cout<<("\nIterative: Binary Search %d",op.BinarySearch(100));
-  cout<<("\nRecursive: Binary Search %d",op.RBinarySearch(A,A[0],length,5));
-  cout<<("\nLinear Search:Key found at: %d",op.LinearSearch(100));
-  cout<<("\nTransposition:Key found at: %d",op.LSTransposition(100));
-  cout<<("\nMoveToHead:Key found at: %d",op.LSMoveToHead(15));
+  arr.DisplayElement();
+  cout<<("\nIterative: Binary Search %d",arr.BinarySearch(100));
+  cout<<("\nRecursive: Binary Search %d",arr.RBinarySearch(A,A[0],length,5));
+  cout<<("\nLinear Search:Key found at: %d",arr.LinearSearch(100));
+  cout<<("\nTransposition:Key found at: %d",arr.LSTransposition(100));
+  cout<<("\nMoveToHead:Key found at: %d",arr.LSMoveToHead(15));
   cout<<("\nDisplay: ");
-  op.DisplayElement();
+  arr.DisplayElement();
 
 return 0;
 
