@@ -100,4 +100,3 @@ What is Matrices?
     * In directed graph edges are represented by arrows and they tells the directions.
   * Undirected Graph
     * An undirected graph is a graph that has no directions and the edges in undirected graph is simply represented by lines.
-
