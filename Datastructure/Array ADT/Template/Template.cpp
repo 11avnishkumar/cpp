@@ -411,7 +411,7 @@ Array* Array::Difference(Array arr2){
 int main(){
   
   /* instance of the class */
-  Array *arr;
+  Array<int> *arr;
   int arraySize,index,element,ch;
   cout<<"Enter the size of the array"<<endl;
   cin>>arraySize;
@@ -493,44 +493,3 @@ int main(){
 return 0;
 
 }
-
-
-
-/* 
-****************Explanation********************
-
-********* Insert ***************
-1. Used to insert the element into the array at any given position
-    1.1 Time complexity
-    1.2 Space complexity
-
-*********** Append ******************
-1. Used to insert the element at then end of the array.
-    1.1 Time complexity
-    1.2 Space complexity
-
-*********** Display ***********
-1. Used to Display all the elements 
-    1.1 Time complexity
-    1.2 Space complexity
-
-*********** Sum ****************
-1. Used to find the sum of all the elements of an array
-2. There are two ways to find the
-  2.1 Iterative
-    2.10 It is more efficient in terms of space 
-    2.11 Time complexity is O(n)
-    2.12 Space complexity is O(1)
-  2.2 Recursive
-    2.20 It is costly in terms of Space
-    2.22 Time complexity O(n)
-    2.23 Space complexity O(n)
-
-********** Set **************
-1. The set function will not insert element instead it will replace 
-  the element at a given position.
-2. set method will take three parameter array,index,element.
-3. Time Complexity O(1)
-4. Space Complexity O(1)  
-
-*/

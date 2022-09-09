@@ -1,5 +1,46 @@
 # Programming using CPP and Datastructure
 
+## What is STL?
+
+* STL stands for 'Standard Template Language'.
+* It contains a list of class - Algorith,containers,iterator.
+* Some Example of STL are:
+  * Vector
+  * List
+  * Forward_list
+  * Dequeue
+  * Priority Queue
+  * Stack
+  * Set
+  * Mutliset
+  * Map
+  * Multimap
+  
+```c++
+#include<vector> // header file for the vector
+int main(){
+  vector<int> v() /* we can mention the size v(10) like this By default the size of vector is 16.*/
+  v = {10,20,40,90};
+  v.push_back(25); // first it will insert
+  v.push_back(70); // then this will insert
+}
+
+```
+
+## Smart Pointers
+
+* Pointers are used to allocate the memory in Heap area.
+* While Dealing with dynamic memory one must deallocate the memory otherwise it will casue an memory leakage problems.
+* While developing applications sometiems a developer forgot to deallocate the memory. To prevent such kind of accident the concept of smart pointer is used.
+
+```c++
+#include<iostream>
+class Rectangle {
+int area();
+int perimeter();
+}
+```
+
 ## What is a data structure?
 
 Data Structure is -
@@ -99,11 +140,12 @@ Array Vs Linked List
 |Operations on Linked List|Time Complexity|Space Complexity|
 |:-|:-|:-|
 |Append|O(n)|O(1)|
-|Insert At begining of a Node|O(1)|O(1)|
-|Insert At the end of a Node|O(n)|O(1)|
+|Insert At the begining|O(1)|O(1)|
+|Insert At the middle|O(1)|O(1)|
+|Insert At the end|O(n)|O(1)|
 |Display/Recursive|O(n)|O(1)/O(n)|
-|Delete from beigining of a Node|O(1)|O(n)|
-|Delete at the of a Node|O(n)|O(1)|
+|Delete first Node|O(1)|O(n)|
+|Delete last Node|O(n)|O(1)|
 
 ## Matrices
 
