@@ -6,17 +6,16 @@
 #include<math.h>
 using namespace std;
 
+template<class T>
 class Array{
 
 private:
-
-    int *A; //  array pointer
+    T *A; //  array pointer
     int size; // size of the array
     int length; // length of the array
-    void Swap(int *x, int *y); // private we need it inside another function only
+    void Swap(T *x, T *y); // private we need it inside another function only
 
 public:
-
     /* 
         This will be used to initialize all the data inside the class
         Non Parametrized constructor.
@@ -26,7 +25,7 @@ public:
 
         size = 10;
         length = 0;
-        A = new int[size];
+        A = new T[size];
 
     }
     /* Parameterized constructor */
@@ -34,7 +33,7 @@ public:
 
         size = sz;
         length = 0;
-        A = new int[size];
+        A = new T[size];
 
     }
     /*
@@ -48,34 +47,35 @@ public:
     ~Array(){
         delete []A;
     }
-    void InsertElement(int index,int element);
-    void InsertSorted(int element);
-    int isSorted();
+    void InsertElement(int index,T element);
+    void InsertSorted(T element);
+    T isSorted();
     void DisplayElement();
-    void AppendElement(int element);
-    int Sum();
-    int RSum(int A[],int n);
-    float Avg();
-    int DeleteElement(int index);
-    int Max();
-    int Min();
-    int Get(int index);
-    void Set(int index, int element);
+    void AppendElement(T element);
+    T Sum();
+    T RSum(T A[],int n);
+    T Avg();
+    T DeleteElement(int index);
+    T Max();
+    T Min();
+    T Get(int index);
+    void Set(int index, T element);
     void Rearrange();
     Array* Merge(Array arr2);
     Array* Union(Array arr2);
     Array* Intersection(Array arr2);
     Array* Difference(Array arr2);
-    int LinearSearch(int key);
-    int RLinearSearch(int key);
-    int LSTransposition(int key);
-    int LSMoveToHead(int key);
-    int BinarySearch(int key);
+    int LinearSearch(T key);
+    int RLinearSearch(T key);
+    int LSTransposition(T key);
+    int LSMoveToHead(T key);
+    int BinarySearch(T key);
     int RBinarySearch(int low, int high, int key);
 
 };
 /* Insert */
-void Array::InsertElement(int index, int element){
+template<class T>
+void Array<T>::InsertElement(int index, T element){
     // check if the user has given the valid index or not
     // valid index =  0 to length of the array;
     int i=0; // counter variable
@@ -90,7 +90,7 @@ void Array::InsertElement(int index, int element){
 }
 
 /* Insert at sorted position */
-void Array::InsertSorted(int element){
+void Array<T>::InsertSorted(T element){
     int i = length - 1;
     if(length == size)
         return;
@@ -103,7 +103,7 @@ void Array::InsertSorted(int element){
 }
 
 /* To display elements into the array */
-void Array::DisplayElement(){
+void Array<T>::DisplayElement(){
   for(int i=0; i<length; i++){
     cout<<A[i]<<" ";
   }
@@ -111,7 +111,7 @@ void Array::DisplayElement(){
 }
 
 /* Append Method */
-void Array::AppendElement(int element){
+void Array<T>::AppendElement(T element){
     // Before appending the element we must check whether there is free space available
     if(length<size){
         // if true then space available, append the element
@@ -122,7 +122,7 @@ void Array::AppendElement(int element){
 
 
 /* Sum of  Element  */
-int Array::Sum(){
+T Array<T>::Sum(){
  int sum = 0;
  for(int i = 0; i < length; i++){
         sum += A[i];
@@ -132,7 +132,7 @@ int Array::Sum(){
 
 
 /* Using Recursion Sum of N natural Number */
-int Array::RSum(int A[] ,int n){
+T Array<T>::RSum(T A[] ,int n){
     if(n >= 0)
       return RSum(A, n - 1) + A[n];
     else
@@ -140,8 +140,8 @@ int Array::RSum(int A[] ,int n){
 }
 
 /* Average  */
-float Array::Avg(){
- return (float)Sum()/length;
+T Array<T>::Avg(){
+ return T Sum()/length;
  
 }
 
@@ -160,7 +160,7 @@ int deleted_element = 0;
 }
 
 /* Maximum Element  */
-int Array::Max(){
+T Array<T>::Max(){
  int max = A[0];
  for(int i = 0; i < length; i++){
     if(A[i] > max )
@@ -270,9 +270,8 @@ int Array::BinarySearch(int key){
 //     return -1; // if no element found
 // }
     
-
 /* check whether the Array is sorted or not */
-int Array::isSorted(){
+T Array<T>::isSorted(){
     int i;
     for(i=0; i<length-1; i++){
         if(A[i] > A[i+1])

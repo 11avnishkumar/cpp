@@ -1,7 +1,7 @@
+/* finding average of all the elements in the arrays */
 #include<iostream>
 using namespace std;
 int main(){
-    //finding average of all the elements in the arrays
     int num[100],n;
     float sum=0,average=0;
     cout<<"Enter the number of element to store in array: "<<endl;

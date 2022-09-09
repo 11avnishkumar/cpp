@@ -1,6 +1,6 @@
 # Table of Contents
 
-* [Basics](#Basics)
+* Basics
 * Data Type
   * Integer
   * Long Integer
@@ -48,9 +48,9 @@
 
 ## Datastructure Using C++
 
-* [Introduction](#datastructure)
+* Introduction
   * Definition
-* [Recursion](#Recursion)
+* Recursion
   * Head Recursion
   * Tail Recursion
   * Tree Recursion
@@ -63,12 +63,12 @@
   * Fibbonacci Series
   * Taylor Series
   * Tower of hanoi
-* [Array Representation](#Array_representation)
+* Array Representation
   * Array declaration andDefinition
   * Array Address
   * Static Vs Dynamic Array
   * 2D Array declaration and Definition
-* [Array ADT](#Array_ADT)
+* Array ADT
   * Append
   * Insert
   * Display
@@ -84,17 +84,17 @@
   * Reverse (Using an Auxiliary array)
   * Rotation
   * Shifting (Left Shift and Right Shift)
-* [Strings](#Strings)
-* [Matrices](#Matrices)
+* Strings
+* Matrices
   * Diagonal Matrix
 
-* [Sparse Matrix and Polynomial Representation](#sparse_matrix_and_polynomial_representation)
-* [Stack](#stack)
-* [Queue](#Queue)
-* [Trees](#Trees)
-* [Binary Search Tree]($Binary_Search_Tree)
-* [AVL Trees]($AVL_Trees)
-* [Sorting]($sorting)
-* [Hashing]($Hashing)
-* [Graph]($Graph)
-* [Asymptotic Notation]($Asymptotic_notation)
+* Sparse Matrix and Polynomial Representation
+* Stack
+* Queue
+* Trees
+* Binary Search Tree
+* AVL Trees
+* Sorting
+* Hashing
+* Graph
+* Asymptotic Notation

@@ -52,6 +52,20 @@ A techninque to store elements so that they can be used efficiently and effectiv
   * Shifting (Left Shift and Right Shift)
     * In shifting we loose element of either side if we shift left the we loose left element and if we shift right then we loos right element.
 
+|Operations on Array|Time Complexity|Space Complexity|
+|:-|:-|:-|
+|Append|O(1)|O(1)|
+|Insert|O(n)|O(n)|
+|Insert at sorted position|O(n)|O(n)|
+|Delete|O(1)|
+|Sum/Recursive|O(n)|O(n)|
+|Min|O(n)|
+|Max|O(n)|
+|Merge|O(m+n)|
+|Union|O(n^2)|
+|Intersection|O(n^2)|
+|Difference||
+
 ## String
 
 What is character set and ASCII codes?
@@ -93,7 +107,7 @@ What is Matrices?
 ## Tree
 
 * A tree is the collection of Nodes or Vertices and edges.
-* if there are (N) nodes then there will be (N - 1) edges.
+* If there are (N) nodes then there will be (N - 1) edges.
 * Some terminologies related to tree.
   * Root
   * Parent
