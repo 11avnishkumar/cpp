@@ -58,7 +58,7 @@ A techninque to store elements so that they can be used efficiently and effectiv
 |Insert|O(n)|O(n)|
 |Insert at sorted position|O(n)|O(n)|
 |Delete|O(1)|
-|Sum/Recursive|O(n)|O(n)|
+|Sum/Recursive|O(n)|O(1)/O(n)|
 |Min|O(n)|
 |Max|O(n)|
 |Merge|O(m+n)|
@@ -95,6 +95,14 @@ Array Vs Linked List
 |Array stores only same type of element.|Linked List can store any type of data.|
 |Array is primitive datastructure.|Linked List is Derived.|
 |Array is a linear datastructure.|Linked List is also a linear datastructure.|
+
+|Operations on Linked List|Time Complexity|Space Complexity|
+|:-|:-|:-|
+|Append|O(n)|O(1)|
+|Insert At begining of a Node|O(1)|O(1)|
+|Insert At the end of a Node|O(n)|O(1)|
+|Delete from beigining of a Node|O(n)|O(n)|
+|Delete at the of a Node|O(n)|O(n)|
 
 ## Matrices
 
