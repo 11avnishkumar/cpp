@@ -101,8 +101,9 @@ Array Vs Linked List
 |Append|O(n)|O(1)|
 |Insert At begining of a Node|O(1)|O(1)|
 |Insert At the end of a Node|O(n)|O(1)|
-|Delete from beigining of a Node|O(n)|O(n)|
-|Delete at the of a Node|O(n)|O(n)|
+|Display/Recursive|O(n)|O(1)/O(n)|
+|Delete from beigining of a Node|O(1)|O(n)|
+|Delete at the of a Node|O(n)|O(1)|
 
 ## Matrices
 
