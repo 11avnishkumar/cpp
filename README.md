@@ -87,7 +87,6 @@
 * Strings
 * Matrices
   * Diagonal Matrix
-
 * Sparse Matrix and Polynomial Representation
 * Stack
 * Queue

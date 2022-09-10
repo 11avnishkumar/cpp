@@ -4,6 +4,7 @@
 
 * STL stands for 'Standard Template Language'.
 * It contains a list of class - Algorith,containers,iterator.
+* In Real world we use STL to perform operations on a large collection of data.
 * Some Example of STL are:
   * Vector
   * List
@@ -15,16 +16,96 @@
   * Mutliset
   * Map
   * Multimap
-  
+
+|STL|Type|Description|Method
+|:-|:-|:-|:-|
+|vector|Array|It is an self managed array|push_back(),pop_back(),size(),insert(),remove(),empty()|
+|list|Doublys Linked List |It is an doubly linked list|push_front,pop_front,push_back(),pop_back(),size(),insert(),remove(),empty(),front(),back()|
+|forword_list|Singly Linked List|It is an singly linked list|push_front(),pop_front(),push_back(),pop_back(),size(),insert(),remove(),empty(),front(),back()|
+|deque|Queue|It is an double ended Queue|push_front(),pop_front(),push_back(),pop_back(),size(),insert(),remove(),empty(),front(),back()|
+|priority queue|Queue|It is an Heap data structure and always largest element get deleted whenever we perform pop operations|push(),pop(),size()empty(),front()|
+|stack|stack Lifo|used to insert elements|push()|
+|set|set Unique|Always store unique elements|All set operations|
+|Multiset|set Duplicate|Always store Duplicate elements|All set operations|
+|map|Hash Table|Always store unique key value pairs|None|
+|multimap|Hash Table|Duplicate Keys are allowed but value must be different.|None|
+
 ```c++
+/* Example of Vector */
+#include<iostream>
 #include<vector> // header file for the vector
 int main(){
   vector<int> v() /* we can mention the size v(10) like this By default the size of vector is 16.*/
   v = {10,20,40,90};
   v.push_back(25); // first it will insert
   v.push_back(70); // then this will insert
-}
+  v.pop_back(70) // remove 70
 
+  /* For each Loop */
+  for(x:v){
+    cout<<x<<endl;
+  }
+
+  /* Loop using iterator class */
+  vector<int>::iterator itr v.begin(); // begin() method available in all the containers.
+  /*
+  itr is a object of type pointer
+  */
+ for(itr=v.begin();itr != v.end(); itr++)
+ cout<<*itr<<endl;
+}
+```
+
+```c++
+/* Example of List */
+#include<iostream>
+#include<list> // header file for the list
+int main(){
+  list<int> v();
+  v = {10,20,40,90};
+  v.push_back(25); // first it will insert
+  v.push_back(70); // then this will insert
+  v.pop_back(70) // remove 70
+
+  /* For each Loop */
+  for(x:v){
+    cout<<x<<endl;
+  }
+
+  /* Loop using iterator class */
+  list<int>::iterator itr v.begin(); // begin() method available in all the containers.
+  /*
+  itr is a object of type pointer
+  */
+ for(itr=v.begin();itr != v.end(); itr++)
+ cout<<*itr<<endl;
+}
+```
+
+```c++
+/* Example of forward List */
+#include<iostream>
+#include<forward_list> // header file for the forward_list
+int main(){
+  forward_list<int> v();
+  v = {10,20,40,90};
+  v.push_back(25); // first it will insert
+  v.push_back(70); // then this will insert
+  v.pop_back(70) // remove 70
+
+  /* For each Loop */
+  for(x:v){
+    cout<<x<<endl;
+  }
+
+  /* Loop using iterator class */
+  forward_list<int>::iterator itr v.begin(); // begin() method available in all the containers.
+  /*
+  itr is a object of type pointer
+  */
+ for(itr=v.begin();itr != v.end(); itr++)
+ cout<<*itr<<endl;
+}
 ```
 
 ## Smart Pointers
@@ -117,6 +198,59 @@ What is character set and ASCII codes?
 * For every characters there is predefined number associated that is what we know as ASCII codes.
 * Those Numbers are standard number and every electronics device must follow and those numbers are only meant for electronic device communication.
 
+|ASCII Codes|Description|
+|:-|:-|
+|A-Z, 65-90|Upper Case alphabets|
+|a-z, 97-122|Lower Case alphabets|
+|0-9, 48-57|For Numerical value|
+|Note:|Apart from above characters there are some special characters available for like (,),?,+,-,* and son on.|
+|Note|There are total 128 ASCII characters that is from  0 - 127 ASCII characters are availble.To represent a single ASCII characters it take 7 bits.|
+
+* Unicodes - are represented using 2 byte memory that is 16-bit.  
+* Unicodes supports all the english, hindi, mathematics etc.
+* For more info about unicode [visit](https://unicodes.org).  
+* Example
+
+```c++
+/* Ways to store characters */
+#include<iostream>
+using namespace std;
+int main(){
+char A[5] = {'A','B','C',0,0}; /* Initialization + Declaration, In memory their ASCII values will be stored.
+*/
+char A[] = {'A','B','C'} // it will takes the size of the arra according to the number of elements in the array.
+
+/* 
+  Working with array of characters 
+*/
+
+char name[10] = {'j','o','h','n',0,0,0,0,0,0}; // rest are initialized with zeroes.
+
+
+/* 
+Working with string 
+*/
+
+char name[10] = {'j','o','h','n','\0',0,0,0,0,0}; // Now the array of characters became string.
+
+char name[] = {'j','o','h','n','\0'};
+char name[] = "john"; // string delimeter automatically will be added.
+char *name = "john" // this one will be created in Heap even though we didn't initialized it with new or malloc.
+
+/*
+
+'\0' The NULL character is known by following name:
+
+1. String Delimeter
+2. End of the string
+3. Null character
+4. String terminator
+
+*/
+
+}
+```
+
 ## Linked List
 
 Why Linked List?
@@ -143,7 +277,7 @@ Array Vs Linked List
 |Insert At the begining|O(1)|O(1)|
 |Insert At the middle|O(1)|O(1)|
 |Insert At the end|O(n)|O(1)|
-|Display/Recursive|O(n)|O(1)/O(n)|
+|Display/Recursive|O(n)/O(n)|O(1)/O(n)|
 |Delete first Node|O(1)|O(n)|
 |Delete last Node|O(n)|O(1)|
 
