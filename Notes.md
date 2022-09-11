@@ -248,6 +248,15 @@ char *name = "john" // this one will be created in Heap even though we didn't in
 
 */
 
+/*  very important note 
+if string declared like using pointer method "char *string" this can cause problem because some compiler treat string as immutable that is they can't be changed.
+
+To overcome with the above problem we have to use the traditional method which array of characters
+
+char name[20] // this will solve the above problems
+
+*/
+
 }
 ```
 

@@ -76,10 +76,10 @@
 - [x] Strings
   - [x] Introduction.
   - [x] Finding length of the string
-  - [ ] changing case of the string
-  - [ ] Counting words and vowels in a string.
-  - [ ] Validating a String
-  - [ ] Reverse a string
+  - [x] changing case of the string
+  - [x] Counting words and vowels in a string.
+  - [x] Validating a String
+  - [x] Reverse a string
   - [ ] Comparing a string and checking a palindrome
   - [ ] Finding a Duplicate in a string.
   - [ ] Finding a Duplicate in a string using Bitwise operations.

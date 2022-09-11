@@ -85,6 +85,13 @@
   * Rotation
   * Shifting (Left Shift and Right Shift)
 * Strings
+  * Introduction
+  * Finding Length of a string
+  * Changing case of a string
+  * Counting vowels and consonants
+  * validate a string
+  * Reverse of a string
+  * comparing a string and checking for a palindrome
 * Matrices
   * Diagonal Matrix
 * Sparse Matrix and Polynomial Representation
