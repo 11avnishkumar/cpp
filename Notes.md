@@ -289,6 +289,9 @@ Array Vs Linked List
 |Display/Recursive|O(n)/O(n)|O(1)/O(n)|
 |Delete first Node|O(1)|O(n)|
 |Delete last Node|O(n)|O(1)|
+|Sum/RSum|O(n)/O(n)|O(1)/O(n)|
+|Max/RMax|O(n)/O(n)|O(1)/O(n)|
+|Counting Node/RCount|O(n)/O(n)|O(1)/O(n)|
 
 ## Matrices
 

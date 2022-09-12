@@ -20,16 +20,53 @@ class LinkedList{
     public:
     LinkedList(){first=NULL;};
     LinkedList(int A[],int n);
-    ~LinkedList();
-    void Display();
+    // ~LinkedList();
     void Insert(int index, int x);
+    void SortedInsert(int element);
+    void Display();
     void RDisplay();
     void ReverseDisplay();
     int Count();
+    int isSorted();
+    int RCount();
+    int Sum();
+    int RSum();
+    float Avg();
+    int Max();
+    int RMax();
+    int Min();
+    int RMin();
+    Node *LSearch(int key);
+    Node *RLSearch(int key);
+    Node *MoveToHeadSearch(int key);
     int Delete(int index);
+    int isLoop();
+    void RemoveDuplicate();
     int Length();
+    void ReverseLinkedList();
+    void RReverseLinkedList();
+    void ReverseLinkedListUsingArray();
 
 };
+
+LinkedList::LinkedList(int A[],int n){
+Node *t = first;
+Node *last; 
+t = new Node; // dynamic memeory allocation
+t->data = A[0];
+t->next = NULL;
+first = t;
+last = t;
+for(int i=1; i<n; i++){
+    t = new Node;
+    t->data = A[i];
+    t->next = NULL;
+    last->next = t;
+    last = t;
+}
+
+}
+
 
 void LinkedList::Display(){
 Node *p = first;
@@ -40,30 +77,28 @@ while(p != NULL){
 }
 
 
+// /* Recursive Display of linked list*/
+// void LinkedList::RDisplay(first){
+//     Node *p = first;
+//     if(p != NULL){
+//         cout<<p->data<<endl;
+//         RDisplay(p->next);
+//     }
+// }
 
-
-
-/* Recursive Display of linked list*/
-void LinkedList::RDisplay(){
-    Node *p = first;
-    if(p != NULL){
-        cout<<p->data<<endl;
-        RDisplay(p->next);
-    }
-}
-
-/* Display linkedlist in Reverse order */
-void LinkedList::ReverseDisplay(){
-    Node *p = first;
-    if(p != NULL){
-        ReverseDisplay(p->next);
-        cout<<p->data<<endl;
-    }
-}
+// /* Display linkedlist in Reverse order */
+// void LinkedList::ReverseDisplay(){
+//     Node *p = first;
+//     if(p != NULL){
+//         ReverseDisplay(p->next);
+//         cout<<p->data<<endl;
+//     }
+// }
 
 
 
 /* Counting Node of a Linked List */
+
 int LinkedList::Count(){
     Node *p = first;
     int c = 0;
@@ -75,18 +110,18 @@ int LinkedList::Count(){
 }
 
 
-/* Recursive method for counting Node of Linked List */
-int LinkedList::RCount(){
-    Node *p = first;
-    if(p != NULL){
-        return RCount(p->next) + 1;
-    }
-    return 0;
-}
+// /* Recursive method for counting Node of Linked List */
+// int LinkedList::RCount(){
+//     Node *p = first;
+//     if(p != NULL){
+//         return RCount(p->next) + 1;
+//     }
+//     return 0;
+// }
 
 /* Sum of all the elements of a Linked List */
 int LinkedList::Sum(){
-      Node *p = first;
+      Node* p = first;
     int s = 0;
     while(p != NULL){
         s = s + p->data;
@@ -97,7 +132,7 @@ int LinkedList::Sum(){
 
 
 /* Average of all the elements of a Linked List */
-float Avg(){
+float LinkedList::Avg(){
     Node *p = first;
     return (float)Sum()/Count();
 }
@@ -105,15 +140,16 @@ float Avg(){
 
 /* Sum of all the elements of a linked list Using Recursion */
 
-int LinkedList::RSum(Node *p){
-    if(p != NULL){
-    return RSum(p->next) + p->data;
-    }
-    return 0;
-}
+// int LinkedList::RSum(Node *p=first){
+//     if(p != NULL){
+//     return RSum(p->next) + p->data;
+//     }
+//     return 0;
+// }
 
 /* Max element of a linked list */
-int Max(  Node *p){
+int LinkedList::Max(){
+    Node *p = first;
     int m = INT_MIN;
     while(p != NULL){
         if(p->data > m)
@@ -122,8 +158,11 @@ int Max(  Node *p){
     }
     return m;
 }
+
 /* Min element of a linked list */
-int Min(  Node *p){
+
+int LinkedList::Min(){
+    Node *p = first;
     int m = INT_MAX;
     while(p != NULL){
         if(p->data < m)
@@ -134,29 +173,30 @@ int Min(  Node *p){
 }
 
 /* Recursive Method of finding the Max of all elements from the linked list */
-int RMax(  Node *p){
-    int m = INT_MIN;
-    if(p != NULL){
-        m = RMax(p->next);
-        return m > p->data ? m : p->data; // Ternary Condition
-    }
-    return m;
-}
+// int LinkedList::RMax(Node *p){
+//     int m = INT_MIN;
+//     if(p != NULL){
+//         m = RMax(p->next);
+//         return m > p->data ? m : p->data; // Ternary Condition
+//     }
+//     return m;
+// }
 
 
 /* Recursive Method of finding the Min of all elements from the linked list */
-int RMin(  Node *p){
-    int m = INT_MAX;
-    if(p != NULL){
-        m = RMin(p->next);
-        return m < p->data ? m : p->data; // Ternary Condition
-    }
-    return m;
-}
+// int LinkedList::RMin(Node *p){
+//     int m = INT_MAX;
+//     if(p != NULL){
+//         m = RMin(p->next);
+//         return m < p->data ? m : p->data; // Ternary Condition
+//     }
+//     return m;
+// }
 
 
 /*  Linear search in linked list */
-  Node * LSearch(  Node *p, int key){
+  Node* LinkedList::LSearch(int key){
+    Node *p = first;
     while(p != NULL){
         if(key == p->data)
             return p;
@@ -167,18 +207,19 @@ int RMin(  Node *p){
 
 
 /*  Recursive Linear search in linked list */
-  Node * RLSearch(  Node *p, int key){
-    if(p == NULL)
-        return NULL;
-    if(key == p->data)
-        return p;
-    return RLSearch(p->next,key);
-}
+//   Node * RLSearch(Node *p, int key){
+//     if(p == NULL)
+//         return NULL;
+//     if(key == p->data)
+//         return p;
+//     return RLSearch(p->next,key);
+// }
 
 
 /* Move To Head: Improving Linear Search */
-  Node * MoveToHeadSearch(  Node *p, int key){
-      Node *q = NULL;
+  Node * LinkedList::MoveToHeadSearch(int key){
+    Node *p = first;
+    Node *q = NULL;
     while(p != NULL){
         if(key == p->data){
             q->next = p->next;
@@ -191,17 +232,19 @@ int RMin(  Node *p){
            q = p;
            p = p->next;
         }
-}
+    }
+    // return p;
 }
 
 /* Insert Element in a existing linked list*/
-void Insert(  Node *p,int index,int element){
-      Node *t; int i;
-    if(index < 0 || index > Count(p)){ // we have already created count() method.
+void LinkedList::Insert(int index,int element){
+    Node *p = first;
+    Node *t; int i;
+    if(index < 0 || index > Count()){ 
         printf("Invalid Index!!!!!!");
         return;
     }
-    t = (  Node *)malloc(sizeof(  Node));
+    t = new Node;
     if(index == 0){
         t->data = element;
         t->next = first;
@@ -222,11 +265,13 @@ void Insert(  Node *p,int index,int element){
 
 
 /* Inserting element at sorted Position */
-void SortedInsert(  Node *p, int element){
-      Node *t,*q=NULL; // q will be NULL initially;
-    t = (  Node *)malloc(sizeof(  Node));
+void LinkedList::SortedInsert(int element){
+    Node *p = first;
+    Node *t,*q=NULL; // q will be NULL initially;
+    t = new Node;
     t->data = element; // Node and data is ready
     t->next = NULL;
+
     if(first == NULL){
        first = t; // either we can use first(it is global) or p
     }else{
@@ -248,11 +293,12 @@ void SortedInsert(  Node *p, int element){
 
 
 /* Delete elements from linked list */
-int Delete(  Node *p, int index){
-      Node *q=NULL;
+int LinkedList::Delete(int index){
+    Node *p = first;
+    Node *q=NULL;
     int i,x; // i for counter, x for storing deleted elements
     //check, if the index is valid or Not
-    if(index < 1 || index > Count(p)) // Node index start from 1 onwards.
+    if(index < 1 || index > Count()) // Node index start from 1 onwards.
         return -1;
     if(index == 1){
         q = first;
@@ -274,7 +320,8 @@ int Delete(  Node *p, int index){
 
 
 /* Check whether the linked list is sorted or not */
-int isSorted(  Node *p){
+int LinkedList::isSorted(){
+    Node *p = first;
     int x = INT_MIN;
     while(p != NULL){
         if(p->data < x)
@@ -286,7 +333,8 @@ int isSorted(  Node *p){
 }
 
 /* Removing Duplicates from sorted linked list */
-void RemoveDuplicate(  Node *p){
+void LinkedList::RemoveDuplicate(){
+  Node *p = first;  
   Node *q = p->next;
 while(q != NULL){
     if(p->data == q->data){
@@ -301,9 +349,10 @@ while(q != NULL){
 }
 
 /* Reversing a Linked List using an Array */
-void ReverseLinkedListUsingArray(  Node *p){
+void LinkedList::ReverseLinkedListUsingArray(){
+Node *p = first;    
 int *A,i=0;  Node *q=p;
-A = (int *)malloc(sizeof(int)*Count(p));
+A = new int[Count()];
 while(q!=NULL){
     A[i] = q->data;
     q = q->next;
@@ -320,8 +369,9 @@ while(q!=NULL){
 
 
 /* Iterative: Reversing Linked List */
-void ReverseLinkedList(  Node *p){
-      Node *q,*r;
+void LinkedList::ReverseLinkedList(){
+    Node *p = first;
+    Node *q,*r;
     q = NULL;
     r = NULL;
     while(p!=NULL){
@@ -335,62 +385,65 @@ void ReverseLinkedList(  Node *p){
 
 
 /* Recursive: Reversing Linked List */
-void RReverseLinkedList(  Node *q,  Node *p){
-    if(p!=NULL){
-        RReverseLinkedList(p,p->next);
-        p->next = q;
-    }
-    else
-    {
-        first = q;
-    }
-}
+// void LinkedList::RReverseLinkedList(Node *q,  Node *p){
+//     if(p!=NULL){
+//         RReverseLinkedList(p,p->next);
+//         p->next = q;
+//     }
+//     else
+//     {
+//         first = q;
+//     }
+// }
 
 /* Concatination of two Linked List */
-void Concatenate(  Node *p,  Node *q){
-third = p;
- while(p->next!=NULL)
-    p = p->next;
-p->next = q;
-q=NULL; 
+// void Concatenate(Node *p,Node *q){
+// third = p;
+//  while(p->next!=NULL)
+//     p = p->next;
+// p->next = q;
+// q=NULL; 
     
-}
+// }
 
 /* Program for merging two Linked List */
-void Merge(  Node *p,  Node *q){
-  Node *last;
-if(p->data < q->data){
-    third=last=p;
-    p = p->next;
-    last->next = NULL;
-}else{
-    third=last=q;
-    q = q->next;
-    last->next = NULL;
-}
-while(p!=NULL && q!=NULL){
-   if(p->data < q->data)
-   {
-    last->next=p;
-    last=p;
-    p = p->next; 
-    last->next = NULL;
-   }else{
-    last->next=q;
-    last=q;
-    q = q->next; 
-    last->next = NULL;
-   } 
-}
+// void Merge(Node *q){
+//   Node *p = first;  
+//   Node *last;
+// if(p->data < q->data){
+//     third=last=p;
+//     p = p->next;
+//     last->next = NULL;
+// }else{
+//     third=last=q;
+//     q = q->next;
+//     last->next = NULL;
+// }
+// while(p!=NULL && q!=NULL){
+//    if(p->data < q->data)
+//    {
+//     last->next=p;
+//     last=p;
+//     p = p->next; 
+//     last->next = NULL;
+//    }else{
+//     last->next=q;
+//     last=q;
+//     q = q->next; 
+//     last->next = NULL;
+//    } 
+// }
 
-if(p!=NULL)last->next = p;
-else last->next = q;
+// if(p!=NULL)last->next = p;
+// else last->next = q;
 
-}
+// }
 
 /* Check whether there is loop in linked list or not */
-int isLoop(  Node *f){
-      Node *p,*q;
+
+int LinkedList::isLoop(){
+    Node *f = first;
+    Node *p,*q;
     p=q=f;
     do{
         p = p->next;
@@ -403,19 +456,19 @@ int isLoop(  Node *f){
 }
 
 int main(){
-    
+    int ch;
+    int returnedValue;
+    int index,element;
     int A[] = {15,20,25,30,35,40,45,50}; // these array element work as input to linked list
     
-    // int B[] = {80,90,100,105,110,120};
+    int B[] = {80,90,100,105,110,120};
 
-    Create(A,8);
+    LinkedList l(A,8);
     
-    cout<<isLoop(first)<<endl;
-
+    // cout<<l->isLoop()<<endl;
 
     // SecondLinkedCreate(B,6);
     // printf("\nSimple Display: ");
-    Display(first);
 
     // cout<<"Display Second: "<<endl;
     // Display(second);
@@ -425,68 +478,99 @@ int main(){
 
     // cout<<"Reverse Display: "<<endl;
     // ReverseDisplay(first);
-
-    // cout<<"Iterative : Number of Node is "<<Count(first);
+    do{
+        cout<<"Choose from the following"<<endl;
+        cout<<"1. Insert"<<endl;
+        cout<<"2. Insert at sorted Position only"<<endl;
+        cout<<"3. Count the Nodes"<<endl;
+        cout<<"4. Display"<<endl;
+        cout<<"5. Delete"<<endl;
+        cout<<"6. Sum"<<endl;
+        cout<<"7. Max"<<endl;
+        cout<<"8. Min"<<endl;
+        cin>>ch;
+        cout<<"********************************"<<endl;
+        switch (ch)
+        {
+        case 1:
+            cout<<"Enter the index and the element respectively"<<endl;
+            cin>>index>>element;
+            l.Insert(index,element);
+            break;
+        case 2:
+            cout<<"Enter the element"<<endl;
+            cin>>element;
+            l.SortedInsert(element);
+            break;
+        case 3:
+            returnedValue = l.Count();
+            cout<<"Number of Node is "<<returnedValue<<endl;
+            break;
+        case 4:
+            l.Display();
+            break;
+        case 5:
+            cout<<"Enter the element"<<endl;
+            cin>>element;
+            l.Delete(element);
+            break;
+        case 6:
+            returnedValue = l.Sum();
+            cout<<"Sum "<<returnedValue<<endl;
+            break;
+        case 7:
+            returnedValue = l.Max();
+            cout<<"Max "<<returnedValue<<endl;
+            break;
+        case 8:
+            returnedValue = l.Min();
+            cout<<"Min "<<returnedValue<<endl;
+            break;            
+        default:
+            break;
+        }
+    }while(ch<9);
     // cout<<"Recursive : Number of Node is "<<RCount(first);
 
-    // cout<<"Iterative : Sum of all element "<<Sum(first);
-    // cout<<"Average of all element = %f  "<<Avg(first);
+    // cout<<"Average of all element "<<Avg()<<endl;
     // cout<<"Recursive : Sum of all elements    "<<RSum(first);
 
-    // cout<<"Iterative : Max of all elements "<<Max(first);
+    
     // cout<<"Recursive : Max of all elements "<<RMax(first);
 
-    // cout<<"Iterative : Min of all elements "<<Min(first);
+    
     // cout<<"Recursive : Min of all elements "<<RMin(first);
 
-    // cout<<"Iterative : Linear Search "<<LSearch(first,15);
-    // temp = LSearch(first,15); // address always stored in pointer.
+    // cout<<"Iterative : Linear Search "<<l.LSearch(15)<<endl;
+    // temp = LSearch(15); // address always stored in pointer.
     // temp !=NULL ? cout<<"\nAddress "<<temp<<and key "<<temp->data:cout<<"address   and data   "<<temp,temp->data); // Verification line for the output
     // cout<<"\nRecursive : Linear Search "<<RLSearch(first,15);
-    // cout<<"\nImproved Linear Search "<<MoveToHeadSearch(first,55);
-    // cout<<"Display: "<<endl;
+    // cout<<"Improved Linear Search "<<l.MoveToHeadSearch(50)<<endl;;
+    
 
-    // Display();
-    // Insert(first,8,55);
-    // cout<<"Display: "<<endl;
-    // Display(first);
+    // cout<<"Is Linked List Sorted "<<l->isSorted());
 
-    // cout<<"Display: before SortedInsert: "<<endl;
-    // SortedInsert(first,10);
-    // SortedInsert(first,12);
-    // SortedInsert(first,13);
-    // SortedInsert(first,13);
-    // SortedInsert(first,13);
-    // SortedInsert(first,60);
-    // Display(first);
+    // cout<<"Removed Duplicate: "<<endl;
+    // l->RemoveDuplicate();
+    // l->Display();
 
-    // cout<<"Deleted "<<Delete(first,8)<<endl;
-    // cout<<"Display:After Deletion ");
-    // Display(first);
-
-    // cout<<"Is Linked List Sorted "<<isSorted(first));
-
-    // cout<<"Removed Duplicate: ");
-    // RemoveDuplicate(first);
-    // Display(first);
-
-    // Merge(first,second);
+    // Merge(second);
     // cout<<"Display:After Merging: ");
     // Display(third);
 
-    // ReverseLinkedListUsingArray(first);
+    // ReverseLinkedListUsingArray();
     // cout<<"Display:Reverse Linked List using Array: ");
-    // Display(first);
+    // l->Display();
 
-    // ReverseLinkedList(first);
+    // ReverseLinkedList();
     // cout<<"Display:Iterative:After Reversing Linked List: ");
-    // Display(first);
+    // Display();
 
     // RReverseLinkedList(NULL,first);
     // cout<<"\nDisplay:Recursive:After Reverse of Linked List ");
-    // Display(first);
+    // Display();
 
-    // Concatenate(first,second);
+    // Concatenate(second);
     // cout<<"\nDisplay After Concatination: ");
     // Display(third);
     
@@ -494,12 +578,10 @@ int main(){
 
 
 /*
-    ************** Explanation ***************
-
-
+    
     ******** Creation of Linked List **********
       
-    1. Created pointer of type  ure
+    1. Created pointer of type struct Node
        called 'first' and assigned it to NUll value.
     2. Then create a seprate node again filled it with data.
     3. Then link the node with previously created Node.
@@ -508,57 +590,6 @@ int main(){
     Note: Even we can do step 3 first and then go for step 4, this work same
           either link the node first and then fill the data or
           fill the data and then link the node.
-
-    ************* Display Linked list ***********
-
-    Linked list can be displayed by Two Method
-    1. Iterative Method
-        1.1 Iterative Method is more efficient.
-        1.2 Time complexity O(n)
-    2. Recursive Method
-        2.1 Recursive method is less efficient.
-        2.2 Using Recursive method linked list can also be
-            displayed in Reverse order.
-        2.3 Head Recursion Used to Display Linked List
-        2.4 Tail Recursion Used to Display Linked List in Reverse Order. 
-        2.5 Time complexity O(n);
-        2.6 Space complexity O(n) as Recursion use stack.
-
-    ************* Counting Node ************
-
-    Two method for counting Node in a Linked List.
-    1. Iterative Method
-      1.1 Iterative method is more efficient in terms of Space
-      1.2 Time Complexity is O(n).
-      1.3 Space Complexity is O(1).
-    2. Recursive Method
-      2.1 Recursive method is costly in terms of space.
-      2.2 Time complexit is O(n).
-      2.3 Space complexity is O(n).
-
-    ************ Sum of elements in a Linked list ***************
-
-    There is two ways to find the sum of linked list.
-    1. Iterative Method.
-      1.1 Iterative method is efficient in terms of space.
-      1.2 Time complexity is O(n).
-      1.3 Space complexity is O(1).
-    2. Recursive Method.
-      2.1 Recursive method is costly in terms of space.
-      2.2 Time complexity is O(n)
-      2.3 Space complexity is O(n).
-
-    ************ Find the Max/Min element in linked list ************
-
-    There are two ways to find the Max elements
-    1. Iterative Method
-      1.1 It is more efficient in terms of space.
-      1.2 Time complexity is O(n)
-      1.2 Space complexity is O(1)
-    2. Recursive Method
-      2.1 It is costly in terms of space.
-      2.2 Time complexity O(n).
-      2.2 Space complexity O(n).
 
     ************ Searching **************
 
@@ -648,7 +679,7 @@ int main(){
     ************** Concatinating Linked List *************
 
     1. Concatinating two linked list means taking either of the list from two
-        given linked list and join them form a single linked list.
+        given linked list and join them to form a single linked list.
         1.1 Time Complexity O(n).
 
     ************* Merging a Linked List ****************
@@ -660,6 +691,5 @@ int main(){
 
     1. Traverse the linked list if the pointer reaches at the end and having value NULL then
         Definitely there is no Loop in a linked list.
-
 
 */
