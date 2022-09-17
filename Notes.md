@@ -293,6 +293,58 @@ Array Vs Linked List
 |Max/RMax|O(n)/O(n)|O(1)/O(n)|
 |Counting Node/RCount|O(n)/O(n)|O(1)/O(n)|
 
+Types of Linked List?
+1. Singly Linked List
+2. Doubly Linked List
+3. Circular Linked List
+
+Creating a very first Node in Linked List
+
+**Singly Linked List**
+
+1. Create pointer of type Node called 'head' and assigned it to NUll value.  
+2. Then create a seprate node again filled it with data.  
+3. Then link the node with previously created Node.  
+4. Make the last Node point to Newly created Node.  
+5. Repeat step 2 to 4.
+  Note: Even we can do step 3 head and then go for step 4, this work same either link the node head and then fill the data or fill the data and then link the node.
+
+Reverse a Linked List
+* There is two method of reversing a liked list.
+  * Reverse a linked list using reversing elements, In revesing element we takes first element of first Node and interchange it with the Last Node and so on.
+  But this approach is not good we prefer revering linkes rather then reversing data itself, as movement of data can be problamatic, right now we have integer data suppose we have float and other data it could be create problem to move them.
+* Reversing a linked list using sliding pointers or reversing links
+* Reverse a linked list using recursion.
+  * we will take and tail pointer that will follow the head pointer.
+
+Searching Method
+* Here we are using linear search, Binary search is not compatible with liked list.
+* There is no way to reach the middle node randomly, therefore binary search is not possible.  
+* There are two ways of searching;
+  1. Iterative 
+    * Iterative version is efficent in terms of space.  
+    1.2 Time complexity is O(n).  
+    1.3 Space complexity is O(1).
+  2. Recursive
+    * Recursive Method is costly in terms of space.  
+    2.2 Time complexity is O(n).  
+    2.3 Space complexit is O(n).  
+* There are two search methods  
+  > Transposition  
+    * Transposition method suitable for arrays only in Linked List we avoid it, it works on the principle of swapping, swapping data in case of liked list is very complex.so we only use move to head method.   
+  > Move to Head  
+    * If the element found then the Node brought at the begining of the linked list so that when element get search next time then the time complexity get reduced by O(1) constant time Remember we avoid Movement of data instead we move Nodes.  
+    * Time complexity O(1).  
+    * Note: if we want to see the value when move to Head return the address we need to take a pointer of type   and store the address and the use arrow method as we did in case of linear search.     
+  
+**Doubly Linked List**
+* Doubly Linked List contains two pointer unlike singly linked list.
+* previous pointer is used to hold the address of the previous Node and Next pointer is used to hold the address of the Next Node.
+
+**Circular Linked List**
+* In circular Linked List the the last Node of Linear linked list or singley linked list contains the address of the first Node instead of NULL and it form a circular shape.  
+  * Advantages of Circular Linked List.  
+    * Backward Traversing, which is not possible in singley Linked List.
 ## Matrices
 
 What is Matrices?  

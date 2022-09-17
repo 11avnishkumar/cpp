@@ -10,6 +10,7 @@ using namespace std;
 
 class Node{
     public:
+    Node *prev;
     int data;
     Node *next;
 
@@ -56,16 +57,19 @@ class LinkedList{
 LinkedList::LinkedList(int A[],int n){
 Node *t = head;
 Node *last; 
-t = new Node; // Dynamic memeory allocation
+t = new Node; // Dynamic memory allocation
+t->prev = NULL;
 t->data = A[0]; // first node is initialized and rest of the node will be filled using array
 t->next = NULL;
 head = t;
 last = t;
 for(int i=1; i<n; i++){ // rest of the element will be start from 1 because one element is already initialized
     t = new Node;
+    t->prev = NULL;
     t->data = A[i];
     t->next = NULL;
     last->next = t;
+    t->prev = last;
     last = t;
 }
 
@@ -75,7 +79,7 @@ for(int i=1; i<n; i++){ // rest of the element will be start from 1 because one 
 void LinkedList::Display(){
 Node *p = head;
 while(p != NULL){
-    cout<<p->data<<" ";
+    cout<<p->data<<endl;
     p = p->next;
    }
 }
@@ -245,8 +249,10 @@ void LinkedList::Insert(int index,int element){
         printf("Invalid Index!!!!!!");
         return;
     }
+    /* if this Node is very first Node in the entire Linked List */
     t = new Node;
     if(index == 0){
+        t->prev = NULL;
         t->data = element;
         t->next = head;
         head = t;
@@ -257,6 +263,7 @@ void LinkedList::Insert(int index,int element){
             p = p->next;
         }
         if(p != NULL){
+            t->prev = NULL;
             t->data = element;
             t->next = p->next;
             p->next = t;
@@ -387,7 +394,6 @@ void LinkedList::ReverseLinkedList(){
 
 
 /* Recursive: Reversing Linked List */
-
 void LinkedList::RReverseLinkedList(Node *q,  Node *p){
     if(p!=NULL){
         RReverseLinkedList(p,p->next); // first recursive calling 
@@ -410,7 +416,7 @@ void LinkedList::RReverseLinkedList(Node *q,  Node *p){
 // }
 
 /* Program for merging two Linked List */
-// void LinkedList::Merge(Node*p,Node *q){
+// void LinkedList::Merge(Node *q){
 //   Node *p = head;  
 //   Node *last;
 // if(p->data < q->data){
@@ -496,7 +502,8 @@ int main(){
         cout<<"13.Search"<<endl;
         cin>>ch;
         cout<<"********************************"<<endl;
-        switch (ch){
+        switch (ch)
+        {
         case 1:
             cout<<"Enter the index and the element respectively"<<endl;
             cin>>index>>element;
