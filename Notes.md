@@ -235,7 +235,7 @@ char name[10] = {'j','o','h','n','\0',0,0,0,0,0}; // Now the array of characters
 
 char name[] = {'j','o','h','n','\0'};
 char name[] = "john"; // string delimeter automatically will be added.
-char *name = "john" // this one will be created in Heap even though we didn't initialized it with new or malloc.
+char *name = "john" // this one will be created in Heap even though we didn't initialized it wih new or malloc.
 
 /*
 
@@ -287,7 +287,7 @@ Array Vs Linked List
 |Insert At the middle|O(1)|O(1)|
 |Insert At the end|O(n)|O(1)|
 |Display/Recursive|O(n)/O(n)|O(1)/O(n)|
-|Delete first Node|O(1)|O(n)|
+|Delete first Node|O(1)|O(1)|
 |Delete last Node|O(n)|O(1)|
 |Sum/RSum|O(n)/O(n)|O(1)/O(n)|
 |Max/RMax|O(n)/O(n)|O(1)/O(n)|
@@ -302,12 +302,12 @@ Creating a very first Node in Linked List
 
 **Singly Linked List**
 
-1. Create pointer of type Node called 'head' and assigned it to NUll value.  
+1. Create pointer of type Node called 'head' and assigned it to NULL value.  
 2. Then create a seprate node again filled it with data.  
 3. Then link the node with previously created Node.  
 4. Make the last Node point to Newly created Node.  
-5. Repeat step 2 to 4.
-  Note: Even we can do step 3 head and then go for step 4, this work same either link the node head and then fill the data or fill the data and then link the node.
+5. Repeat step 2 to 4.  
+  Note: Even we can do step 3 and then go for step 4, this work same either link the node head and then fill the data or fill the data and then link the node.
 
 Reverse a Linked List
 * There is two method of reversing a liked list.
@@ -328,8 +328,10 @@ Searching Method
   2. Recursive
     * Recursive Method is costly in terms of space.  
     2.2 Time complexity is O(n).  
-    2.3 Space complexit is O(n).  
-* There are two search methods  
+    2.3 Space complexit is O(n).
+
+* There are two search methods
+  
   > Transposition  
     * Transposition method suitable for arrays only in Linked List we avoid it, it works on the principle of swapping, swapping data in case of liked list is very complex.so we only use move to head method.   
   > Move to Head  
@@ -340,11 +342,20 @@ Searching Method
 **Doubly Linked List**
 * Doubly Linked List contains two pointer unlike singly linked list.
 * previous pointer is used to hold the address of the previous Node and Next pointer is used to hold the address of the Next Node.
+* In doubley Linked List we can move forward as well as backward this is the advantage in doubley linked list over singley linked list.
+> Operations on Doubley Linked List
+
+* We can perform all the operations that we can perform on singley linked list.
 
 **Circular Linked List**
 * In circular Linked List the the last Node of Linear linked list or singley linked list contains the address of the first Node instead of NULL and it form a circular shape.  
   * Advantages of Circular Linked List.  
     * Backward Traversing, which is not possible in singley Linked List.
+
+>Operations of Circular Linked List
+* Insertion
+  * Insertion takes O(1) time only if the node is inserted after the Head Node that is on position first and after that it takes O(n) time.
+  * Insertion in circular linked list at the 0th position that is before first Node need to modify the last node as well and it not need to modify the head Node it is up to us whether we want to modify the head Node or not generally we prefer to leave the head Node unchanged.       
 ## Matrices
 
 What is Matrices?  

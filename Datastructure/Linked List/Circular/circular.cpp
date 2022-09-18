@@ -10,8 +10,8 @@ using namespace std;
 
 class Node{
     public:
-    int data;
-    Node *next;
+        int data;
+        Node *next;
 
 };
 
@@ -54,17 +54,16 @@ class LinkedList{
 
 // constrcutor for creating Linked List using array as user input
 LinkedList::LinkedList(int A[],int n){
-Node *t = head;
+Node *t;
 Node *last; 
-t = new Node; // Dynamic memeory allocation
-t->data = A[0]; // first node is initialized and rest of the node will be filled using array
-t->next = NULL;
-head = t;
-last = t;
+head = new Node; // Dynamic memeory allocation
+head->data = A[0]; // first node is initialized and rest of the node will be filled using array
+head->next = head;
+last = head;
 for(int i=1; i<n; i++){ // rest of the element will be start from 1 because one element is already initialized
     t = new Node;
     t->data = A[i];
-    t->next = NULL;
+    t->next = last->next;
     last->next = t;
     last = t;
 }
@@ -74,19 +73,24 @@ for(int i=1; i<n; i++){ // rest of the element will be start from 1 because one 
 
 void LinkedList::Display(){
 Node *p = head;
-while(p != NULL){
-    cout<<p->data<<" ";
-    p = p->next;
-   }
+    do
+    {
+        cout<<p->data<<" ";
+        p = p->next;
+    }
+    while(p != head);
 }
 
 
 /* Recursive Display of Linked List*/
 void LinkedList::RDisplay(Node *p){
-    if(p != NULL){
-        cout<<p->data<<endl;
+    static int flag = 0;
+    if(p != head || flag == 0){
+        flag = 1; // update the value of flag
+        cout<<p->data<<" ";
         RDisplay(p->next);
     }
+    flag = 0;
 }
 
 /* Display Linked List in Reverse Order */
@@ -104,10 +108,11 @@ void LinkedList::ReverseDisplay(Node *p){
 int LinkedList::Count(){
     Node *p = head;
     int count = 0;
-    while(p != NULL){
+    do{
         count++;
         p = p->next;
     }
+    while(p != head);
     return count;
 }
 
@@ -239,19 +244,33 @@ int LinkedList::RMin(Node *p){
 
 /* Insert Element in a existing linked list*/
 void LinkedList::Insert(int index,int element){
-    Node *p = head;
+    Node *last; // declaration
+    Node *p; // declaration
     Node *t; int i;
+
     if(index < 0 || index > Count()){ 
-        printf("Invalid Index!!!!!!");
+        cout<<"Invalid Index "<<endl;
         return;
     }
-    t = new Node;
-    if(index == 0){
-        t->data = element;
-        t->next = head;
-        head = t;
 
+    // if the index is very first Node then 
+    if(index == 0){
+        t = new Node; // allocate Memory
+        t->data = element;
+        // if this Node is very first Node of the Linked List
+        if(head == NULL){
+            head = t;
+            head->next = head;
+            last = head;
+        }else{
+            p=head;
+            while(p->next != head)  p = p->next;
+            p->next = t;
+            t->next = head;
+            head = t;
+        }    
     }else{
+        t = new Node; // allocate Memory
         p = head; // p start from 0
         for(i=0; i < index - 1 && p != NULL; i++){
             p = p->next;
@@ -295,28 +314,35 @@ void LinkedList::SortedInsert(int element){
 
 /* Delete elements from linked list */
 int LinkedList::Delete(int index){
-    Node *p = head;
+    Node *p=head;
     Node *q=NULL;
     int i,x; // i for counter, x for storing deleted elements
     //check, if the index is valid or Not
     if(index < 1 || index > Count()) // Node index start from 1 onwards.
         return -1;
+
     if(index == 1){
         q = head;
-        x = head->data;
-        head = head->next;
-        delete q; // for delete we use delete Keyword;
-        return x;
-    }else{
-        for(i=0; i< index -1 && p !=NULL; i++){
-            q = p;
-            p = p->next;
+        x = head->data; // store the data in a element
+        while (q->next != head) q = q->next;
+        // if head Node is the Only Node in the linked list
+        if(q == head){
+            delete head;
+            head = NULL;
+        }else{
+            q->next = head->next;
+            delete head;
+            head=q->next;
         }
-        q->next = p->next;
-        x = p->data;
-        delete p;
-        return x;
-    }    
+    }else{
+        for(i=0; i< index -2 && p !=NULL; i++)
+            p = p->next;
+        q = p->next;    
+        p->next = q->next;
+        x = q->data;
+        delete q;
+    }
+    return x;    
 }
 
 
@@ -480,7 +506,7 @@ int main(){
     // cout<<"Display Second: "<<endl;
     // Display(second);
     do{
-        cout<<"Choose from the following"<<endl;
+        cout<<"\nChoose from the following"<<endl;
         cout<<"1. Insert"<<endl;
         cout<<"2. Insert at sorted Position only"<<endl;
         cout<<"3. Count the Nodes"<<endl;
@@ -514,7 +540,7 @@ int main(){
             break;
         case 4:
             l.Display();
-            l.RDisplay(head);
+            // l.RDisplay(head);
             break;
         case 5:
             cout<<"Diplay in Reverse Order"<<endl;
@@ -525,9 +551,10 @@ int main(){
             cout<<"Is Sorted "<<returnedValue<<endl;
             break;        
         case 7:
-            cout<<"Enter the element"<<endl;
-            cin>>element;
-            l.Delete(element);
+            cout<<"Enter the Index"<<endl;
+            cin>>index;
+            returnedValue = l.Delete(index);
+            cout<<"Deleted Element "<<returnedValue<<endl;
             break;
         case 8:
             returnedValue = l.Sum();
@@ -581,77 +608,3 @@ int main(){
 }
 
 
-/*
-    ***************** Inserting into linked list ***************
-
-    1. Insertion into linked list can be of tree type.
-        1.1 Before head Node.
-        1.2 After head Node or any other Node.
-        1.3 after last Node.            
-        1.4 Time complexity of Insertion before head Node or after head Node
-            takes O(1) constant time.
-            while insertion after any other node or at the end of linked list takes
-            O(n) time.
-            Note: We can User insert() method to create entire linked list but one thing
-                    keep in mind that we must give index 0 while creating the linke list because
-                    rest of the other Node is going to insert after the head node or before the head Node
-                    Therefore head Node creation is important.we don't need the create() method which we have made earlier.
-                        
-    **************** Insertion Only end of a Linked List ************
-
-    1. Insertion into linked list at the end takes O(n) time we can reduce
-       this time by just maintaining a last pointer which will point to only last
-       Node by doing this time complexity will reduce from O(n) to O(1).
-
-    **************** Insertion into sorted position (Handling special case) ****************
-
-    1.Insertion at sorted position if it is head postition then
-      Time complexity will be O(1) otherwise O(n).  
-
-    **************** Deletion from a linked list ***************
-
-    1. Time complexity O(1), if it is head element.
-    2. Time complexity O(n), if it is other then head element.
-
-    **************** Is Linked List Sorted *****************
-
-    Time complexity O(1) or O(n).
-
-    **************** Removing duplicates from sorted linked list ******************
-
-    1. To find all the duplicate from the linked list it is must to traverse entire
-    linked list therefore it takes time.
-        1.1 Time Complexity O(n).
-    *************** Reverse of a Linked List using an array ********
-    1. Using an auxiliary array we can Reverse a linked list.
-    2. Time complexity O(2n)
-
-    *************** Reversing a Linked List ***************
-
-    1. Linked List can be reversed in two ways:
-        1.1 Iterative
-            1.10 Iterative method is efficient in terms of space.
-            1.11 Time Complexity O(n)
-            1.12 Space complexity O(1)
-        1.2 Recursive
-            1.20 Recusive method is costly in terms of space
-            1.22 Time complexity O(n)
-            1.23 Space complexity O(n)
-
-    ************** Concatinating Linked List *************
-
-    1. Concatinating two linked list means taking either of the list from two
-        given linked list and join them to form a single linked list.
-        1.1 Time Complexity O(n).
-
-    ************* Merging a Linked List ****************
-
-    1. Merging  is the process of combining two sorted Linked List
-        Time complexity O(m+n)
-
-    ************* Finding a Loop in a Linked List ***********
-
-    1. Traverse the linked list if the pointer reaches at the end and having value NULL then
-        Definitely there is no Loop in a linked list.
-
-*/

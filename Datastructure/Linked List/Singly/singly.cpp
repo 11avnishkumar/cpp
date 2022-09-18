@@ -10,8 +10,8 @@ using namespace std;
 
 class Node{
     public:
-    int data;
-    Node *next;
+        int data;
+        Node *next;
 
 };
 
@@ -54,13 +54,12 @@ class LinkedList{
 
 // constrcutor for creating Linked List using array as user input
 LinkedList::LinkedList(int A[],int n){
-Node *t = head;
+Node *t;
 Node *last; 
-t = new Node; // Dynamic memeory allocation
-t->data = A[0]; // first node is initialized and rest of the node will be filled using array
-t->next = NULL;
-head = t;
-last = t;
+head = new Node; // Dynamic memeory allocation
+head->data = A[0]; // first node is initialized and rest of the node will be filled using array
+head->next = NULL;
+last = head;
 for(int i=1; i<n; i++){ // rest of the element will be start from 1 because one element is already initialized
     t = new Node;
     t->data = A[i];
@@ -100,7 +99,6 @@ void LinkedList::ReverseDisplay(Node *p){
 
 
 /* Counting Node of a Linked List */
-
 int LinkedList::Count(){
     Node *p = head;
     int count = 0;
@@ -161,7 +159,6 @@ int LinkedList::Max(){
 }
 
 /* Min element of a linked list */
-
 int LinkedList::Min(){
     Node *p = head;
     int m = INT_MAX;
@@ -242,7 +239,7 @@ void LinkedList::Insert(int index,int element){
     Node *p = head;
     Node *t; int i;
     if(index < 0 || index > Count()){ 
-        printf("Invalid Index!!!!!!");
+        cout<<"Invalid Index!!!!!!"<<endl;
         return;
     }
     t = new Node;

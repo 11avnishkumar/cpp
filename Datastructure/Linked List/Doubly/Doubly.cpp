@@ -244,9 +244,11 @@ int LinkedList::RMin(Node *p){
 /* Insert Element in a existing linked list*/
 void LinkedList::Insert(int index,int element){
     Node *p = head;
-    Node *t; int i;
+    Node *t;
+    Node *last; 
+    int i;
     if(index < 0 || index > Count()){ 
-        printf("Invalid Index!!!!!!");
+        printf("Invalid Index");
         return;
     }
     /* if this Node is very first Node in the entire Linked List */
@@ -255,18 +257,17 @@ void LinkedList::Insert(int index,int element){
         t->prev = NULL;
         t->data = element;
         t->next = head;
-        head = t;
-
+        head = last = t;
     }else{
         p = head; // p start from 0
-        for(i=0; i < index - 1 && p != NULL; i++){
-            p = p->next;
-        }
+        for(i=0; i < index - 1 && p != NULL; i++) p = p->next;
+
         if(p != NULL){
-            t->prev = NULL;
             t->data = element;
-            t->next = p->next;
-            p->next = t;
+            t->next = p->next;  // right Node modification
+            t->prev = p;
+            if(p->next) p->next->prev = t;
+            p->next = t;     
         }
     }
 }
@@ -303,23 +304,21 @@ void LinkedList::SortedInsert(int element){
 /* Delete elements from linked list */
 int LinkedList::Delete(int index){
     Node *p = head;
-    Node *q=NULL;
     int i,x; // i for counter, x for storing deleted elements
     //check, if the index is valid or Not
     if(index < 1 || index > Count()) // Node index start from 1 onwards.
         return -1;
     if(index == 1){
-        q = head;
+        p = head;
         x = head->data;
         head = head->next;
-        delete q; // for delete we use delete Keyword;
+        delete p; // for delete we use delete Keyword;
         return x;
     }else{
-        for(i=0; i< index -1 && p !=NULL; i++){
-            q = p;
-            p = p->next;
-        }
-        q->next = p->next;
+        for(i = 0; i < index -1 && p != NULL; i++) p = p->next;
+        p->prev->next = p->next;
+        if(p->next)
+            p->next->prev = p->next;
         x = p->data;
         delete p;
         return x;
@@ -521,7 +520,7 @@ int main(){
             break;
         case 4:
             l.Display();
-            l.RDisplay(head);
+            // l.RDisplay(head);
             break;
         case 5:
             cout<<"Diplay in Reverse Order"<<endl;
@@ -532,9 +531,10 @@ int main(){
             cout<<"Is Sorted "<<returnedValue<<endl;
             break;        
         case 7:
-            cout<<"Enter the element"<<endl;
-            cin>>element;
-            l.Delete(element);
+            cout<<"Enter the index"<<endl;
+            cin>>index;
+            returnedValue = l.Delete(index);
+            cout<<"Deleted Element is "<<returnedValue<<endl;
             break;
         case 8:
             returnedValue = l.Sum();
