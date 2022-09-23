@@ -435,12 +435,13 @@ Operations on Stack
 ## Queue
 * Queue is a logical datastructure.
 * It works on the decipline of FIFO (first in first out)
-> Queue ADT
-Need space for storing the elements
-Front => for Deletion
-Rear => for insertion
+> Queue ADT  
+* Need space for storing the elements
+* Front => for Deletion
+* Rear => for insertion
 
 > Operations on queue
+
 |Operations|Description|Time Complexity|Space Complexity
 |:-|:-|:-|:-
 |Enque|Used to Insert the element|O(1)|O(1)|
