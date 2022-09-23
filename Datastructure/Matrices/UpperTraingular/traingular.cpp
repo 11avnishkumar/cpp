@@ -1,5 +1,5 @@
 /*
-  Program to Implement Diagonal Matrix
+  Program to Implement UpperTraingular Matrix
 */
 
 #include<iostream>
@@ -53,7 +53,14 @@ Matrix::~Matrix(){
 delete []A;
 }
 int main(){
-  Matrix m(4);
+  do{
+    cout<<"Choose from the following"<<endl;
+    cout<<"1. Diagonal"<<endl;
+  }while()
+  int n;
+  cout<<"Enter the Dimension of the Matrix"<<endl;
+  cin>>n;
+  Matrix m(n);
   m.Set(1,1,12);
   m.Set(2,2,12);
   m.Set(3,3,12);

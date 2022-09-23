@@ -2,13 +2,26 @@
 
 ## Array
 
-1. Method 1: Finding single missing element from the sorted array.
-2. Method 2: Finding single the missing element from an sorted array.
-3. Finding multiple missing element from the sorted array.
-4. finding a missing element using an array method.
+|Problem No|Description|Status|Time Complexity|
+|:-|:-|:-|:-
+|1|Single missing element from the sorted array (Two method)|Completed|O(n)|
+|2|Multiple missing element from the sorted array|completed|O(n)|
+|3| a missing element using an array method.|Pending|O(n)|
 
-|Problem No|Time Complexity|
-|:-|:-|
-|1|O(n)|
-|2|O(n)|
-|3|O(n)|
+## Linked List
+
+|Problem No|Description|Status|Time Complexity|Space Complexity
+|:-|:-|:-|:-|:-
+|1|Middle of the element of a linked list (Two Method)|Pending|O(n)|
+|2|Finding the Intessection point of two linked list|Pending||
+
+
+## Stack
+
+1. Parenthesis balancing Using Stack.
+
+|Problem No|Description|Status|Time Complexity|Space Complexity|
+|:-|:-|:-|:-|:-
+|1|Parenthesis Matching|Completed|O(n)|O(1)|
+|2|Infix to Postfix|Pending|
+|3|Infix to Postfix using Associativity|Pending|

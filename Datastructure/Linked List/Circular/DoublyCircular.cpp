@@ -139,7 +139,7 @@ int LinkedList::Sum(){
 /* Average of all the elements of a Linked List */
 float LinkedList::Avg(){
     
-    return (float)Sum()/Count();
+    return (float)Sum()/Count(); // Typecasting
 }
 
 

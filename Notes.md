@@ -220,15 +220,15 @@ char A[5] = {'A','B','C',0,0}; /* Initialization + Declaration, In memory their 
 */
 char A[] = {'A','B','C'} // it will takes the size of the arra according to the number of elements in the array.
 
-/* 
-  Working with array of characters 
+/*
+  Working with array of characters
 */
 
 char name[10] = {'j','o','h','n',0,0,0,0,0,0}; // rest are initialized with zeroes.
 
 
-/* 
-Working with string 
+/*
+Working with string
 */
 
 char name[10] = {'j','o','h','n','\0',0,0,0,0,0}; // Now the array of characters became string.
@@ -248,7 +248,7 @@ char *name = "john" // this one will be created in Heap even though we didn't in
 
 */
 
-/*  very important note 
+/*  very important note
 if string declared like using pointer method "char *string" this can cause problem because some compiler treat string as immutable that is they can't be changed.
 
 To overcome with the above problem we have to use the traditional method which array of characters
@@ -259,6 +259,25 @@ char name[20] // this will solve the above problems
 
 }
 ```
+## Matrices
+
+What is Matrices?  
+
+* A matrices is an array of some kind of elements.  
+* Matrix used to represent statistical data.
+* Matrix mostly used in the field of computer science to represent various type of data.
+
+What is Daigonal Matrix?
+A matrix having all the elements are zero except the daigonal.
+
+Represention of Matrix?
+Generally Matrix represented in 2D array in computer.
+
+What is Lower Traingular Matrix?
+* A matrix which have Upper Traingular elements are all zero and lower elements are all Non-zero.
+* Lower Traingular Matrix can be represented using two ways:
+  * Row Major Mapping
+  * Column Major Mapping
 
 ## Linked List
 
@@ -272,16 +291,22 @@ Why Linked List?
 
 * It can grow and shrink on demand.
 
-Array Vs Linked List  
-|Array | Linked List  
-|:-|:-|
-|Arrays have limited size. |Linked List can grow and shrink dynamically.|
-|Array stores only same type of element.|Linked List can store any type of data.|
-|Array is primitive datastructure.|Linked List is Derived.|
-|Array is a linear datastructure.|Linked List is also a linear datastructure.|
+Array Vs Linked List
+
+|Paramters|Array|Linked List  
+|:-|:-|:-
+|Size|Arrays have limited size. |Linked List can grow and shrink dynamically.|
+|Data Type|Array stores only same type of element.|Linked List can store any type of data.|
+||Array is primitive datastructure.|Linked List is Derived.|
+|Type|Array is a linear datastructure.|Linked List is also a linear datastructure.|
+|Nature|Physical datastructure|Physical datastructure
+|Memory Allocation|Created in stack|It is always created in Heap|
+|Acessing|Random access, And Faster|No Random access, And Slower|
+|Space|No extra Space|extra space for string next node address|
+|Insertion and Deletion|In left side insertion in Array takes O(n),need to shift the element,and for the right it always O(1)|left side O(1) and right side O(n), because of traversing.
 
 |Operations on Linked List|Time Complexity|Space Complexity|
-|:-|:-|:-|
+|:-|:-|:-
 |Append|O(n)|O(1)|
 |Insert At the begining|O(1)|O(1)|
 |Insert At the middle|O(1)|O(1)|
@@ -321,7 +346,7 @@ Searching Method
 * Here we are using linear search, Binary search is not compatible with liked list.
 * There is no way to reach the middle node randomly, therefore binary search is not possible.  
 * There are two ways of searching;
-  1. Iterative 
+  1. Iterative
     * Iterative version is efficent in terms of space.  
     1.2 Time complexity is O(n).  
     1.3 Space complexity is O(1).
@@ -331,38 +356,99 @@ Searching Method
     2.3 Space complexit is O(n).
 
 * There are two search methods
-  
+
   > Transposition  
     * Transposition method suitable for arrays only in Linked List we avoid it, it works on the principle of swapping, swapping data in case of liked list is very complex.so we only use move to head method.   
   > Move to Head  
     * If the element found then the Node brought at the begining of the linked list so that when element get search next time then the time complexity get reduced by O(1) constant time Remember we avoid Movement of data instead we move Nodes.  
     * Time complexity O(1).  
     * Note: if we want to see the value when move to Head return the address we need to take a pointer of type   and store the address and the use arrow method as we did in case of linear search.     
-  
+
 **Doubly Linked List**
 * Doubly Linked List contains two pointer unlike singly linked list.
 * previous pointer is used to hold the address of the previous Node and Next pointer is used to hold the address of the Next Node.
 * In doubley Linked List we can move forward as well as backward this is the advantage in doubley linked list over singley linked list.
 > Operations on Doubley Linked List
 
-* We can perform all the operations that we can perform on singley linked list.
+* We can perform all the operations on doubley linked list that we can perform on singley linked list.
+  > Reverse of Doubley Linked List.
+
+  * Reversing Doubley linked list using Iterative method is just swapping  the links.
 
 **Circular Linked List**
 * In circular Linked List the the last Node of Linear linked list or singley linked list contains the address of the first Node instead of NULL and it form a circular shape.  
   * Advantages of Circular Linked List.  
     * Backward Traversing, which is not possible in singley Linked List.
 
->Operations of Circular Linked List
+> Operations of Circular Linked List
 * Insertion
   * Insertion takes O(1) time only if the node is inserted after the Head Node that is on position first and after that it takes O(n) time.
-  * Insertion in circular linked list at the 0th position that is before first Node need to modify the last node as well and it not need to modify the head Node it is up to us whether we want to modify the head Node or not generally we prefer to leave the head Node unchanged.       
-## Matrices
+  * Insertion in circular linked list at the 0th position that is before first Node need to modify the last node as well and it not need to modify the head Node it is up to us whether we want to modify the head Node or not generally we prefer to leave the head Node unchanged.
 
-What is Matrices?  
+**Doubley Circular**  
+* Advantage of doubley linked list, is that we do not have to traverse for inserting a Node at the begining of the Linked List,Just take a previous pointer and go their.
 
-* A matrices is an array of some kind of elements.  
-* Matrix used to represent statistical data.
-* Matrix mostly used in the field of computer science to represent various type of data.
+> Comparison of Linked List
+
+|Critera|Singley Linked list|Doubley Linked list|Circular Linked List|Doubley Circular|
+|:-|:-|:-|:-|:-
+Space|Less Space|Takes more pointer space as compared to singley|Less Space|Takes space of double pointer
+|Traversing|Forward|forward and backward|Forward and circular|forward, backward and circular|
+|Insertion at begining|O(1)|O(1)|O(n), becuase of Traversing|O(1)|
+
+Doubley circular liked list is the mostly used.
+
+## Stack
+* Stack is a logical datastructure.
+* It works on the principle of LIFO (Last in First Out).
+* it is used to store elements.
+* Can be Implement either using array or linked list.
+
+Operations on Stack
+|Operations|Description|Time Complexity|Space Complexity
+|:-|:-|:-|:-
+|Push|Used to Insert the element|O(1)|O(1)|
+|Pop|Used to delete the element|O(1)|O(1)
+|Peek|Used to get the very first element from the stack|O(1)|O(1)
+
+> Working of Peek
+
+|Pos|Index=(Top-Pos-1)|
+|:-|:-
+|1|3 = 3 - 1 + 1|
+|2|2 = 3 - 2 + 1|
+|3|1 = 3 - 3 + 1|
+|4|0 = 3 - 4 + 1|
+
+> Stack Using Linked List
+* Two ways to Perform insertion on stack using linked list.
+* Insertion from the left Most side takes O(1) Time
+* and insertion from the right most side takes O(n) time.
+* The best choice is to use insertion from the left Most side as it has constant time complexity.
+
+* Since we are creating stack using a linked list we can insert as many nodes as we want, but when we do say that the satck is overflow that is the question?
+  * We will say a stack is overflow when it is failed to create a Node in a Heap that is when the heap is full.
+
+> Applications of Stack
+* Parenthesis Matching
+
+## Queue
+* Queue is a logical datastructure.
+* It works on the decipline of FIFO (first in first out)
+> Queue ADT
+Need space for storing the elements
+Front => for Deletion
+Rear => for insertion
+
+> Operations on queue
+|Operations|Description|Time Complexity|Space Complexity
+|:-|:-|:-|:-
+|Enque|Used to Insert the element|O(1)|O(1)|
+|Deque|Used to delete the element|O(1)|O(1)
+|isEmpty|To check Whether the queue is Empty|O(1)|O(1)
+|isFull|To chekc whether the queue is Full|O(1)|O(1)
+|first|Used to get the very first element from the stack|O(1)|O(1)
+|last|Used to get the very first element from the stack|O(1)|O(1)
 
 ## Tree
 

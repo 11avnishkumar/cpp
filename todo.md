@@ -120,12 +120,13 @@
       - [x] Delete (at Begining)
       - [x] Delete (at Middle)
       - [x] Delete (at End)
-  - [ ] Doubly
-    - [ ] Delete (at End)
-  - [ ] Circular
-    - [ ] Delete (at End)
-  - [ ] Doubly Circular
-    - [ ] Delete (at End)
+  - [x] Doubly
+    - [x] Delete (at End)
+  - [x] Circular
+    - [x] Delete (at End)
+  - [x] Doubly Circular
+    - [x] Delete (at End)
+  - [x] Stack
   - [ ] Queue
   - [ ] Tree
   - [ ] Binary Search Tree
