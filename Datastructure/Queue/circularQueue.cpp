@@ -1,6 +1,6 @@
 /*
 
-Implementation of queue Using Array
+Implementation of circular queue Using Array
 
 */
 #include<iostream>
@@ -25,7 +25,7 @@ public:
 Queue::Queue(int n){
   Size = n;
   Q = new int[Size];
-  Front = Rear = -1;
+  Front = Rear = 0; // front and rear will be 0 in circular queue
 }
 
 bool Queue::isEmpty(){
@@ -36,7 +36,7 @@ bool Queue::isEmpty(){
 }
 
 bool Queue::isFull(){
-  if(Rear == Size - 1)
+  if(Rear + 1 % Size == Front)
     return 1;
   else
     return 0;
@@ -46,25 +46,29 @@ void Queue::Enqueue(int element){
     if(isFull())
       cout<<"Queue is Full"<<endl;
     else
-      Q[++Rear] = element;
+      Rear = (Rear + 1) % Size;
+      Q[Rear] = element;
 }
 int Queue::Dequeue(){
     int deletedElement = -1;
     if(isEmpty())
       cout<<"Queue is Empty"<<endl;
     else
-      deletedElement = Q[++Front];
+      Front = (Front + 1) % Size;
   return deletedElement;
 }
 
 void Queue::Display(){
-int i;
+int i=Front + 1;
 if(isEmpty())
   cout<<"Queue is Empty"<<endl;
 else{
 
-for(i=Front+1; i <= Rear; i++)
+do{
   cout<<Q[i]<<" ";
+  i=(i+1)%Size;
+}while(i!=(Rear + 1) % Size);
+  
 cout<<endl; // print new line after printing all the element of the queue.
 }
 }

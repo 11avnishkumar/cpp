@@ -82,8 +82,6 @@
   * Search (Liner and Binary)
   * Set Opeations on Array(Union,Intersection,Difference)
   * Reverse (Using an Auxiliary array)
-  * Rotation
-  * Shifting (Left Shift and Right Shift)
 * Strings
   * Introduction
   * Finding Length of a string
@@ -92,15 +90,15 @@
   * validate a string
   * Reverse of a string
   * comparing a string and checking for a palindrome
-* Matrices
+* Matrices (pending)
   * Diagonal Matrix
-* Sparse Matrix and Polynomial Representation
+* Sparse Matrix and Polynomial Representation (Pending)
 * Stack
-* Queue
-* Trees
-* Binary Search Tree
-* AVL Trees
-* Sorting
-* Hashing
-* Graph
-* Asymptotic Notation
+* Queue (Pending)
+* Trees (Pending)
+* Binary Search Tree (Pending)
+* AVL Trees (Pending)
+* Sorting (Pending)
+* Hashing (pending)
+* Graph (pending)
+* Asymptotic Notation (pending)
