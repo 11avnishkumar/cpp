@@ -8,68 +8,72 @@ using namespace std;
 
 /* Linked list representation */
 
-class Node{
-    public:
-        Node *prev;
-        int data;
-        Node *next;
-    // constructor
-     Node(int val){
-        this->prev = nullptr;
-        this->data = val;
-        this->next = nullptr;
-     }
-
-};
 
 class LinkedList{
+    private:
+        LinkedList* prev;
+        int data;
+        LinkedList* next;
+    private:
+        LinkedList *head=NULL;
     public:
-        Node *head;
-    public:
-    LinkedList(){head=nullptr;};
+    LinkedList(int data);
     LinkedList(int A[],int n);
     // ~LinkedList();
     void Insert(int index, int x);
     void SortedInsert(int element);
     void Display();
-    void RDisplay(Node *p);
-    void ReverseDisplay(Node *p); // Reverse Order display using Recursion
+    void RDisplay(){RDisplay(head);}; // for calling recursive method
+    void RDisplay(LinkedList* p);
+    void ReverseDisplay(LinkedList* p); // Reverse Order display using Recursion
     int Count();
     int isSorted();
-    int RCount(Node *p);
+    int RCount(){RCount(head);};
+    int RCount(LinkedList* p);
     int Sum();
-    int RSum(Node *p);
+    int RSum(){RSum(head);}; // for calling recursive method
+    int RSum(LinkedList* p);
     float Avg();
     int Max();
-    int RMax(Node *p);
+    int RMax(){RMax(head);};
+    int RMax(LinkedList* p);
     int Min();
-    int RMin(Node *p);
-    Node* LSearch(int key);
-    Node* RLSearch(Node* p,int key);
-    Node* MoveToHeadSearch(int key);
+    int RMin(){RMin(head);};
+    int RMin(LinkedList* p);
+    LinkedList* LSearch(int key);
+    LinkedList* RLSearch(){RLSearch(head,int key);};
+    LinkedList* RLSearch(LinkedList* p,int key);
+    LinkedList* MoveToHeadSearch(int key);
     int Delete(int index);
     int isLoop();
     void RemoveDuplicate();
     int Length();
     void ReverseLinkedList();
-    void RReverseLinkedList(Node *q,Node *p); // take two pointer as a arguement
+    void RReverseLinkedList(LinkedList* q,LinkedList* p); // take two pointer as a arguement
     void ReverseLinkedListUsingArray();
-    void Merge(Node*q,Node*p);
-    void Concatenate(Node*q,Node*p);
+    void Merge(LinkedList* q,LinkedList* p);
+    void Concatenate(LinkedList* q,LinkedList* p);
 
 };
 
+// constructor for creating a very first Node
+LinkedList::LinkedList(int data){
+    this->prev = NULL;
+    this->data = data;
+    this->next = NULL;
+}
+
+
 // constrcutor for creating Linked List using array as user input
 LinkedList::LinkedList(int A[],int n){
-Node *t = head;
-Node *last; 
-t = new Node(A[0]); // Dynamic memory allocation and first node is initialized and rest of the node will be filled using array
+LinkedList *t = head;
+LinkedList *last; 
+t = new LinkedList(A[0]); // Dynamic memory allocation
 
 head = t;
 last = t;
-
 for(int i=1; i<n; i++){ // rest of the element will be start from 1 because one element is already initialized
-    t = new Node(A[i]);
+    t = new LinkedList(A[i]);    
     last->next = t;
     t->prev = last;
     last = t;
@@ -79,8 +83,8 @@ for(int i=1; i<n; i++){ // rest of the element will be start from 1 because one 
 
 
 void LinkedList::Display(){
-Node *p = head;
-while(p != nullptr){
+LinkedList *p = head;
+while(p != NULL){
     cout<<p->data<<" ";
     p = p->next;
    }
@@ -88,16 +92,16 @@ while(p != nullptr){
 
 
 /* Recursive Display of Linked List*/
-void LinkedList::RDisplay(Node *p){
-    if(p != nullptr){
+void LinkedList::RDisplay(LinkedList* p){
+    if(p != NULL){
         cout<<p->data<<endl;
         RDisplay(p->next);
     }
 }
 
 /* Display Linked List in Reverse Order */
-void LinkedList::ReverseDisplay(Node *p){
-    if(p != nullptr){
+void LinkedList::ReverseDisplay(LinkedList* p){
+    if(p != NULL){
         ReverseDisplay(p->next);
         cout<<p->data<<endl;
     }
@@ -108,9 +112,9 @@ void LinkedList::ReverseDisplay(Node *p){
 /* Counting Node of a Linked List */
 
 int LinkedList::Count(){
-    Node *p = head;
+    LinkedList* p = head;
     int count = 0;
-    while(p != nullptr){
+    while(p != NULL){
         count++;
         p = p->next;
     }
@@ -119,8 +123,8 @@ int LinkedList::Count(){
 
 
 /* Recursive method for counting Node of Linked List */
-int LinkedList::RCount(Node *p){
-    if(p != nullptr){
+int LinkedList::RCount(LinkedList* p){
+    if(p != NULL){
         return RCount(p->next) + 1;
     }
     return 0;
@@ -128,9 +132,9 @@ int LinkedList::RCount(Node *p){
 
 /* Sum of all the elements of a Linked List */
 int LinkedList::Sum(){
-      Node* p = head;
+    LinkedList* p = head;
     int sum = 0;
-    while(p != nullptr){
+    while(p != NULL){
         sum = sum + p->data;
         p = p->next;
     }
@@ -147,8 +151,8 @@ float LinkedList::Avg(){
 
 /* Sum of all the elements of a linked list Using Recursion */
 
-int LinkedList::RSum(Node *p){
-    if(p != nullptr){
+int LinkedList::RSum(LinkedList *p){
+    if(p != NULL){
     return RSum(p->next) + p->data;
     }
     return 0;
@@ -156,9 +160,9 @@ int LinkedList::RSum(Node *p){
 
 /* Max element of a Linked List */
 int LinkedList::Max(){
-    Node *p = head;
+    LinkedList *p = head;
     int m = INT_MIN;
-    while(p != nullptr){
+    while(p != NULL){
         if(p->data > m)
             m=p->data;
         p = p->next;
@@ -169,9 +173,9 @@ int LinkedList::Max(){
 /* Min element of a linked list */
 
 int LinkedList::Min(){
-    Node *p = head;
+    LinkedList* p = head;
     int m = INT_MAX;
-    while(p != nullptr){
+    while(p != NULL){
         if(p->data < m)
             m = p->data;
         p = p->next;
@@ -180,9 +184,9 @@ int LinkedList::Min(){
 }
 
 /* Recursive Method of finding the Max of all elements from the linked list */
-int LinkedList::RMax(Node *p){
+int LinkedList::RMax(LinkedList* p){
     int m = INT_MIN;
-    if(p != nullptr){
+    if(p != NULL){
         m = RMax(p->next);
         return m > p->data ? m : p->data; // Ternary Condition
     }
@@ -191,9 +195,9 @@ int LinkedList::RMax(Node *p){
 
 
 /* Recursive Method of finding the Min of all elements from the linked list */
-int LinkedList::RMin(Node *p){
+int LinkedList::RMin(LinkedList* p){
     int m = INT_MAX;
-    if(p != nullptr){
+    if(p != NULL){
         m = RMin(p->next);
         return m < p->data ? m : p->data; // Ternary Condition
     }
@@ -202,21 +206,21 @@ int LinkedList::RMin(Node *p){
 
 
 /*  Linear search in linked list */
-  Node* LinkedList::LSearch(int key){
-    Node *p = head;
-    while(p != nullptr){
+  LinkedList* LinkedList::LSearch(int key){
+    LinkedList* p = head;
+    while(p != NULL){
         if(key == p->data)
             return p;
         p = p->next;
     }
-    return nullptr; // return nullptr if nothing found
+    return NULL; // return NULL if nothing found
 }
 
 
 /*  Recursive Linear search in linked list */
-  Node* RLSearch(Node* p, int key){
-    if(p == nullptr)
-        return nullptr;
+  LinkedList* LinkedList::RLSearch(LinkedList *p, int key){
+    if(p == NULL)
+        return NULL;
     if(key == p->data)
         return p;
     return RLSearch(p->next,key);
@@ -224,10 +228,10 @@ int LinkedList::RMin(Node *p){
 
 
 /* Move To Head: Improving Linear Search */
-    Node* LinkedList::MoveToHeadSearch(int key){
-    Node *p = head;
-    Node *q = nullptr;
-    while(p != nullptr){
+  LinkedList*  LinkedList::MoveToHeadSearch(int key){
+    LinkedList* p = head;
+    LinkedList* q = NULL;
+    while(p != NULL){
         if(key == p->data){
             q->next = p->next;
             p->next = head;
@@ -240,29 +244,29 @@ int LinkedList::RMin(Node *p){
            p = p->next;
         }
     }
-    return nullptr;
+    return NULL;
 }
 
 /* Insert Element in a existing linked list*/
 void LinkedList::Insert(int index,int element){
-    Node *p = head;
-    Node *t;
-    Node *last; 
+    LinkedList* p = head;
+    LinkedList* t;
+    LinkedList* last; 
     int i;
     if(index < 0 || index > Count()){ 
         printf("Invalid Index");
         return;
     }
     /* if this Node is very first Node in the entire Linked List */
-    t = new Node(element);
+    t = new LinkedList(element);
     if(index == 0){
         t->next = head;
         head = last = t;
     }else{
         p = head; // p start from 0
-        for(i=0; i < index - 1 && p != nullptr; i++) p = p->next;
+        for(i=0; i < index - 1 && p != NULL; i++) p = p->next;
 
-        if(p != nullptr){
+        if(p != NULL){
             t->next = p->next;  // right Node modification
             t->prev = p;
             if(p->next) p->next->prev = t;
@@ -274,15 +278,16 @@ void LinkedList::Insert(int index,int element){
 
 /* Inserting element at sorted Position */
 void LinkedList::SortedInsert(int element){
-    Node *p = head;
-    Node *t,*q=nullptr; // q will be nullptr initially;
-    t = new Node(element); // Node and data is ready
+    LinkedList* p = head;
+    LinkedList* t,*q=NULL; // q will be NULL initially;
 
-    if(head == nullptr){
+    t = new LinkedList(element); // Node and data is ready
+
+    if(head == NULL){
        head = t; // either we can use head(it is global) or p
     }else{
 
-    while(p!= nullptr && p->data < element){
+    while(p!= NULL && p->data < element){
         q = p;
         p = p->next;
     }
@@ -300,7 +305,7 @@ void LinkedList::SortedInsert(int element){
 
 /* Delete elements from linked list */
 int LinkedList::Delete(int index){
-    Node *p = head;
+    LinkedList* p = head;
     int i,x; // i for counter, x for storing deleted elements
     //check, if the index is valid or Not
     if(index < 1 || index > Count()) // Node index start from 1 onwards.
@@ -312,7 +317,7 @@ int LinkedList::Delete(int index){
         delete p; // for delete we use delete Keyword;
         return x;
     }else{
-        for(i = 0; i < index -1 && p != nullptr; i++) p = p->next;
+        for(i = 0; i < index -1 && p != NULL; i++) p = p->next;
         p->prev->next = p->next;
         if(p->next)
             p->next->prev = p->next;
@@ -325,9 +330,9 @@ int LinkedList::Delete(int index){
 
 /* Check whether the linked list is sorted or not */
 int LinkedList::isSorted(){
-    Node *p = head;
+    LinkedList* p = head;
     int x = INT_MIN;
-    while(p != nullptr){
+    while(p != NULL){
         if(p->data < x)
             return 0;
         x = p->data;
@@ -340,9 +345,9 @@ int LinkedList::isSorted(){
 /* Removing Duplicates from sorted linked list */
 
 void LinkedList::RemoveDuplicate(){
-  Node *p = head;  
-  Node *q = p->next;
-while(q != nullptr){
+  LinkedList* p = head;  
+  LinkedList* q = p->next;
+while(q != NULL){
     if(p->data == q->data){
     p->next = q->next;
     delete q;
@@ -356,16 +361,16 @@ while(q != nullptr){
 
 /* Reversing a Linked List using an Array */
 void LinkedList::ReverseLinkedListUsingArray(){    
-int *A,i=0;  Node *q=head;
+int *A,i=0;  LinkedList* q=head;
 A = new int[Count()]; // allocate the memory
-while(q!=nullptr){
+while(q!=NULL){
     A[i] = q->data;
     q = q->next;
     i++;
 }
 q = head;
 i--;
-while(q!=nullptr){
+while(q!=NULL){
     q->data = A[i];
     q = q->next;
     i--;
@@ -375,22 +380,22 @@ while(q!=nullptr){
 
 /* Iterative: Reversing Linked List */
 void LinkedList::ReverseLinkedList(){
-    Node *p = head;
-    Node *temp;
-    while(p != nullptr){
+    LinkedList* p = head;
+    LinkedList* temp;
+    while(p != NULL){
         temp = p->next;
-        p->next = p->prev; // p->next will be nullptr becuase p->prev was holding the value nullptr
+        p->next = p->prev; // p->next will be NULL becuase p->prev was holding the value NULL
         p->prev = temp;
         p=p->prev;
-        if(p!=nullptr && p->next == nullptr) head = p;
+        if(p!=NULL && p->next == NULL) head = p;
     }
     
 }
 
 
 /* Recursive: Reversing Linked List */
-void LinkedList::RReverseLinkedList(Node *q,  Node *p){
-    if(p!=nullptr){
+void LinkedList::RReverseLinkedList(LinkedList* q,  LinkedList* p){
+    if(p!=NULL){
         RReverseLinkedList(p,p->next); // first recursive calling 
         p->next = q; // then movement reversing a link
     }
@@ -401,44 +406,44 @@ void LinkedList::RReverseLinkedList(Node *q,  Node *p){
 }
 
 /* Concatination of two Linked List */
-// void LinkedList::Concatenate(Node *p,Node *q){
+// void LinkedList::Concatenate(LinkedList *p,LinkedList *q){
 // third = p;
-// while(p->next!=nullptr)
+// while(p->next!=NULL)
 //     p = p->next;
 // p->next = q;
-// q=nullptr; 
+// q=NULL; 
     
 // }
 
 /* Program for merging two Linked List */
-// void LinkedList::Merge(Node *q){
-//   Node *p = head;  
-//   Node *last;
+// void LinkedList::Merge(LinkedList *q){
+//   LinkedList *p = head;  
+//   LinkedList *last;
 // if(p->data < q->data){
 //     third=last=p;
 //     p = p->next;
-//     last->next = nullptr;
+//     last->next = NULL;
 // }else{
 //     third=last=q;
 //     q = q->next;
-//     last->next = nullptr;
+//     last->next = NULL;
 // }
-// while(p!=nullptr && q!=nullptr){
+// while(p!=NULL && q!=NULL){
 //    if(p->data < q->data)
 //    {
 //     last->next=p;
 //     last=p;
 //     p = p->next; 
-//     last->next = nullptr;
+//     last->next = NULL;
 //    }else{
 //     last->next=q;
 //     last=q;
 //     q = q->next; 
-//     last->next = nullptr;
+//     last->next = NULL;
 //    } 
 // }
 
-// if(p!=nullptr)last->next = p;
+// if(p!=NULL)last->next = p;
 // else last->next = q;
 
 // }
@@ -446,15 +451,15 @@ void LinkedList::RReverseLinkedList(Node *q,  Node *p){
 /* Check whether there is loop in linked list or not */
 
 int LinkedList::isLoop(){
-    Node *f = head;
-    Node *p,*q;
+    LinkedList* f = head;
+    LinkedList* p,*q;
     p=q=f;
     do{
         p = p->next;
         /* Below we are making q pointer to move faster then p pointer */
         q = q->next;
-        q = q != nullptr? q->next : nullptr;
-    }while(p!=nullptr && q!=nullptr && p!=q);
+        q = q != NULL? q->next : NULL;
+    }while(p!=NULL && q!=NULL && p!=q);
 
     return p == q ? 1 : 0; // ternary
 }
@@ -464,9 +469,8 @@ int main(){
     int ch;
     int returnedValue;
     int index,element;
-    Node *head;
-    Node *third;
-    Node *temp;
+    LinkedList* third;
+    LinkedList* temp;
     int A[] = {15,20,25,30,35,40,45,50}; // these array element work as input to linked list
     
     int B[] = {80,90,100,105,110,120};
@@ -512,15 +516,15 @@ int main(){
         case 3:
             returnedValue = L.Count();
             cout<<"Number of Node is "<<returnedValue<<endl;
-            cout<<"Recursive : Number of Node is "<<L.RCount(L.head);
+            cout<<"Recursive : Number of Node is "<<L.RCount();
             break;
         case 4:
             L.Display();
-            L.RDisplay(L.head);
+            L.RDisplay();
             break;
         case 5:
             cout<<"Diplay in Reverse Order"<<endl;
-            L.ReverseDisplay(head);
+            L.ReverseDisplay();
             break;    
         case 6:
             returnedValue = L.isSorted();
@@ -535,22 +539,22 @@ int main(){
         case 8:
             returnedValue = L.Sum();
             cout<<"Sum "<<returnedValue<<endl;
-            cout<<"Recursive : Sum of all elements "<<L.RSum(L.head);
+            cout<<"Recursive : Sum of all elements "<<L.RSum();
             break;
         case 9:
             returnedValue = L.Max();
             cout<<"Max "<<returnedValue<<endl;
-            cout<<"Recursive : Max of all elements "<<L.RMax(L.head);
+            cout<<"Recursive : Max of all elements "<<L.RMax();
             break;
         case 10:
             returnedValue = L.Min();
             cout<<"Min "<<returnedValue<<endl;
-            cout<<"Recursive : Min of all elements "<<L.RMin(L.head);
+            cout<<"Recursive : Min of all elements "<<L.RMin();
             break;
         case 11:
-            L.ReverseLinkedListUsingArray();
+            // L.ReverseLinkedListUsingArray();
             L.ReverseLinkedList();
-            L.RReverseLinkedList(nullptr,L.head);
+            // L.RReverseLinkedList(NULL,head);
             L.Display();
             break;                
         case 12:
@@ -560,8 +564,8 @@ int main(){
         case 13:
             cout<<"Iterative : Linear Search "<<L.LSearch(15)<<endl;
             temp = L.LSearch(15); // address always stored in pointer.
-            temp != nullptr ? cout<<"\nAddress "<<temp<<"and key "<<temp->data : cout<<"address and data "<<temp<<temp->data; // Verification line for the output
-            // cout<<"\nRecursive : Linear Search "<<L.RLSearch(L.head,15);
+            // temp != NULL ? cout<<"\nAddress "<<temp<<"and key "<<temp->data : cout<<"address and data "<<temp<<temp->data; // Verification line for the output
+            // cout<<"\nRecursive : Linear Search "<<L.RLSearch(head,15);
             cout<<"Improved Linear Search "<<L.MoveToHeadSearch(50)<<endl;
             break;                
         default:
@@ -573,12 +577,12 @@ int main(){
     
     
 
-    // L.Merge(second);
+    // l.Merge(second);
     // cout<<"Display:After Merging: ");
     // Display(third);
 
 
-    // L.Concatenate(second);
+    // l.Concatenate(second);
     // cout<<"\nDisplay After Concatination: ");
     // Display(third);
     
@@ -655,8 +659,7 @@ int main(){
 
     ************* Finding a Loop in a Linked List ***********
 
-    1. Traverse the linked list if the pointer reaches at the end and having value nullptr then
+    1. Traverse the linked list if the pointer reaches at the end and having value NULL then
         Definitely there is no Loop in a linked list.
 
 */
-

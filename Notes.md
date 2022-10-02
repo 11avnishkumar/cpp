@@ -431,6 +431,8 @@ Operations on Stack
 
 > Applications of Stack
 * Parenthesis Matching
+* Redo and Undo
+
 
 ## Queue
 * Queue is a logical datastructure.
@@ -450,6 +452,10 @@ Operations on Stack
 |isFull|To chekc whether the queue is Full|O(1)|O(1)
 |first|Used to get the very first element from the stack|O(1)|O(1)
 |last|Used to get the very first element from the stack|O(1)|O(1)
+
+>Application of Queue
+* customer care management
+
 
 ## Tree
 
@@ -479,3 +485,5 @@ Operations on Stack
     * In directed graph edges are represented by arrows and they tells the directions.
   * Undirected Graph
     * An undirected graph is a graph that has no directions and the edges in undirected graph is simply represented by lines.
+> Applications of Graph
+* XML parser

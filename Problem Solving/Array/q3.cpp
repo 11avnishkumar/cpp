@@ -14,7 +14,7 @@ int main(){
         currentResult = A[i] - i; 
         if(prevResult != currentResult){
           while(prevResult < A[i] - i){
-            cout<<prevResult + i<<endl;
+            cout<<prevResult + i<<" ";
             prevResult++;
           }
           
