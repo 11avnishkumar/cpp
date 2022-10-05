@@ -4,10 +4,19 @@ using namespace std;
 #define Queue_h
 class Node{
     public:
-        int data; // data
-        Node *lchild; // left child
-        Node *rchild; // right child
+      int data; // data
+      Node* lchild; // left child
+      Node* rchild; // right child
+      // constructor
+      Node(int data);
+
 };
+
+Node::Node(int data){
+  this->data = data;
+  this->lchild = nullptr;
+  this->rchild = nullptr;
+}
 
 class Queue{
 private:
