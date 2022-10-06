@@ -14,16 +14,14 @@ class Tree{
     void Postorder(Node* p);
     void IterativePreorder(Node* p);
     void IterativeInorder(Node* p);
-    // void IterativePostorder(Node* p);
+    void IterativePostorder(Node* p);
     void LevelOrder(Node* p);
-    // void Height(Node* p);
-    // void CountNode(Node* p);
-    // void Sum(Node* p);
-    // void Avg(Node* p);
-    // void Min(Node* p);
-    // void MaX(Node* p);
-    Node* RBinarySearch(Node* p, int key);
-    // Node* IBinarySearch(Node* p, int key);
+    void Height(Node* p);
+    void CountNode(Node* p);
+    void Sum(Node* p);
+    void Avg(Node* p);
+    void Min(Node* p);
+    void MaX(Node* p);
 };
 Tree::Tree(){root=nullptr;}
 void Tree::createTree(){
@@ -32,7 +30,8 @@ int element;
 Queue q(100); // initialize the size of the queue;
 cout<<"Enter the root value"<<endl;
 cin>>element;
-/* root Node with data */
+
+/* root Node with data, this will the very first Node in the tree */
 root = new Node;
 root->data = element;
 root->lchild = nullptr;
@@ -41,7 +40,7 @@ root->rchild = nullptr;
 q.Enqueue(root); // insert the address into the queue
 
 while(!q.isEmpty()){
-    p = q.Dequeue();
+    p = q.Dequeue(); // store the address of the parent so that we can add the children element
     cout<<"Enter the left child of "<<p->data<<endl;
     cin>>element;
     if(element!=-1){
@@ -90,39 +89,41 @@ void Tree::Postorder(Node* p){
 
 
 void Tree::IterativePreorder(Node* p){
-  Stack s(100);
+  Stack s(100); // take the stack
   while(p != nullptr || !s.isEmpty()){
   if(p){ 
-    cout<<p->data<<" ";
-    s.Push(p);
-    p = p->lchild;
+    cout<<p->data<<" "; // print the data
+    s.Push(p); // push the address
+    p = p->lchild; // move tho the left child
   }else{
-    p = s.Pop();
+    p = s.Pop(); // Pop the address so that we can move on right child
     p = p->rchild;
   }
   }
 }
 
 void Tree::IterativeInorder(Node* p){
-  Stack s(100);
+  Stack s(100); // create a stack
   while(p != nullptr || !s.isEmpty()){
-    if(p){
+    if(p){ // check whether p is null
       s.Push(p); // push the address before moving to next left child
       p = p->lchild;
     }else{
-      p = s.Pop(); 
-      cout<<p->data<<" ";
+      p = s.Pop(); // take out the address so that we can move on the right child 
+      cout<<p->data<<" "; // print the data before moving on to the right child
       p = p->rchild;
     }
   }
 }
 
-// void Tree::IterativePostorder(Node* p){
-//   Stack s(100);
-//   while(p != nullptr || s.isEmpty()){
-    
-//   }
-// }
+
+/* Iterative Post Order Traversal */
+void Tree::IterativePostorder(Node* p){
+  Stack s(100);
+  while(p != nullptr || s.isEmpty()){
+     
+  }
+}
 
 
 

@@ -43,14 +43,14 @@ stl stand for standard template language
 -It is easier to implement data structure using stl
 -There is built in classes/stl available for implementing almost all data structures
 for example
--vector
--set
--multiset
--deque
--queue
--stack
--list
--forward_list
+->Vector
+->Set
+->Multiset
+->deque
+->queue
+->stack
+->list
+->forward_list
 
 
 Three core component of STL are:
@@ -61,3 +61,4 @@ Three core component of STL are:
 
 
 */
+
