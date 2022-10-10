@@ -41,10 +41,10 @@ Tree::Tree(){
 
 /* Insert Method */
 Node* Tree::RInsert(Node* p, int element){
-Node* t;
+Node* t=nullptr;
 if(p == nullptr){ 
     t = new Node(element); // call the constructor
-    root = t; 
+    // root = t; 
     return t;
 }
 
@@ -102,21 +102,23 @@ Node* Tree::RSearch(Node*p ,int key){
     return nullptr;
 }
 
+// Recursive Delete method
+
 
 int main(){
 Tree T;
 Node* temp;
-// T.root = T.RInsert(T.root,50);
-// T.root = T.RInsert(T.root,25);
-// T.root = T.RInsert(T.root,70);
-// T.root = T.RInsert(T.root,65);
-// T.root = T.RInsert(T.root,90);
-// T.root = T.RInsert(T.root,65);
-T.IterativeInsert(T.root,50);
-T.IterativeInsert(T.root,65);
-T.IterativeInsert(T.root,20);
-T.IterativeInsert(T.root,75);
-T.IterativeInsert(T.root,95);
+T.root = T.RInsert(T.root,50);
+T.RInsert(T.root,25);
+T.RInsert(T.root,70);
+T.RInsert(T.root,65);
+T.RInsert(T.root,90);
+T.RInsert(T.root,65);
+// T.IterativeInsert(T.root,50);
+// T.IterativeInsert(T.root,65);
+// T.IterativeInsert(T.root,20);
+// T.IterativeInsert(T.root,75);
+// T.IterativeInsert(T.root,95);
 
 T.Inorder(T.root);
 

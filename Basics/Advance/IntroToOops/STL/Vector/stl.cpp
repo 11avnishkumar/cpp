@@ -3,6 +3,7 @@
 using namespace std;
 int main(){
     vector<int> v={2,4,6,5,6};
+
     //v(10) optionall we can mention the size also,default size is 16 for vector
 
     // inserting value into the vector
@@ -15,6 +16,7 @@ int main(){
     // Looping through the vector using the 'iterator' is the part of STL
 
     vector<int>::iterator itr;
+    
     cout<<"displayed result using the iterator"<<endl;
     for(itr = v.begin(); itr != v.end(); itr++)
         cout<<++*itr<<endl;

@@ -1,4 +1,4 @@
-# Programming using CPP and Datastructure
+# Datastructure
 
 ## What is STL?
 
