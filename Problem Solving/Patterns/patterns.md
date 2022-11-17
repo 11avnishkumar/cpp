@@ -433,3 +433,64 @@ for(int i=1; i<=n; i++){
     @ @ @ @ @ @ @ @                   @ @ @ @ @ @ @ @ 
   @ @ @ @ @ @ @ @ @ * * * * * * * * * @ @ @ @ @ @ @ @ @ 
 </pre>
+
+
+```c++
+// Program to print the patterns
+int n = 3;
+// print the at symbol
+for(int i=1; i<=n; i++){
+    for(int j=1; j<=n; j++){
+        if(i==1)
+		printf("@ ");
+	}
+}
+printf("\n");
+// print the first pattern
+for(int i=1; i<=n; i++){
+// print the pattern but instead of pattern just print the blank spaces so it will push the patterns
+for(int j=2; j<=n; j++){
+		   printf("  ");
+}
+for(int j=1; j<=i; j++){
+		   printf("* ");
+}
+printf("\n");
+}
+
+// Second outer loop
+for(int i=1; i<=n; i++){
+	// print the pattern but instead of pattern just print the blank spaces so it will push the patterns
+for(int j=2; j<=n; j++){
+		   printf("  ");
+}
+for(int j=1; j<=n-i; j++){
+		   printf("* ");
+	}
+printf("\n");
+}
+
+// Outer for loop to print patterns
+for(int i=1; i<=n; i++){
+	// print white space when col>n and row == first(1)
+    for(int j=2; j<=n; j++){
+        if(i==1 && j>=n)
+		printf("  ");
+	}
+	// print the at smbols
+    for(int j=1; j<=n; j++){
+        if(i==1)
+		printf("@ ");
+	}
+}
+```
+<pre>
+@ @ @ 
+    * 
+    * * 
+    * * * 
+    * * 
+    * 
+    
+  @ @ @
+</pre>
