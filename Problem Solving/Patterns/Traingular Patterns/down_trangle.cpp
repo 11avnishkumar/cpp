@@ -20,5 +20,4 @@ Follwing Output will be generated
 * * *
 * *
 *
-
 */

@@ -4,9 +4,7 @@ int main(){
     for(int rows = 0; rows < 6; rows++){
         for(int cols = 0; cols<6; cols ++){
             if(rows+cols>6-1)
-                cout<<"*";
-            else
-                cout<<" ";        
+                cout<<"* ";       
         }
         cout<<endl;
     }

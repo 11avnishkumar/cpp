@@ -17,11 +17,11 @@ class Tree{
     void IterativePostorder(Node* p);
     void LevelOrder(Node* p);
     void Height(Node* p);
-    void CountNode(Node* p);
-    void Sum(Node* p);
-    void Avg(Node* p);
-    void Min(Node* p);
-    void MaX(Node* p);
+    int CountNode(Node* p);
+    int Sum(Node* p);
+    int Avg(Node* p);
+    int Min(Node* p);
+    int MaX(Node* p);
 };
 Tree::Tree(){root=nullptr;}
 void Tree::createTree(){
@@ -102,6 +102,8 @@ void Tree::IterativePreorder(Node* p){
   }
 }
 
+
+// In order Traversal Iterative version
 void Tree::IterativeInorder(Node* p){
   Stack s(100); // create a stack
   while(p != nullptr || !s.isEmpty()){
@@ -126,7 +128,7 @@ void Tree::IterativePostorder(Node* p){
 }
 
 
-
+// Level Order Taversal
 void Tree::LevelOrder(Node* p){
   Queue q(100);
   cout<<p->data<<endl; // print the data
@@ -146,57 +148,43 @@ void Tree::LevelOrder(Node* p){
   }
 }
 
+
+// count the Node we use Postorder Traversal
+
+int Tree::CountNode(Node* p){
+int x,y;
+if(p){
+  x = CountNode(p->lchild);
+  y = CountNode(p->rchild);
+  return x+y+1;
+}
+return 0;
+}
+
+// Sum of the all Nodes
+int Tree::Sum(Node* p){
+ int x,y;
+ if(p){
+  x = Sum(p->lchild);
+  y = Sum(p->rchild);
+  return x+y+p->data;
+ }
+ return 0; 
+}
+
 /* Main Method */
 int main(){
     Tree T;
     Node* temp;
-    int ch;
-    int key;
-
-    do{
-      cout<<"\nChoose from the follwoing"<<endl;
-      cout<<"1. Create Tree"<<endl;
-      cout<<"2. Preorder Traversal"<<endl;
-      cout<<"3. Inorder Traversal"<<endl;
-      cout<<"4. Postorder Traveral"<<endl;
-      cout<<"5. Count Node"<<endl;
-      cout<<"6. Count Height"<<endl;
-      cout<<"7. Sum"<<endl;
-      cout<<"8. Avg"<<endl;
-      cout<<"9. Min"<<endl;
-      cout<<"10. Max"<<endl;
-      cout<<"11. Search"<<endl;
-      cout<<"12. Level Order Traveral"<<endl;
-      cin>>ch;
-      switch(ch){
-        case 1:
-        T.createTree();
-        break;
-        case 2:
-        cout<<"Preorder"<<endl;
-        T.IterativePreorder(T.root);
-        T.Preorder(T.root);
-        break;
-        case 3:
-        cout<<"\nInorder"<<endl;
-        T.IterativeInorder(T.root);
-        cout<<"\nRecursive Inorder"<<endl;
-        T.Inorder(T.root); 
-        break;
-        case 4:
-        cout<<"\nPostorder"<<endl;
-        T.Postorder(T.root); // recursive
-        break;
-        case 6:
-        // T.Height(T.root);
-        break;
-        case 11:
-        break;
-        case 12:
-        cout<<"\nLevel Order Traversal"<<endl;
-        T.LevelOrder(T.root); // Iterative method
-      }
-    }while(ch<13);
-    cout<<endl;
+    T.createTree();
+    // T.IterativePreorder(T.root);
+    // T.Preorder(T.root);
+    // T.IterativeInorder(T.root);
+    // T.Inorder(T.root); 
+    // T.Postorder(T.root); // recursive
+    // // T.Height(T.root);
+    // T.LevelOrder(T.root); // Iterative method
+    cout<<T.CountNode(T.root);
+    cout<<T.Sum(T.root);
     return 0;
 }
