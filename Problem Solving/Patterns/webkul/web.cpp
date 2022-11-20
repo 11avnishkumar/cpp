@@ -10,7 +10,6 @@ int main(){
 
 
     int mid = (number+1)/2; // to print the vertical @
-    // printf("%d",mid);
     for(int i=1; i<=number; i++){
         for(int j=1; j<=number+2; j++){
             printf("e");
@@ -45,21 +44,11 @@ int main(){
         printf("\n");
     }
     /* Start of downward pyramid */
-    // for the downward pyramid all the above code will be same except for printing any symbol just print the spaces.
-    // we have removed all the characters from teh below because we just want to print the spaces and nothing else.
+    /*
+    Print the white spaces first
+    */
     for(int i=1; i<=number+2; i++){
-        for(int j=1; j<=number+2; j++){
-            if(j==mid+1) // These two condition must be handled gracefully.
-            printf(" ");
-            if(j<=mid) // This condition must be handled carefully otherwise below pattern will not work properly,The spaces will be printed left side of the vertical line.
-            printf(" ");
-        }
-        // for horizontal @ will run number+1 times,that is even times.
-        // The below loop start immidiately after the vertical @
-        for(int j=1; j<=number+1; j++){
-            if(i==number+2)
-            printf(" ");
-            else
+        for(int j=1; j<=number+5; j++){
             printf(" ");
         }
         // start printing the arrow whatever the mid value is,otherwise it will print the mid line twice.
