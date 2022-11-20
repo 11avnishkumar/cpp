@@ -436,61 +436,148 @@ for(int i=1; i<=n; i++){
 
 
 ```c++
+int n = 7;
+int counter = 0; // to where bottom @ will start printing the patterns
 // Program to print the patterns
-int n = 3;
-// print the at symbol
+// print the @ symbol
 for(int i=1; i<=n; i++){
     for(int j=1; j<=n; j++){
         if(i==1)
-		printf("@ ");
+		printf("@");
 	}
 }
-printf("\n");
-// print the first pattern
+printf("\n"); // the next pattern will start from a new line
+// print the star pattern
 for(int i=1; i<=n; i++){
 // print the pattern but instead of pattern just print the blank spaces so it will push the patterns
-for(int j=2; j<=n; j++){
-		   printf("  ");
+for(int j=1; j<n; j++){
+    // run the loop less then n;
+		   printf(" ");
 }
+// then print the star pattern adjacent to the white space
 for(int j=1; j<=i; j++){
-		   printf("* ");
+		   printf("*");
+}
+printf("\n");
+}
+// for downward pyramid
+// print the star pattern
+// The outerloop will run n-1 times because we need to form the arrow shape otherwise the midline will printed twice
+for(int i=1; i<=n-1; i++){
+// print the pattern but instead of pattern just print the blank spaces so it will push the patterns
+for(int j=1; j<n; j++){
+    // run the loop less then n;
+		   printf(" ");
+}
+// then print the star pattern adjacent to the white space
+for(int j=n-1; j>=i; j--){
+		   printf("*");
 }
 printf("\n");
 }
 
-// Second outer loop
+
+// to print the @
+counter = (n + 1)/2;
 for(int i=1; i<=n; i++){
-	// print the pattern but instead of pattern just print the blank spaces so it will push the patterns
-for(int j=2; j<=n; j++){
-		   printf("  ");
+// print the @ smbols
+// here we need to handle the space carefully
+// first we need to print the spaces.
+// we need to define also from where to where the spaces will print
+for(int j=counter; j<=n-1; j++){
+    // run the loop less then n-1;
+		   printf(" ");
 }
-for(int j=1; j<=n-i; j++){
-		   printf("* ");
-	}
-printf("\n");
+// This will print the @ after the spaces has been printed.
+for(int j=1; j<=n; j++){
+    if(i==1)
+    printf("@");
+    
+    }
 }
 
-// Outer for loop to print patterns
-for(int i=1; i<=n; i++){
-	// print white space when col>n and row == first(1)
-    for(int j=2; j<=n; j++){
-        if(i==1 && j>=n)
-		printf("  ");
-	}
-	// print the at smbols
-    for(int j=1; j<=n; j++){
-        if(i==1)
-		printf("@ ");
-	}
-}
 ```
 <pre>
-@ @ @ 
-    * 
-    * * 
-    * * * 
-    * * 
-    * 
-    
-  @ @ @
+@@@@@@@
+      *
+      **
+      ***
+      ****
+      *****
+      ******
+      *******
+      ******
+      *****
+      ****
+      ***
+      **
+      *
+   @@@@@@@
+</pre>
+
+```c++
+// Patterns always work for odd number
+int n = 7;
+int mid = (n+1)/2;
+// printf("%d",mid);
+for(int i=1; i<=n; i++){
+    for(int j=1; j<=n; j++){        
+            if(i == mid || j == mid ||(j==n && i>=mid /* for horizontal */) ||  /*for top right*/(i==1 && j>=mid) || (j==1 && i<=mid) || (i==n && j<=mid)/* below bottom left*/ )
+                printf("# ");
+            // To print the stars we have used it.
+            // Explanation mid + 1 and mid - 1 print the stars after the vertical line and before the horizontal line respectively.
+            // i == mid + 1 and i == mid - 1 print the line after and before the horizontal line respectively.
+            else if(
+                ((i && j == mid+1)&& i==mid-1) || ((i && j == mid+1)&& i==mid+1) || ((i && j == mid-1)&& i==mid-1) || ((i && j == mid-1)&& i==mid+1)
+                )
+            printf("0 ");    
+            else
+                printf("  ");
+    }
+    cout<<endl;
+    }
+```
+<pre>
+#     # # # #
+#     #
+#   0 # 0
+# # # # # # #
+    0 # 0   #
+      #     #
+# # # #     #
+</pre>
+
+### Downward Pyramid
+```c++
+// Just for practice we 
+
+for(int i=1; i<=n; i++){
+    for(int j=n+1-i; j<=n; j++){        
+        printf("  "); // two white space
+        // this loop is printing below shape but we have printed white spaces instead so that it will push the bottom loop pattern in right direction so we got the downward pyramid shape.
+        /*
+        * * * * * * *
+          * * * * * *
+            * * * * *
+              * * * *
+                * * *
+                  * *
+                    *
+        */
+    }
+    for(int j=1; j<=n+1-i; j++){        
+        printf(" #  "); // four white spaces
+    }
+    cout<<endl;
+    }
+
+```
+<pre>
+   #   #   #   #   #   #   #
+     #   #   #   #   #   #
+       #   #   #   #   #
+         #   #   #   #
+           #   #   #
+             #   #
+               #
 </pre>

@@ -46,6 +46,7 @@ int main(){
     }
     /* Start of downward pyramid */
     // for the downward pyramid all the above code will be same except for printing any symbol just print the spaces.
+    // we have removed all the characters from teh below because we just want to print the spaces and nothing else.
     for(int i=1; i<=number+2; i++){
         for(int j=1; j<=number+2; j++){
             if(j==mid+1) // These two condition must be handled gracefully.
@@ -68,8 +69,6 @@ int main(){
         }
         printf("\n");
     }
-    
-        
-        
+            
 return 0;    
 }
