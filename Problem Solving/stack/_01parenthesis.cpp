@@ -77,7 +77,7 @@ for(i = 0; exp[i] != '\0'; i++)
    return isEmpty() ? true : false; // At last check whether the stack is empty or Not if Not then parenthesis unbalanced
 }
 
-
+/* Main method */
 int main(){
     char *exp = "{[((a+b)*(c-d))}";
     Stack s(strlen(exp));
