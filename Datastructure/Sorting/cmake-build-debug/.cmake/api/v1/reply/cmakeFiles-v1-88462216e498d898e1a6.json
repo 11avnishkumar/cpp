@@ -767,8 +767,8 @@
 	"kind" : "cmakeFiles",
 	"paths" : 
 	{
-		"build" : "C:/Users/Admin/Desktop/Src/IntroductionTocpp/Datastructure/Sorting/cmake-build-debug",
-		"source" : "C:/Users/Admin/Desktop/Src/IntroductionTocpp/Datastructure/Sorting"
+		"build" : "C:/Users/Admin/Desktop/Src/cpp/Datastructure/Sorting/cmake-build-debug",
+		"source" : "C:/Users/Admin/Desktop/Src/cpp/Datastructure/Sorting"
 	},
 	"version" : 
 	{

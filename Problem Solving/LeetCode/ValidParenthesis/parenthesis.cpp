@@ -9,7 +9,6 @@ public:
 		while(s[i] != '\0'){
 			if(s[i] == '{' || s[i] == '[' || s[i] == '('){
 				st.push(s[i]);
-				cout<<st.top()<<endl;
 			}else if(s[i] == '}' && st.top() =='{' || s[i] == ']' && st.top() =='['|| s[i] == ')' && st.top() =='('){
 				if(st.empty()) return false;
 					st.pop();
@@ -21,7 +20,7 @@ public:
 };
 int main(){
 	Solution s;
-	string str = "{{())()}}]";
+	string str = "{{())()}}[]";
 	cout<<s.isValid(str)<<endl;
 
 }

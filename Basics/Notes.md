@@ -1,6 +1,8 @@
 <!-- TOC -->
 * [Introduction To C++](#introduction-to-c)
   * [Data Types](#data-types)
+    * [Enumerator Data type](#enumerator-data-type)
+    * [Type Def data type](#type-def-data-type)
   * [Loops](#loops)
   * [Memory Allocation](#memory-allocation)
   * [Arrays](#arrays)
@@ -22,9 +24,9 @@
 - It is object-oriented-language.
 - Used to make system application.
 ## Data Types
-- Data Type
-- Enumerator Data type
-    - enumerator data type is nothing but a set of constants defined by the user.
+
+### Enumerator Data type
+- enumerator data type is nothing but a set of constants defined by the user.
 
 ```cpp
     #include<iostream>
@@ -48,8 +50,8 @@
     }
 ```
 
-- Type Def data type
-    - type def is just a custom data type name, it is used for only better readability of programs.
+### Type Def data type
+- `typedef` is just a custom data type name, it is used for only better readability of programs.
 
 ```cpp
   #include<iostream>
@@ -151,7 +153,7 @@
   #include<iostream>
   using namespace std;
   int main(){
-      int ,i=0,n;
+      int i=0,n;
       for(;;){
           cout>>i>>endl;
       }
