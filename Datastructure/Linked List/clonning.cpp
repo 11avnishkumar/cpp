@@ -1,5 +1,0 @@
-/* 
-
-Cloning a Linked List
-
-*/

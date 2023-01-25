@@ -1,3 +1,0 @@
-C:/Users/Admin/Desktop/Src/cpp/Datastructure/Sorting/cmake-build-debug/CMakeFiles/Sorting.dir
-C:/Users/Admin/Desktop/Src/cpp/Datastructure/Sorting/cmake-build-debug/CMakeFiles/edit_cache.dir
-C:/Users/Admin/Desktop/Src/cpp/Datastructure/Sorting/cmake-build-debug/CMakeFiles/rebuild_cache.dir
