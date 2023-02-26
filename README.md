@@ -1005,203 +1005,199 @@ cout<<"This is the size of memory in bytes: "<<sizeof a<<endl;
      cin>>size;
      int a[size];
 /*
-      The above code will not create new with another size because the array already created
-      so it will not create new one
-       
+The above code will not create new with another size because the array already created
+so it will not create new one
+      
+Remember: once a array created of any size in the program it can not
+Modified in any circumstances.
 */
-        /*
-            Remember: once a array created of any size in the program it can not
-            Modified in any circumstances.
-            */
 return 0;
 }
 ```
 
-- Dynamic Memory Allocation for array.
+### Dynamic Memory Allocation for array.
 
-  if we want to increase or decrease the size of the array
-  dynamically Then we must follow the below method
+If we want to increase or decrease the size of the array
+dynamically Then we must follow the below method
 
 ```cpp
 /*
  Dynamic memory allocation for array in c++
 */
     
-    #include<iostream>
-    using namespace std;
-    int main(){
-        int size;
-        cout<<"Enter number of elements:";
-        cin>>size;
-        int *p = new int[size]; //The size of the memeory will be created whatever size the
-        //user will provide
-        cout<<"This is the size of memory in bytes: "<<sizeof a<<endl;
+#include<iostream>
+using namespace std;
+int main(){
+int size;
+cout<<"Enter number of elements:";
+cin>>size;
+int *p = new int[size]; //The size of the memeory will be created whatever size the
+//user will provide
+cout<<"This is the size of memory in bytes: "<<sizeof a<<endl;
+
+/*
+The above-mentioned code will create the array,size will be given by the user
+But before giving or creating array of new size for the array we must delete
+the Previous array memory otherwise it will be waste of memeory
+*/
+delete []p; // Delete the memory before creating another memory
+/*
+ Now if we want to create same array with new size then we have to just give the size
+ and array will be created
+*/
+    cout<<"Enter number of elements:";
+cin>>size;
+p = new int[size];
+
+/*
+The most important thing to remember is whenver we change the size of the array,actully
+the size of the array never change instead it will create an an array of this new size 
+and now the pointer will start to point this newly created array,Therefore it is necessary
+to delete the memory that is allocated for previous array size otherwise it will cause 
+memory leakage which is not good for our project.
+*/
+
+return 0;
     
-            /*
-            The above-mentioned code will create the array,size will be given by the user
-        But before giving or creating array of new size for the array we must delete
-        the Previous array memory otherwise it will be waste of memeory
-            */
-        delete []p; // Delete the memory before creating another memory
-            /*
-                Now if we want to create same array with new size then we have to just give the size
-         and array will be created
-            */
-            cout<<"Enter number of elements:";
-        cin>>size;
-        p = new int[size];
-    
-            /*
-        The most important thing to remember is whenver we change the size of the array,actully
-        the size of the array never change instead it will create an an array of this new size 
-        and now the pointer will start to point this newly created array,Therefore it is necessary
-        to delete the memory that is allocated for previous array size otherwise it will cause 
-        memory leakage which is not good for our project.
-            */
-    
-        return 0;
-    
-    }
+}
 ```
 
 
-- Storage Class
+## Storage Class
 ## Intro To OOPS
+Four pillars of object-oriented programming.
+ * Abstraction
 
+ * Encapsulation (Data hiding)
 
-- Principles of object-oriented programming.
-- Four pillars of object-oriented programming.
-    - Abstraction
+ * Inheritance
 
-    - Encapsulation (Data hiding)
-
-    - Inheritance
-
-    - Polymorphism
+ * Polymorphism
 ### Class
 - By default the variable of a class are 'private' in order to make
   them accessible from outside the class they must be declared under the
   Access specifier `public`.
 - Example of class
 
-    ```cpp
-    #include<iostream>
-    using namespace std;
-    class Rectangle{
-      // Data members or variable
-      public:
-      int length;
-      int breadth;
-      /* Methods */
-      int area(){
-        return length * breadth;
-      }
-      int perimeter(){
-        return 2*(length+breadth);
-      }
-    };
-    
-    int main(){
-      // program to demonstrate the use of class
-      // creating object
-      Rectangle r1,r2;
-      r1.length = 10;
-      r1.breadth = 20;
-      cout<<"The are of rectangle "<<r1.area()<<endl;
-      cout<<"The perimeter of rectangle "<<r1.perimeter()<<endl;
-      return 0;
-    }
-    ```
+```cpp
+#include<iostream>
+using namespace std;
+class Rectangle{
+  // Data members or variable
+  public:
+  int length;
+  int breadth;
+  /* Methods */
+  int area(){
+    return length * breadth;
+  }
+  int perimeter(){
+    return 2*(length+breadth);
+  }
+};
 
-- Points to remember
-    - Class never takes memory as it is logical copy/ blue-print.
-    - When we create instance of a class that is object then only it occupies
-      space in the memory.
-    - Only variables/data member of the class takes space into memory.
-    - Method of the class never takes memory space into the memory.
+int main(){
+  // program to demonstrate the use of class
+  // creating object
+  Rectangle r1,r2;
+  r1.length = 10;
+  r1.breadth = 20;
+  cout<<"The are of rectangle "<<r1.area()<<endl;
+  cout<<"The perimeter of rectangle "<<r1.perimeter()<<endl;
+  return 0;
+}
+```
+#### Points to remember
+Class never takes memory as it is logical copy/ blue-print.
 
+When we create instance of a class that is object then only it occupies
+space in the memory.
 
-- Creating pointer to object
+Only variables/data member of the class takes space into memory.
 
-    ```cpp
-    #include<iostream>
-    using namespace std;
-    // Rectangle class
-    class Rectangle{
-      
-      public:
-      int length;
-      int breadth;
-      /* Methods */
-      int area(){
-        return length * breadth;
-      }
-      int perimeter(){
-        return 2*(length+breadth);
-      }
-    };
-    int main(){
-    // Program to show the concepts of pointer to objects
-    Rectangle r1;
-    Rectangle *p; // pointer of type rectangle.
-    p = &r1; // p stores the address of object/instance of Rectangle class 'r1'
-    p->length = 10;
-    p->breadth = 10;
-    cout<<p->area()<<endl;
-    cout<<p->perimeter()<<endl;
-    return 0; 
-    }
-    
-    ```
-  In pointer to object:
-    - `->` arrow operator to access and assign the value of class members/method,
-      rather then (.)dot operator.
-    - It is also known as de-refrencing operator.
-    - The pointer variable also created in stack section.
-    - some examples
-        - Rectangle *p; => create object in stack.
-        - Rectangle *q = new Rectangle(); => create objects in 'heap memory'.
+Method of the class never takes memory space into the memory.
 
-- Creating object to pointer inside the heap memory.
+### Creating pointer to object
 
-    ```cpp
-    #include<iostream>
-    using namespace std;
-    class Rectangle{
-    
-      public:
-      int length;
-      int breadth;
-      /* Methods */
-      int area(){
-        return length * breadth;
-      }
-      int perimeter(){
-        return 2*(length+breadth);
-      }
-    };
-    
-    int main(){
-      // program to demonstrate the use of class
-      // creating object
-      Rectangle *ptr = new Rectangle(); // breacket is not manadatory but still we have used
-      ptr->length = 10;
-      ptr->breadth = 10;
-      cout<<"The are of rectangle "<<ptr->area()<<endl;
-      cout<<"The perimeter of rectangle "<<ptr->perimeter()<<endl;
-      return 0;
-    }
-    ```
+```cpp
+#include<iostream>
+using namespace std;
+// Rectangle class
+class Rectangle{
+  
+  public:
+  int length;
+  int breadth;
+  /* Methods */
+  int area(){
+    return length * breadth;
+  }
+  int perimeter(){
+    return 2*(length+breadth);
+  }
+};
+int main(){
+// Program to show the concepts of pointer to objects
+Rectangle r1;
+Rectangle *p; // pointer of type rectangle.
+p = &r1; // p stores the address of object/instance of Rectangle class 'r1'
+p->length = 10;
+p->breadth = 10;
+cout<<p->area()<<endl;
+cout<<p->perimeter()<<endl;
+return 0; 
+}
+
+```
+In pointer to object:
+* `->` arrow operator to access and assign the value of class members/method,
+* rather then (.)dot operator.
+* It is also known as de-referencing operator.
+* The pointer variable also created in stack section.
+* some examples
+    * Rectangle *p; => create object in stack.
+    * Rectangle *q = new Rectangle(); => create objects in 'heap memory'.
+
+### Creating object to pointer inside the heap memory.
+
+```cpp
+#include<iostream>
+using namespace std;
+class Rectangle{
+
+  public:
+  int length;
+  int breadth;
+  /* Methods */
+  int area(){
+    return length * breadth;
+  }
+  int perimeter(){
+    return 2*(length+breadth);
+  }
+};
+
+int main(){
+  // program to demonstrate the use of class
+  // creating object
+  Rectangle *ptr = new Rectangle(); // breacket is not manadatory but still we have used
+  ptr->length = 10;
+  ptr->breadth = 10;
+  cout<<"The are of rectangle "<<ptr->area()<<endl;
+  cout<<"The perimeter of rectangle "<<ptr->perimeter()<<endl;
+  return 0;
+}
+```
 
 ### Encapsulation
-- Data hiding is important because it is a way to avoid errors at first place.
-- Sometimes data hiding is also important so the user may not ran into trouble while
-  using the software/applications.
-- That’s all the principle behind data hiding. as name suggest it is only for protecting the data, so it can be used without any errors.
-- In technical terms data hiding is also known as Encapsulation.
-- Example of Data hiding using `private access specifier`
+* Data hiding is important because it is a way to avoid errors at first place.
+* Sometimes data hiding is also important so the user may not ran into trouble while
+* using the software/applications.
+* That’s all the principle behind data hiding. as name suggest it is only for protecting the data, so it can be used without any errors.
+* In technical terms data hiding is also known as Encapsulation.
+* Example of Data hiding using `private access specifier`
 
-  ```cpp
+```cpp
   #include<iostream>
   using namespace std;
   class Rectangle{
@@ -1256,23 +1252,27 @@ return 0;
     
   return 0;
   }
-  ```
-- Accessor and Mutator
-    - The method which used for setting/assign the values of variable inside the
-      class is also known as 'accessor'
-    - The method which used for getting/retrive the values of variable inside the
-      class is also known as 'mutator'.
+```
+### Accessor and Mutator
+* The method which used for setting/assign the values of variable inside the
+class is also known as 'accessor'
+* The method which used for getting/retrive the values of variable inside the
+class is also known as 'mutator'.
 
 ### Constructor
-- A constructor automatically gets called when instance of a class is created.
-- In `c++` a constructor have same name as class name.
+A constructor automatically gets called when instance of a class is created.
 
-  **Type of constructor**
+In `c++` a constructor have same name as class name.
 
-    - Default constructor
-    - Non-Parameterized constructor
-    - Parameterized constructor
-    - copy constructor
+### Type of constructor
+
+ Default constructor
+
+ Non-Parameterized constructor
+
+ Parameterized constructor
+
+ copy constructor
 
   Example constructor
 
@@ -1481,54 +1481,56 @@ return 0;
   */
   ```
 
-- Types of function available in a class
+### Types of function available in a class
 
-    ```cpp
-    /* This is notes */
-    class Rectangle{
-    
-    private:
-    int length;
-    int breadth;
-    public:
-    Rectangle() // default constructor prototype
-    Rectangle(int l,int b) // parametrized constructor prototype
-    Rectangle(Rectangle &rect) // copy constructor
-    
-    //Mutator method/function
-    void setLength(int l);
-    void setBreadth(int b);
-    
-    //setter/accessor method
-    int getLength();
-    int getBreadth();
-    
-    // facilitator method/function
-    int area();
-    int perimeter();
-    
-    //insepector method/function
-    bool isSquare(); // The work of inspector function is to check whether a valid value
-    // or parameter that a function supposed to have, given accordingly or not.
-    
-    ~Rectangle() // De-constructor
-    }
-    /*
-    generally prototype of the function is defined inside the class and the actual function has been defined outside the class using the scope resulution operator. by doing so we can
-    improve the readablitly of the program.
-    
-    The above mentioned all the function must have in a class in order to be perfect class,
-    whether we need them or not.
-    
-    */
-    ```
+```cpp
+/* This is notes */
+class Rectangle{
 
-- Scope resolution operator
-    - When the function defined inside the class itself then the method/function is     known as inline method/function.
-    - Inline method/function should not have any complex logic they must be as simple as possible.
-    - if We have complex logic in method/function then we must define it outside  the class using Scope resolution operator.
+private:
+int length;
+int breadth;
+public:
+Rectangle() // default constructor prototype
+Rectangle(int l,int b) // parametrized constructor prototype
+Rectangle(Rectangle &rect) // copy constructor
 
-  ```cpp
+//Mutator method/function
+void setLength(int l);
+void setBreadth(int b);
+
+//setter/accessor method
+int getLength();
+int getBreadth();
+
+// facilitator method/function
+int area();
+int perimeter();
+
+//insepector method/function
+bool isSquare(); // The work of inspector function is to check whether a valid value
+// or parameter that a function supposed to have, given accordingly or not.
+
+~Rectangle() // De-constructor
+}
+/*
+generally prototype of the function is defined inside the class and the actual function has been defined outside the class using the scope resulution operator. by doing so we can
+improve the readablitly of the program.
+
+The above mentioned all the function must have in a class in order to be perfect class,
+whether we need them or not.
+
+*/
+```
+
+### Scope resolution operator
+When the function defined inside the class itself then the method/function is     known as inline method/function.
+
+Inline method/function should not have any complex logic they must be as simple as possible.
+
+if We have complex logic in method/function then we must define it outside  the class using Scope resolution operator.
+
+ ```cpp
     
   #include<iostream>
   using namespace std;
@@ -1646,13 +1648,13 @@ return 0;
     
   */
     
-  ```
+```
 
 ## Exception Handling
 
-- Throwing integer Exception
+ Throwing integer type Exception
 
-  ```cpp
+```cpp
   #include<iostream>
   using namespace std;
   int main(){
@@ -1672,11 +1674,11 @@ return 0;
   }
   
   // Note: we have throw 1. we can throw any value other than 1, 2, 5 and so on
-  ```
+```
 
-- Exception: Throwing double
+Throwing double type Exception
 
-  ```cpp
+```cpp
   #include<iostream>
   using namespace std;
   int main(){
@@ -1697,9 +1699,9 @@ return 0;
     
   ```
 
-  Exception: Throwing string
+Throwing string type exception
 
-    ```cpp
+```cpp
     #include<iostream>
     using namespace std;
     int main(){
@@ -1746,17 +1748,17 @@ return 0;
       }
       return 0;
     }
-    ```
+```
 
 ## C++ New Features
-
+some new features of c++ have introduced in later version and those are given below.
 ### Smart Pointers
 
 * Pointers are used to allocate the memory in Heap area.
 * While Dealing with dynamic memory one must deallocate the memory otherwise it will casue an memory leakage problems.
 * While developing applications sometiems a developer forgot to deallocate the memory. To prevent such kind of accident the concept of smart pointer is used.
 
-```c++
+```cpp
 #include<iostream>
 class Rectangle {
 int area();
@@ -1764,29 +1766,30 @@ int perimeter();
 }
 ```
 
-- Miscellaneous
-    - what is arm-strong number?
+## Miscellaneous
+### Arm strong number
 
-      when the sum of cube of a given number is equal to the given number
+when the sum of cube of a given number is equal to the given number
 
-      for example
+for example
 
-      $n = 153$
+$n = 153$
 
-      $1^3 + 5^3+3^3 = 153$
+$1^3 + 5^3+3^3 = 153$
 
-      Program to find arm-strong number
+Program to find arm-strong number
 
-    - what is perfect number**?**
+### Perfect number
 
-      What is perfect number?
-      when sum of factor of a given number is equal to double the given number
-      example 1
-      n = 8, 2 * n = 16
-      factor of n = 1,2,4,8 sum of n = 1 + 2 + 4 + 8 = 15
-      Here the given number is not a perfect number
-      example 2
-      n = 6, 2 * n = 12
-      factor of n = 1,2,3,6 sum of n = 1 + 2 + 3 + 6 = 12
-      Here the given number is perfect number
+when sum of factor of a given number is equal to double the given number
+example 
+n = 8, 2 * n = 16
+factor of n = 1,2,4,8 sum of n = 1 + 2 + 4 + 8 = 15
+Here the given number is not a perfect number
+example 2
+n = 6, 2 * n = 12
+factor of n = 1,2,3,6 sum of n = 1 + 2 + 3 + 6 = 12
+Here the given number is perfect number
 
+```
+```
