@@ -669,6 +669,7 @@ cout<<max(a,b,c)<<endl;
 
 ### Function template
 The below program will be converted into function template.
+
 ```cpp
 #include<iostream>
 using namespace std;
@@ -782,35 +783,35 @@ perform some task and returns a value.
 #include<iostream>
 using namespace std;
 int swap(int &a,int &b){
-      int temp;
-      temp = a;
-      a = b;
-      b = temp;
-      return 0;
-    }
-    int main(){
-      // Program to show the concept of call by reference
-      int x = 10; int y = 20;
-      swap(x,y);
-      cout<<x<<" "<<y<<endl;
-      return 0;
-    }
-    /* 
+int temp;
+temp = a;
+a = b;
+b = temp;
+return 0;
+}
+int main(){
+// Program to show the concept of call by reference
+int x = 10; int y = 20;
+swap(x,y);
+cout<<x<<" "<<y<<endl;
+return 0;
+}
+/* 
     
-     1.A call by refrence works exactly the same as call by value does.
-     2.It is also able to change the value of a variable inside other function.
+.A call by refrence works exactly the same as call by value does.
+2.It is also able to change the value of a variable inside other function.
+   
+3.The way reference function works is that it will not call the function
+instead of calling function it copied all the instruction from where it has 
+been called/invoked, that is main function oviously.
     
-     3.The way reference function works is that it will not call the function
-     instead of calling function it copied all the instruction from where it has 
-     been called/invoked, that is main function oviously.
+4.we should try to avoid writing any complex logic while dealing with
+function call by refrence even if it is a single parameter function.
     
-     4.we should try to avoid writing any complex logic while dealing with
-     function call by refrence even if it is a single parameter function.
+Note: when we call function call by refrence the function automatically
+becomes the inline function.
     
-     Note: when we call function call by refrence the function automatically
-     becomes the inline function.
-    
-     */
+*/
 ```
 
 ### Function pass by address
@@ -819,11 +820,11 @@ int swap(int &a,int &b){
 #include<iostream>
 using namespace std;
 int swap(int *a,int *b){
-  int temp;
-  temp = *a;
-  *a = *b;
-  *b = temp;
-  return 0;
+int temp;
+temp = *a;
+*a = *b;
+*b = temp;
+ return 0;
 }
 int main(){
   // Program to demonstrate the concept of function call by address
@@ -845,13 +846,13 @@ int main(){
 #include<iostream>
 using namespace std;
 int  * fun(){
-  int x = 10;
+int x = 10;
   //return &x; 
-    /* 
-        we can not return the address of local variable
-   because once the function execution finished it will get deleted
-   automatically.
-    */
+/* 
+we can not return the address of local variable
+because once the function execution finished it will get deleted
+automatically.
+*/
   
   int *p = new int[5];
   for(int i = 0; i<5; i++){
