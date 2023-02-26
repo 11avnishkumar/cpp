@@ -29,6 +29,19 @@
   * [Structure](#structure)
     * [Structure To Pointer](#structure-to-pointer)
       * [Point To Remember](#point-to-remember)
+  * [Functions](#functions)
+    * [Function Overloading](#function-overloading)
+    * [Function template](#function-template)
+    * [Function with default arguments](#function-with-default-arguments)
+    * [Function pass by value](#function-pass-by-value)
+    * [Function pass by reference](#function-pass-by-reference)
+    * [Function pass by address](#function-pass-by-address)
+    * [Function return by address](#function-return-by-address)
+    * [Function return by reference](#function-return-by-reference)
+  * [Global and Local variables](#global-and-local-variables)
+  * [String](#string)
+    * [Program demonstrating the use of Null character](#program-demonstrating-the-use-of-null-character)
+    * [program Demonstrating the use of ASCII character](#program-demonstrating-the-use-of-ascii-character)
   * [Pointer](#pointer)
   * [Intro To OOPS](#intro-to-oops)
     * [Class](#class)
@@ -529,7 +542,7 @@ for(int x:c)
 
  Using Structure and primitive data type more complex data type can be created.
 
- Simple Structure
+ Example
 
 ```cpp
 /* 
@@ -550,24 +563,18 @@ printf("%d ",r.breadth);
    
 }
     
-/*
-    
-1. Structure does not occupy spaces in memeory unless an object is created.
-    
-2. struct Rectangle r; // syntax for creating structure variable or object
-    
-3. The above structure occupy memory in stack area.
-    
-*/
 ```
 
+Structure does not occupy spaces in memory unless an variable is created.
+
+struct Rectangle r; // syntax for creating structure variable or object
+
+Once the structure variable is created it will consume the memory.
 ### Structure To Pointer
 
 ```cpp
 /* 
-
 Program to demonstrate the structure to pointer
-
 */
 
 #include<stdio.h>
@@ -591,7 +598,7 @@ When the variable of type structure is pointer then we use Arrow Operator.
 
 To access and assign the value to the structure member.
 
-Dynamic Memory allocation to structure member in Heap
+Dynamic Memory allocation to structure member in Heap.
 
 ```cpp
 /* 
@@ -614,72 +621,69 @@ Member of structure.
     printf("Breadth = %d ",p->breadth);
     free(p); // Deallocate the space of Heap Area
     }
-    /* 
-    
-    Point To Remember
-    When the variable of type structure is pointer then we use Arrow Operator
-    To access and assign the value of the structure member.
-    
-    */
-    ```
+```
+Point To Remember
+
+When the variable of type structure is pointer then we use Arrow Operator.
+To access and assign the value of the structure member.
 
 ## Functions
-- Function overloading
-    ```cpp
-    #include<iostream>
-    using namespace std;
-    int max(int x,int y){
-      return x+y;
-    }
-    int max(int x,int y,int z){
-      return x+y+z;
-    }
-    int main(){
-      // Program to show the concept of function overloading in c++
-      int a = 10; int b = 30; int c = 20;
-      cout<<max(a,b)<<endl;
-      cout<<max(a,b,c)<<endl;
-    
-    }
-    
-    /* 
-    
-    A function overloading is style of programming where a programmer
-    define several functions with same name but with different paramters
-    Note: the parameters and the data type of the parameters either of them should not match
-    with the previous function otherwise it will throw an error.
-    
-     */
-    ```
+### Function Overloading
+A function / method overloading is style of programming where a programmer
+define several functions with same name but with different paramters
 
-- Function template
-
-    ```cpp
-    #include<iostream>
-    using namespace std;
-    int maximum(int x,int y){
-      return x+y;
-    }
-    float maximum(float x,float y){
-      return x+y;
-    }
-    int main(){
-      // Program to show the concept of function template
-     
-      cout<<maximum(10,5)<<endl;
-      cout<<maximum(10.5f,3.2f)<<endl;
+Note: the parameters and the data type of the parameters either of them should not match
+with the previous function otherwise it will throw an error.
+```cpp
+#include<iostream>
+using namespace std;
+int max(int x,int y){
+  return x+y;
+}
+int max(int x,int y,int z){
+     return x+y+z;
+}
+int main(){
+// Program to show the concept of function overloading in c++
+int a = 10; int b = 30; int c = 20;
+cout<<max(a,b)<<endl;
+cout<<max(a,b,c)<<endl;
+   
+}
     
-    }
-    
-    ```
 
-- Function template.
-    - Function template reduce the unnecessary code.
-    - We have combined the above code in just one function, this was
+```
 
-    - an example of function template.
+### Function template
+The below program will be converted into function template.
+```cpp
+#include<iostream>
+using namespace std;
+int maximum(int x,int y){
+  return x+y;
+}
+float maximum(float x,float y){
+  return x+y;
+}
+int main(){
+  // Program to show the concept of function template
+ 
+  cout<<maximum(10,5)<<endl;
+  cout<<maximum(10.5f,3.2f)<<endl;
 
-  ```cpp
+}
+
+```
+
+Function template.
+
+Function template reduce the unnecessary code.
+
+Function template combined the above code in just single function.
+
+example 
+
+```cpp
   #include<iostream>
   using namespace std;
   template <class T>
@@ -688,17 +692,17 @@ Member of structure.
   }
     
   int main(){
-    // Program to show the concept of function template
+  // Program to show the concept of function template
      
-    cout<<maximum(10,5)<<endl;
-    cout<<maximum(10.5f,3.2f)<<endl;
-      cout<<maximum(10.5,3.2)<<endl; // This double not float
+  cout<<maximum(10,5)<<endl;
+  cout<<maximum(10.5f,3.2f)<<endl;
+  cout<<maximum(10.5,3.2)<<endl; // This double not float
     
   }
     
-  /* 
+/* 
     
-  A function templating possible ony for those function which are
+  A function templating possible only for those function which are
   overlaoded.
     
   Note: while dealing with function template both the argument given
@@ -707,64 +711,64 @@ Member of structure.
   of type float and the other is of type integer, and we have not defined such function above where the function have two different data
   type arguments.
     
-   */
-  ```
+*/
+```
 
-- Function with default arguments
+### Function with default arguments
 
-    ```cpp
-    #include<iostream>
-    using namespace std;
-    int add(int x, int y=0, int z=0){
+```cpp
+#include<iostream>
+using namespace std;
+int add(int x, int y=0, int z=0){
       return x + y + z;
-    }
-    int main(){
-      // Program to show the concept of default argument.
-      cout<<add(10)<<endl;
-      cout<<add(10,5)<<endl;
-      cout<<add(10,5,4)<<endl;
+}
+int main(){
+// Program to show the concept of default argument.
+cout<<add(10)<<endl;
+cout<<add(10,5)<<endl;
+cout<<add(10,5,4)<<endl;
     
-    }
+}
     
-    /* 
-        Point to note that whenever we define function with default 
-      parameters.
-      we must do that from the right side only it is manadatory.
-      2. if we give argument to the function at the time of calling the
-      default argument get replaced with this one otherwise it will
-      take the default.
-    */
-    ```
+/* 
+Point to note that whenever we define function with default 
+parameters.
+we must do that from the right side only it is manadatory.
+2. if we give argument to the function at the time of calling the
+default argument get replaced with this one otherwise it will
+take the default.
+*/
+```
 
-- Function pass by value
+### Function pass by value
 
-    ```cpp
-    #include<iostream>
-    using namespace std;
-    int multiply(int x, int y){
-      return x * y;
-    }
-    int main(){
-      // program to show the concept of pass by value
-      int a = 10; int b = 5;
-      cout<<multiply(10,5)<<endl;
-      return 0;
-    }
-    /*
-    1. In function pass by value the simply the actual 
-    parameters/argument values are copied into the formal parameters 
-    varible.
-    2. Pass by value function only helpful when the function need to
-    perform some task and returns a value.
-    */
-    ```
+```cpp
+#include<iostream>
+using namespace std;
+int multiply(int x, int y){
+return x * y;
+}
+int main(){
+// program to show the concept of pass by value
+int a = 10; int b = 5;
+cout<<multiply(10,5)<<endl;
+return 0;
+}
+/*
+1. In function pass by value the simply the actual 
+parameters/argument values are copied into the formal parameters 
+varible.
+2. Pass by value function only helpful when the function need to
+perform some task and returns a value.
+*/
+```
 
-- Function pass by reference
+### Function pass by reference
 
-    ```cpp
-    #include<iostream>
-    using namespace std;
-    int swap(int &a,int &b){
+```cpp
+#include<iostream>
+using namespace std;
+int swap(int &a,int &b){
       int temp;
       temp = a;
       a = b;
@@ -794,74 +798,74 @@ Member of structure.
      becomes the inline function.
     
      */
-    ```
+```
 
-- Function pass by address
+### Function pass by address
 
-    ```cpp
-    #include<iostream>
-    using namespace std;
-    int swap(int *a,int *b){
-      int temp;
-      temp = *a;
-      *a = *b;
-      *b = temp;
-      return 0;
-    }
-    int main(){
-      // Program to demonstrate the concept of function call by address
-      int x = 10; int y = 20;
-      swap(x,y);
-      cout<<x<<" "<<y<<endl;
-      return 0;
-    }
-    /*
-    1. directly It is not possible to change the value of a variable inside the function from other function but it can be done through pointer.
-    2. A pointer is a very powerful concept.
+```cpp
+#include<iostream>
+using namespace std;
+int swap(int *a,int *b){
+  int temp;
+  temp = *a;
+  *a = *b;
+  *b = temp;
+  return 0;
+}
+int main(){
+  // Program to demonstrate the concept of function call by address
+  int x = 10; int y = 20;
+  swap(x,y);
+  cout<<x<<" "<<y<<endl;
+  return 0;
+}
+/*
+1. directly It is not possible to change the value of a variable inside the function from other function but it can be done through pointer.
+2. A pointer is a very powerful concept.
     
+*/
+```
+
+### Function return by address
+
+```cpp
+#include<iostream>
+using namespace std;
+int  * fun(){
+  int x = 10;
+  //return &x; 
+    /* 
+        we can not return the address of local variable
+   because once the function execution finished it will get deleted
+   automatically.
     */
-    ```
+  
+  int *p = new int[5];
+  for(int i = 0; i<5; i++){
+    p[i] = 5 * i;
+  }
+  return p;
+}
+int main(){
+  // Program to demonstrate the function return address
+  // function can also return addresses
+  int *q = fun();
+  for(int i=0; i<5; i++){
+    cout<<q[i]<<endl;
+  }
+}
 
-- Function return by address
+/*
+1.We can return addresses only the variable or function that has 
+Memory allocated in heap.
+2.Heap memory is global to the function which can be accessed from
+any where inside the program.
+*/
+```
 
-    ```cpp
-    #include<iostream>
-    using namespace std;
-    int  * fun(){
-      int x = 10;
-      //return &x; 
-        /* 
-            we can not return the address of local variable
-       because once the function execution finished it will get deleted
-       automatically.
-        */
-      
-      int *p = new int[5];
-      for(int i = 0; i<5; i++){
-        p[i] = 5 * i;
-      }
-      return p;
-    }
-    int main(){
-      // Program to demonstrate the function return address
-      // function can also return addresses
-      int *q = fun();
-      for(int i=0; i<5; i++){
-        cout<<q[i]<<endl;
-      }
-    }
-    
-    /*
-    1.We can return addresses only the variable or function that has 
-    Memory allocated in heap.
-    2.Heap memory is global to the function which can be accessed from
-    any where inside the program.
-    */
-    ```
+### Function return by reference
 
-- Function return by reference
-
-    ```cpp
+```cpp
     #include<iostream>
     using namespace std;
     int & fun(int &x){
@@ -873,98 +877,98 @@ Member of structure.
       fun(a) = 25; // Now here the entire function fun() will be copied here.
       cout<<a<<endl;
     }
-    ```
+ ```
 
-- Global and Local variables
-    - Global variables are always get allocated inside code section.
-    - Global variable can be accessed from any where in the program.
-    - Global variable available as long as the program running.
-    - Local Variables are allocated inside the stack area.
-    - Once the function execution finished local variables get deleted automatically.
-    - Local variables can be accessed inside the functions only.
-    - Example of local variable
+## Global and Local variables
+* Global variables are always get allocated inside code section.
+* Global variable can be accessed from any where in the program.
+* Global variable available as long as the program running.
+* Local Variables are allocated inside the stack area.
+* Once the function execution finished local variables get deleted automatically.
+* Local variables can be accessed inside the functions only.
+* Example of local variable
 
-    ```cpp
+```cpp
     
-    ```
+```
 
-- String
+## String
 
-    ```cpp
-    #include<iostream>
-    using namespace std;
-    int main(){
-      // Demonstration of string program
-      char s[10] = "Hello";
-      cout<<s<<endl;
-      return 0;
-    }
-    // The above progaram will also work if we don't mention the size in
-    // char s[] = "hello"
-    
-    ```
+```cpp
+#include<iostream>
+using namespace std;
+int main(){
+  // Demonstration of string program
+  char s[10] = "Hello";
+  cout<<s<<endl;
+  return 0;
+}
+// The above progaram will also work if we don't mention the size in
+// char s[] = "hello"
 
-  Program demonstrating the use of Null character
+```
 
-    ```cpp
-    #include<iostream>
-    using namespace std;
-    int main(){
-      // Demonstration of string program
-      char s[10] = {'h','e','l','l','o','\0','p','q'};
-      cout<<s<<endl;
-      return 0;
-    }
-    // The above program will give out 'hello' because we have put '\0' null character which indicates the end of string.
-    ```
+###  Program demonstrating the use of Null character
 
-  program Demonstrating the use of ASCII character
+```cpp
+#include<iostream>
+using namespace std;
+int main(){
+  // Demonstration of string program
+  char s[10] = {'h','e','l','l','o','\0','p','q'};
+  cout<<s<<endl;
+  return 0;
+}
+// The above program will give out 'hello' because we have put '\0' null character which indicates the end of string.
+```
 
-    ```cpp
-    #include<iostream>
-    using namespace std;
-    int main(){
-      // Program demonstrating the use of ASCII character
-      char s[10] = {65,66,67,68,69,0,70};
-      cout<<s<<endl;
-      return 0;
-    }
-    // The output of the above program will 'be ABCDE' it will not print
-    // character after that because 0 indicates the null character
-    // either we can put 0 or null charcter.
-    ```
+###  Program Demonstrating the use of ASCII character
+
+```cpp
+#include<iostream>
+using namespace std;
+int main(){
+  // Program demonstrating the use of ASCII character
+  char s[10] = {65,66,67,68,69,0,70};
+  cout<<s<<endl;
+  return 0;
+}
+// The output of the above program will 'be ABCDE' it will not print
+// character after that because 0 indicates the null character
+// either we can put 0 or null charcter.
+```
 
 ## Pointer
-- What is pointer?
-    - A pointer is a variable that is used to store the address of another variable.
-    - There are two type of variable
-        - variable
-        - Address Variable
+A pointer is a variable that is used to store the address of another variable.
 
-- Example of pointer through Program.
+There are two type of variable
+ * variable
+ * Address Variable
 
-    ```cpp
-    #include<iostream>
-    using namespace std;
-    int main(){
-        int x = 10;
-        int *p; //pointer Declaration or pointer of type integer
-        p = &x; //initialization of pointer
-    
-        // Printing all the values
-        cout<<"The Actual value that is stored in X: "<<x<<endl;
-        cout<<"The Address of the variable X itself: "<<&x<<endl;
-        cout<<"Address of the variable X via a pointer : "<<p<<endl;
-        cout<<"The address of the pointer itself : "<<&p<<endl;
-        cout<<"The actual value that is stored in pointer : "<<*p<<endl; //This is called Derefrencing of pointer
-    
-        return 0;
-    }
-    ```
+Example of pointer through Program.
 
-- Static Memory Allocation for array
+```cpp
+include<iostream>
+using namespace std;
+int main(){
+    int x = 10;
+    int *p; //pointer Declaration or pointer of type integer
+    p = &x; //initialization of pointer
 
-    ```cpp
+    // Printing all the values
+    cout<<"The Actual value that is stored in X: "<<x<<endl;
+    cout<<"The Address of the variable X itself: "<<&x<<endl;
+    cout<<"Address of the variable X via a pointer : "<<p<<endl;
+    cout<<"The address of the pointer itself : "<<&p<<endl;
+    cout<<"The actual value that is stored in pointer : "<<*p<<endl; //This is called Derefrencing of pointer
+
+    return 0;
+}
+```
+
+### Static Memory Allocation for array
+
+```cpp
     #include<iostream>
     using namespace std;
     int main(){
@@ -977,51 +981,51 @@ Member of structure.
         /*
     return 0;
     }
-    ```
+```
 
-    ```cpp
-    #include<iostream>
-    using namespace std;
-    int main(){
-        int size;
-        cout<<"Enter number of elements:";
-        cin>>size;
-        int a[size]; //The size of the memeory will be created whatever size the
-        //user will provide
-        cout<<"This is the size of memory in bytes: "<<sizeof a<<endl;
-        /*
-            /*
-                Now again if we want to increase the size of the array
-            Then we can not follow the above approach again to increase the size
-            of the array
-            for example
-            we can not do the below mention code once again
-            */
-             cout<<"Enter number of elements:";
-             cin>>size;
-             int a[size];
+```cpp
+#include<iostream>
+using namespace std;
+int main(){
+int size;
+cout<<"Enter number of elements:";
+cin>>size;
+int a[size]; //The size of the memeory will be created whatever size the
+//user will provide
+cout<<"This is the size of memory in bytes: "<<sizeof a<<endl;
+/*
     /*
-          The above code will not create new with another size because the array already created
-          so it will not create new one
-           
+    Now again if we want to increase the size of the array
+    Then we can not follow the above approach again to increase the size
+    of the array
+    for example
+    we can not do the below mention code once again
     */
-            /*
-                Remember: once a array created of any size in the program it can not
-                Modified in any circumstances.
-                */
-    return 0;
-    }
-    ```
+     cout<<"Enter number of elements:";
+     cin>>size;
+     int a[size];
+/*
+      The above code will not create new with another size because the array already created
+      so it will not create new one
+       
+*/
+        /*
+            Remember: once a array created of any size in the program it can not
+            Modified in any circumstances.
+            */
+return 0;
+}
+```
 
 - Dynamic Memory Allocation for array.
 
   if we want to increase or decrease the size of the array
   dynamically Then we must follow the below method
 
-    ```cpp
-    /*
-     Dynamic memory allocation for array in c++
-    */
+```cpp
+/*
+ Dynamic memory allocation for array in c++
+*/
     
     #include<iostream>
     using namespace std;
@@ -1058,7 +1062,7 @@ Member of structure.
         return 0;
     
     }
-    ```
+```
 
 
 - Storage Class
