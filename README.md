@@ -1,15 +1,34 @@
 <!-- TOC -->
 * [Introduction To C++](#introduction-to-c)
   * [Data Types](#data-types)
-    * [Enumerator Data type](#enumerator-data-type)
+    * [Built In Data Types](#built-in-data-types)
+    * [Derived Data Types](#derived-data-types)
+    * [User-defined Data Types](#user-defined-data-types)
+  * [Enumerator Data type](#enumerator-data-type)
     * [Type Def data type](#type-def-data-type)
+    * [Short Circuit Evaluation](#short-circuit-evaluation)
   * [Loops](#loops)
+    * [For loop](#for-loop)
+    * [Infinite for loop](#infinite-for-loop)
+    * [while loop](#while-loop)
+    * [do while loop](#do-while-loop)
   * [Memory Allocation](#memory-allocation)
+      * [Dynamic Memory Allocation](#dynamic-memory-allocation)
   * [Arrays](#arrays)
+    * [Declaration of array.](#declaration-of-array)
+    * [Initialization and Declaration of array.](#initialization-and-declaration-of-array)
+    * [Exceeding the size of array](#exceeding-the-size-of-array)
+    * [Array without size](#array-without-size)
+    * [For each loop](#for-each-loop)
+      * [Example](#example)
+    * [Advantages of for-each loop over for loop?](#advantages-of-for-each-loop-over-for-loop)
+    * [Another example of for each loop](#another-example-of-for-each-loop)
+    * [Types of arrays element](#types-of-arrays-element)
     * [The auto keyword in c ++](#the-auto-keyword-in-c-)
+    * [Example of auto keyword with char type array.](#example-of-auto-keyword-with-char-type-array)
   * [Structure](#structure)
     * [Structure To Pointer](#structure-to-pointer)
-  * [Functions](#functions)
+      * [Point To Remember](#point-to-remember)
   * [Pointer](#pointer)
   * [Intro To OOPS](#intro-to-oops)
     * [Class](#class)
@@ -24,388 +43,408 @@
 - It is object-oriented-language.
 - Used to make system application.
 ## Data Types
+### Built In Data Types
+| Data Types | Sizes | Examples | Descriptions |     |
+|------------|-------|----------|--------------|-----|
+| Int        |       |          |              |     |
+| Float      |       |          |              |     |
+| char       |       |          |              |     |
+| boolean    |       |          |              |     |
+| string     |       |          |              |     |
+| Double     |       |          |              |     |
 
-### Enumerator Data type
-- enumerator data type is nothing but a set of constants defined by the user.
+### Derived Data Types
+| Data Types | Sizes | Examples | Descriptions |     |
+|------------|-------|----------|--------------|-----|
+| Array      |       |          |              |     |
+| Function   |       |          |              |     |
+| Pointers   |       |          |              |     |
+| Double     |       |          |              |     |
+| Double     |       |          |              |     |
+| Double     |       |          |              |     |
 
+### User-defined Data Types
+| Data Types | Sizes | Examples | Descriptions |     |
+|------------|-------|----------|--------------|-----|
+| Double     |       |          |              |     |
+| Double     |       |          |              |     |
+| Double     |       |          |              |     |
+| #          |       |          |              |     |
+
+## Enumerator Data type
+Enumerator data type is nothing but a set of constants defined by the user.
 ```cpp
-    #include<iostream>
-    using namespace std;
-    int main(){
-        // enum day {sun,mon,tue,wed,thu,fri,sat}; 
-        //These are constants
-        // day d = fri; 
-        enum day {sun=1,mon,tue,wed,thu,fri,sat}; 
-        //These are constants 
-        day d2 = fri; 
-        //by default the value will assigned 0 to the first element so "fri = 5"
-        // if we assigned the value one to the first element in enum data type then it
-        // will follow the sequence from there only.
-        // *************************************
-        // now th value has been changed so as said it will follow the sequence 
-        //therefore "fri" have value 6
-        
-        cout<<d2<<endl;
-        
-    }
+#include<iostream>
+using namespace std;
+int main(){
+ // enum day {sun,mon,tue,wed,thu,fri,sat}; 
+ //These are constants
+ // day d = fri; 
+ enum day {sun=1,mon,tue,wed,thu,fri,sat}; 
+ //These are constants 
+ day d2 = fri; 
+ //by default the value will assigned 0 to the first element so "fri = 5"
+ // if we assigned the value one to the first element in enum data type then it
+ // will follow the sequence from there only.
+ // *************************************
+ // now th value has been changed so as said it will follow the sequence 
+ //therefore "fri" have value 6
+ 
+ cout<<d2<<endl;
+ 
+}
 ```
 
 ### Type Def data type
-- `typedef` is just a custom data type name, it is used for only better readability of programs.
+`typedef` is a custom data type name, it is used for only better readability of programs.
 
 ```cpp
-  #include<iostream>
-  using namespace std;
-  int main(){
-           
-      typedef int roll_no;
-      typedef int marks; // These are for storing marks 
-      typedef int age;  //These are example of storing age
-      // now if want to declare a variable of type int 
-      // just user roll_no,no need to use "int"
-      // in this case we are going  to stor rollno 
-      // of the students
-      //************* for example**************
-      roll_no r1 = 50;
-      roll_no r2 = 90;
-      roll_no r3 = 65;
-      cout<<r1<<endl;
-      cout<<r2<<endl;
-      cout<<r3<<endl;
-            
-      // The purpose of typedef is for readeabilty of the program only
+ #include<iostream>
+ using namespace std;
+ int main(){
+       
+  typedef int roll_no;
+  typedef int marks; // These are for storing marks 
+  typedef int age;  //These are example of storing age
+  // now if want to declare a variable of type int 
+  // just user roll_no,no need to use "int"
+  // in this case we are going  to stor rollno 
+  // of the students
+  //************* for example**************
+  roll_no r1 = 50;
+  roll_no r2 = 90;
+  roll_no r3 = 65;
+  cout<<r1<<endl;
+  cout<<r2<<endl;
+  cout<<r3<<endl;
         
-   return 0;
-  }
-```
-
-- Short circuit Evaluation
-    - In short circuit when the statement itself is sufficient for true condition
-      then it will never look at second statement.
-
-    - Short circuit is supported in almost every programming languages
-      In `||` the short circuit happen when it occurs **True** condition in first statement.
-
-  Example
-```cpp
-    #include<iostream>
-    using namespace std;
-    int main(){
-    // short circuit program using or operator
-    int a,b,i;
-    a = 10;
-    b = 5;
-    i = 5;
-    if(a < b || ++i <= b){
-    cout<<i<<endl;
-    }
-    cout<<i<<endl;
-    return 0;
-    }
-```
-- In && the short circuit happen when it occurs **False** condition in first statement.
-- Example
-
-    ```cpp
-    #include<iostream>
-    using namespace std;
-    int main(){
-        // example of short circuit evaluation
-        int a,b,i;
-        a = 10;
-        b = 5;
-        i = 5;
-        if(a < b && ++i <= b){
-           cout<<i<<endl;
-        }
-        cout<<i<<endl;
-        return 0;
+  // The purpose of typedef is for readeabilty of the program only
     
-    ```
+  return 0;
+ }
+```
+### Short Circuit Evaluation
+ In short circuit when the statement itself is sufficient for true condition
+
+ Then it will never look at second statement.
+
+ Short circuit is supported in almost every programming languages
+
+ In `||` the short circuit happen when it occurs **True** condition in first statement.
+
+ Example
+```cpp
+#include<iostream>
+using namespace std;
+int main(){
+// short circuit program using or operator
+int a,b,i;
+a = 10;
+b = 5;
+i = 5;
+if(a < b || ++i <= b){
+cout<<i<<endl;
+}
+cout<<i<<endl;
+return 0;
+}
+```
+ In && the short circuit happen when it occurs **False** condition in first statement.
+
+ Example
+
+ ```cpp
+#include<iostream>
+using namespace std;
+int main(){
+// example of short circuit evaluation
+int a,b,i;
+a = 10;
+b = 5;
+i = 5;
+if(a < b && ++i <= b){
+   cout<<i<<endl;
+}
+cout<<i<<endl;
+return 0;
+```
 ## Loops
 
-- for loop
-    - for loop also known as counter control loop.
-    - Syntax of for-loop
-  ```cpp
-  for(initalization;conditon;updation/increment/decrement){
-  //Instruction to execute
-  }
-    
-  ```
-- Program using loop
-  ```cpp
-  //For loop program 
-  #include<iostream>
-  using namespace std;
-  int main(){
-      int ,i=0,n;
-      for(i=0;i<=n;i++){
-          cout>>i>>endl;
-      }
-      return 0;
-  }
-    
-  ```
-- Infinite for loop
-  ```cpp
-  //Infinite for loop
-  #include<iostream>
-  using namespace std;
-  int main(){
-      int i=0,n;
-      for(;;){
-          cout>>i>>endl;
-      }
-      return 0;
-  }
-    
-  ```
-- while loop
+### For loop
+ for loop also known as counter control loop.
+
+ Syntax of for loop
+```cpp
+ for(initalization;conditon;updation/increment/decrement){
+ //Instruction to execute
+ }
+```
+Program using loop
+```cpp
+//For loop program 
+ #include<iostream>
+ using namespace std;
+ int main(){
+ int ,i=0,n;
+ for(i=0;i<=n;i++){
+ cout>>i>>endl;
+ }
+return 0;
+}
+   
+```
+### Infinite for loop
+```cpp
+ //Infinite for loop
+ #include<iostream>
+ using namespace std;
+ int main(){
+ int i=0,n;
+ for(;;){
+ cout>>i>>endl;
+}
+return 0;
+}
+```
+### while loop
 
 ```cpp
 //while loop syntax in c++
 while(condition){
-  //instruction to process
- // increment or decrement
+//instruction to process
+// increment or decrement
 }
 
+```
+Program using while loop
+```cpp
+#include<iostream>
+using namespace std;
+int main(){
+int i=1,n;
+cout<<"Enter a number:";
+cin>>n;
+while(i<=n){
+cout<<i<<endl;
+i++;
+}
+return 0;
+}
+```
+
+### do while loop
+do while loop execute at least one time, whether the condition True or false.
+
+```c++    
+do{
+ //Instruction to process
+}while(condition)
+ ```
+
+```cpp
+#include<iostream>
+using namespace std;
+int main(){
+int n,i=1;
+cout<<"Enter a number:";
+cin>>n;
+do{
+cout<<i<<endl;
+i++;
+}while(i<n);
+return 0;
+}
+ ```
+
+## Memory Allocation
+There are two ways of memory allocation.
+
+Dynamic
+
+Static
+#### Dynamic Memory Allocation  
+It helps us efficiently use of memory.
+It reduces the wastage of memory
+
+
+## Arrays
+Array is a collection of element of same datatype and stored in  memory at contiguous location.
+
+### Declaration of array.
+
+```cpp
+#include<iostream>
+using namespace std;
+int main(){
+// initialization of array
+int a[10];
+for(int i=0;i<10;i++)
+ cout<<a[i]<<endl;
+}
+//The above program will give output but the output will be a garbage value
+//A garbage value is useless value 
+//when we declare a variable but not asssigna a value to the variable then it take garbage value 
+//which is present on that particular location  
+```
+### Initialization and Declaration of array.
+
+```cpp
+#include<iostream>
+using namespace std;
+int main(){
+    // initialization of array
+    int a[10]={2,4,5,6,10,8,9};
+    //Assigning value to the arrays
+    for(int i=0;i<10;i++)
+     cout<<a[i]<<" ";
+     
+}
+//The above program will print all the values
+//But there is a catch we have array of size 10 but we assigned only 7 values to the array and
+//the rest are the get default value of 0 automatically
+//The above program have following output
+2 4 5 6 10 8 9 0 0 0
+```
+
+### Exceeding the size of array
+
+```cpp
+#include<iostream>
+using namespace std;
+int main(){
+// initialization of array
+int a[10]={2,4,5,6,10,8,9,6,7,1,4};
+//Assigning value to the arrays
+for(int i=0;i<10;i++)
+cout<<a[i]<<endl;
+}
+//The above program will give compile time error because we have assigned more values then the size of the 
+//array can hold.
+```
+
+### Array without size
+
+```cpp
+#include<iostream>
+using namespace std;
+int main(){
+// initialization of array
+int a[]={2,4,5,6,10,8,9};
+//Assigning value to the arrays
+for(int i=0;i<10;i++)
+cout<<a[i]<<" ";
+}
+//The above program will print all the values
+//except when it finishes printing all values from the array then compiler assign garbage value to
+//counter variable,here counter variable is i
+//The above program have following output
+2 4 5 6 10 8 9
+//now garbage value will be printed
+456665
+-45456565
+0
+```
+
+### For each loop
+
+for-each loop introduced in `c++ version 11`.  
+
+for-each loop used with collection of elements and collection of elements is nothing but an array.
+
+``NOTE: When we use for-each loop with array it will not use index of the array to find the element and print, rather it checks whether the an element is present in collections or not.``
+
+#### Example
+```cpp
+#include<iostream>
+using namespace std;
+int main(){
+// initialization of array
+int a[10]={2,4,5,6,10,8,9};
+//Assigning value to the arrays
+//working of for-each loop
+//The first value of array will be copied in x like this x = 2
+// x = 2
+// then it check for x in a,here x is 2 so 2 is present in a so it will print
+for(int x:a) //read as for each x in a,where x is an element in array a[10]
+cout<<x<<endl;
+}
+```
+
+### Advantages of for-each loop over for loop?
+
+for each loop not need to know the size of the array, while for loop need the size of the array to iterate through the elements.
+
+Accessing arrays using for loop saves time.
+### Another example of for each loop
+
+```cpp
+#include<iostream>
+using namespace std;
+int main(){
+// initialization of array
+int a[10]={2,4,5,6,10,8,9};
+//Assigning value to the arrays
+for(int x:a) //read as for each x in a,where x is an element in array a[10]
+cout<<++x<<endl; //here the output will be different because we used pre-increment operator
+// because x having value 2 pre-increment make it 3,but rememeber it will 
+// not affect the original value because as we know x is just a copy of
+// element in a so in order to modify the actual value of array we need to
+//use the reference in c++ and it is denoted with &(ampersand).
+for(int &x:a) //read as for each x in a,where x is an element in array a[10]
+ cout<<++x<<endl; //Now this will modify the actual value of the array.                                            
+}
 ```
 
 ```cpp
 #include<iostream>
 using namespace std;
 int main(){
-    int i=1,n;
-    cout<<"Enter a number:";
-    cin>>n;
-    while(i<=n){
-        cout<<i<<endl;
-        i++;
-    }
-    return 0;
+// initialization of array
+int a[10]={2,4,5,6,10,8,9};
+//Assigning value to the arrays
+for(int x:a) //read as for each x in a,where x is an element in array a[10]
+ cout<<x<<endl;
 }
+// The above program will print all the values
+// The above program uses foreach loop
+// The above program have following output
+// 2
+// 4
+// 5
+// 6
+// 10
+// 8
+// 9
+// 0
+// 0
+// 0
 ```
 
-- do while loop
-    - do while loop execute at least one time, whether the condition True or false.
+### Types of arrays element
 
-      ```cpp
-          
-      do{
-       //Instruction to process
-      }while(condition)
-      ```
+```cpp
+#include<iostream>
+using namespace std;
+int main(){
+// initialization of array
+int a[10]={2,4,5,6,10,8,9}; //integer type of array
 
-      ```cpp
-      #include<iostream>
-      using namespace std;
-      int main(){
-          int n,i=1;
-          cout<<"Enter a number:";
-          cin>>n;
-          do{
-              cout<<i<<endl;
-              i++;
-          }while(i<n);
-          return 0;
-      }
-      ```
+float b[3] = {2.5f,0.25f,9.36f}; //float type of array
 
-## Memory Allocation
-
-- Dynamic Memory Allocation
-    - It helps us efficiently use of memory.
-    - It reduces the wastage of memory
-
-
-## Arrays
-- What is array?
-    - array is collection of element of same datatype and stored in  memory at contigious location.
-- Declaration of array.
-
-    ```cpp
-    #include<iostream>
-    using namespace std;
-    int main(){
-        // initialization of array
-        int a[10];
-        for(int i=0;i<10;i++)
-         cout<<a[i]<<endl;
-         
-    }
-    //The above program will give output but the output will be a garbage value
-    //A garbage value is useless value 
-    //when we declare a variable but not asssigna a value to the variable then it take garbage value 
-    //which is present on that particular location  
-    ```
-
-- Initialization and Declaration of array.
-
-    ```cpp
-    #include<iostream>
-    using namespace std;
-    int main(){
-        // initialization of array
-        int a[10]={2,4,5,6,10,8,9};
-        //Assigning value to the arrays
-        for(int i=0;i<10;i++)
-         cout<<a[i]<<" ";
-         
-    }
-    //The above program will print all the values
-    //But there is a catch we have array of size 10 but we assigned only 7 values to the array and
-    //the rest are the get default value of 0 automatically
-    //The above program have following output
-    2 4 5 6 10 8 9 0 0 0
-    
-    ```
-
-- Exceeding the size of array
-
-    ```cpp
-    #include<iostream>
-    using namespace std;
-    int main(){
-        // initialization of array
-        int a[10]={2,4,5,6,10,8,9,6,7,1,4};
-        //Assigning value to the arrays
-        for(int i=0;i<10;i++)
-         cout<<a[i]<<endl;
-         
-    }
-    //The above program will give compile time error because we have assigned more values then the size of the 
-    //array can hold.
-    
-    ```
-
-- Array without size
-
-    ```cpp
-    #include<iostream>
-    using namespace std;
-    int main(){
-        // initialization of array
-        int a[]={2,4,5,6,10,8,9};
-        //Assigning value to the arrays
-        for(int i=0;i<10;i++)
-         cout<<a[i]<<" ";
-         
-    }
-    //The above program will print all the values
-    //except when it finishes printing all values from the array then compiler assign garbage value to
-    //counter variable,here counter variable is i
-    //The above program have following output
-    2 4 5 6 10 8 9
-    //now garbage value will be printed
-    456665
-    -45456565
-    0
-    ```
-
-- For each loop
-- for-each loop introduced in `c++ 11 version`.
-- for-each loop used with collection of elements and collection of elements is nothing but an array.
-
-  ``NOTE: When we use for-each loop with array it will not use index of the array to find the element and print, rather it checks whether the an element is present in collections or not.``
-
-  **for example**
-
-    ```cpp
-    #include<iostream>
-    using namespace std;
-    int main(){
-        // initialization of array
-        int a[10]={2,4,5,6,10,8,9};
-        //Assigning value to the arrays
-        //working of for-each loop
-        //The first value of array will be copied in x like this x = 2
-        // x = 2
-        // then it check for x in a,here x is 2 so 2 is present in a so it will print
-        for(int x:a) //read as for each x in a,where x is an element in array a[10]
-         cout<<x<<endl;
-         
-    }
-    ```
-
-  **What are the advantages of for-each loop over for loop?**
-    - for-each loop not need to know the size of the array, while for loop need the size of the array to iterate through the elements.
-    - We can save lots of time, when it comes to accessing arrays
-      **Another example of for-each loop**
-
-      ```cpp
-      #include<iostream>
-      using namespace std;
-      int main(){
-          // initialization of array
-          int a[10]={2,4,5,6,10,8,9};
-          //Assigning value to the arrays
-          for(int x:a) //read as for each x in a,where x is an element in array a[10]
-           cout<<++x<<endl; //here the output will be different because we used pre-increment operator
-                            // because x having value 2 pre-increment make it 3,but rememeber it will 
-                            // not affect the original value because as we know x is just a copy of
-                            // element in a so in order to modify the actual value of array we need to
-                            //use the reference in c++ and it is denoted with &(ampersand).
-          
-          for(int &x:a) //read as for each x in a,where x is an element in array a[10]
-           cout<<++x<<endl; //Now this will modify the actual value of the array.                                            
-      }
-      ```
-
-      ```cpp
-      #include<iostream>
-      using namespace std;
-      int main(){
-          // initialization of array
-          int a[10]={2,4,5,6,10,8,9};
-          //Assigning value to the arrays
-          for(int x:a) //read as for each x in a,where x is an element in array a[10]
-           cout<<x<<endl;
-           
-      }
-      // The above program will print all the values
-      // The above program uses foreach loop
-      // The above program have following output
-      // 2
-      // 4
-      // 5
-      // 6
-      // 10
-      // 8
-      // 9
-      // 0
-      // 0
-      // 0
-      ```
-
-- Types of arrays element
-
-    ```cpp
-    #include<iostream>
-    using namespace std;
-    int main(){
-        // initialization of array
-        int a[10]={2,4,5,6,10,8,9}; //integer type of array
-        
-        float b[3] = {2.5f,0.25f,9.36f}; //float type of array
-    
-        char c[3] = {'x','p','u'}; //char  type of array
-         //printing arrays
-            for(int x:a)
-               cout<<x<<endl;
-            //for second array
-                for(int x:b)
-               cout<<x<<endl; //it will print only integer values and truncate the decimal part
-              for(float x:b)
-                   cout<<x<<endl; //it will print values with decimal part
-    
-                //for third array
-                for(int x:c)
-           cout<<x<<endl;
-         
-    }
-    
-    ```
+char c[3] = {'x','p','u'}; //char  type of array
+// printing arrays
+for(int x:a)
+  cout<<x<<endl;
+//for second array
+for(int x:b)
+  cout<<x<<endl; //it will print only integer values and truncate the decimal part
+for(float x:b)
+  cout<<x<<endl; //it will print values with decimal part
+ //for third array
+for(int x:c)
+  cout<<x<<endl;
+}
+```
 
 ### The auto keyword in c ++
 
@@ -413,65 +452,64 @@ int main(){
 #include<iostream>
 using namespace std;
 int main(){
-    // initialization of array
-    int a[10]={2,4,5,6,10,8,9}; //integer type of array
-    
-    float b[3] = {2.5f,0.25f,9.36f}; //float type of array
+// initialization of array
+int a[10]={2,4,5,6,10,8,9}; //integer type of array
 
-    char c[3] = {'x','p','u'}; //char  type of array
-     //printing arrays
-        for(int x:a)
-           cout<<x<<endl;
-        //for second array
-            for(auto x:b) //Using Auto keyword
-           cout<<x<<endl; //it will print only integer values and truncate the decimal part
-          for(float x:b)
-               cout<<x<<endl; //it will print values with decimal part
+float b[3] = {2.5f,0.25f,9.36f}; //float type of array
 
-            //for third array
-            for(int x:c)
-       cout<<x<<endl;
-     
+char c[3] = {'x','p','u'}; //char  type of array
+//printing arrays
+ for(int x:a)
+   cout<<x<<endl;
+//for second array
+ for(auto x:b) //Using Auto keyword
+   cout<<x<<endl; //it will print only integer values and truncate the decimal part
+ for(float x:b)
+   cout<<x<<endl; //it will print values with decimal part
+
+//for third array
+ for(int x:c)
+   cout<<x<<endl;
+ 
 }
 //Note:with "auto" keywords we don't have to worry about datatype of the array whether it is
 //float or int or any other type of data,the auto keywords as name suggest will automatically
 //detect the array and will print the values accordingly,The auto keyword is very powerful
 ```
 
-**Example of auto keyword with char type array.**
-
-```cpp
-    #include<iostream>
-    using namespace std;
-    int main(){
-        //Example of autokeyword
-        char c[] = {41,'a','b','c',73}; //char  type of array
-         
-            for(auto x:c)
-               cout<<x<<endl;     
-    }
-    //The output of the program will be
-    // ) 
-    // a
-    // b
-    // c
-    // I
-    
-    //Note:Those are the ASCII value of the char type element
-    ```
-
-**Another example**
-
+### Example of auto keyword with char type array.
 
 ```cpp
 #include<iostream>
 using namespace std;
 int main(){
-    //Example of autokeyword
-    char c[] = {41,'a','b','c',73}; //char  type of array
+//Example of autokeyword
+ char c[] = {41,'a','b','c',73}; //char  type of array
      
-        for(int x:c)
-           cout<<x<<endl;     
+for(auto x:c)
+  cout<<x<<endl;     
+}
+//The output of the program will be
+// ) 
+// a
+// b
+// c
+// I
+
+//Note:Those are the ASCII value of the char type element
+```
+
+Another example
+
+```cpp
+#include<iostream>
+using namespace std;
+int main(){
+//Example of autokeyword
+char c[] = {41,'a','b','c',73}; //char  type of array
+    
+for(int x:c)
+  cout<<x<<endl;     
 }
 //The output of the program will be 
 // 41
@@ -485,44 +523,43 @@ int main(){
 
 ## Structure
 
-- Structure is used to store different type of data under a single variable.
+ Structure is used to store different type of data under a single variable.
 
-- Structure is a user-defined data Type.
+ Structure is a user-defined data type.
 
-- Using Structure and primitive data type more complex data type can be created.
+ Using Structure and primitive data type more complex data type can be created.
 
-- Simple Structure
+ Simple Structure
 
-    ```cpp
-    /* 
+```cpp
+/* 
+ Program to demonstrate the use of Structure
+*/
     
-    Program to demonstrate the use of Structure
-    */
+#include<stdio.h>
+struct Rectangle{
+int length;
+int breadth;
+};
     
-    #include<stdio.h>
-    struct Rectangle{
-    int length;
-    int breadth;
-    };
+int main(){
+// struct Rectangle r; // Declaration
+struct Rectangle r = {10, 20}; // Declarations + Initialization
+printf("%d ",r.length);
+printf("%d ",r.breadth);
+   
+}
     
-    int main(){
-    // struct Rectangle r; // Declaration
-    struct Rectangle r = {10, 20}; // Declarations + Initialization
-    printf("%d ",r.length);
-    printf("%d ",r.breadth);
+/*
     
-    }
+1. Structure does not occupy spaces in memeory unless an object is created.
     
-    /*
+2. struct Rectangle r; // syntax for creating structure variable or object
     
-    1. Structure does not occupy spaces in memeory unless an object is created.
+3. The above structure occupy memory in stack area.
     
-    2. struct Rectangle r; // syntax for creating structure variable or object
-    
-    3. The above structure occupy memory in stack area.
-    
-    */
-    ```
+*/
+```
 
 ### Structure To Pointer
 
@@ -548,23 +585,19 @@ printf("Length = %d ",p->length);
 printf("Breadth = %d ",p->breadth);
 
 }
+```
+#### Point To Remember
+When the variable of type structure is pointer then we use Arrow Operator.
 
-/* 
-
-Point To Remember
-When the variable of type sturcture is pointer then we use Arrow Operator
 To access and assign the value to the structure member.
 
+Dynamic Memory allocation to structure member in Heap
+
+```cpp
+/* 
+Program to demonstrate the Dynamic Memory allocation to
+Member of structure.
 */
-```
-
-- Dynamic Memory allocation to structure member in Heap
-
-    ```cpp
-    /* 
-    Program to demonstrate the Dynamic Memory allocation to
-    Member of structure.
-     */
     #include<stdio.h>
     #include<stdlib.h>
     struct Rectangle{
@@ -581,7 +614,6 @@ To access and assign the value to the structure member.
     printf("Breadth = %d ",p->breadth);
     free(p); // Deallocate the space of Heap Area
     }
-    
     /* 
     
     Point To Remember
