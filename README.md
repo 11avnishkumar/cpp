@@ -1734,43 +1734,74 @@ Throwing string type exception
       
       return 0;
     }
-    ```
+```
 
-  Exception: Throwing class
+Exception: Throwing class
 
-    ```cpp
-    #include<iostream>
-    using namespace std;
-    class MyException:exception{
-    
-    };
-    int division(int a,int b){
-            if(b==0)
-                    throw MyException();
-                return a / b; 
-    }
-    int main(){
-      int x = 10, y = 0, z;
-      try{ 
-          z = division(x,y);
-          cout<<"The result is: "<<z<<endl;    
-      }
-      
-      catch(MyException e){
-        
-        cout<<"Divison with zero is not possible "<<endl;
-      }
-      return 0;
-    }
+```cpp
+#include<iostream>
+using namespace std;
+class MyException:exception{
+
+};
+int division(int a,int b){
+ if(b==0)
+   throw MyException();
+ return a / b; 
+}
+int main(){
+
+  int x = 10, y = 0, z;
+  try{ 
+      z = division(x,y);
+      cout<<"The result is: "<<z<<endl;    
+  }
+  
+catch(MyException e){
+       
+cout<<"Divison with zero is not possible "<<endl;
+}
+return 0;
+}
 ```
 
 ## C++ New Features
 some new features of c++ have introduced in later version and those are given below.
+### Ellipses
+Ellipses are used to pass variable length arguement to the function.
+
+```cpp
+# include<iostream>
+# include<cstdarg>
+using namespace std;
+    
+/* program for ellipsis */
+int sum(int n,...)
+{
+    va_list list;
+    va_start(list,n);
+    int x;
+    int s=0;
+    for(int i=0;i<n;i++)
+    {
+        x=va_arg(list,int);
+        s+=x;
+    }
+    return s;
+}
+int main()
+{
+cout<<sum(3,10,20,30)<<endl; // the very first element indicate that how many elmenets we are goin to pass,here is 3
+cout<<sum(5,1,2,3,4,5)<<endl; // here 5 argument passed to the list
+}
+
+```
+
 ### Smart Pointers
 
 * Pointers are used to allocate the memory in Heap area.
-* While Dealing with dynamic memory one must deallocate the memory otherwise it will casue an memory leakage problems.
-* While developing applications sometiems a developer forgot to deallocate the memory. To prevent such kind of accident the concept of smart pointer is used.
+* While Dealing with dynamic memory one must deallocate the memory otherwise it will cause an memory leakage problems.
+* While developing applications sometimes a developer forgot to deallocate the memory. To prevent such kind of accident the concept of smart pointer is used.
 
 ```cpp
 #include<iostream>
@@ -1783,7 +1814,7 @@ int perimeter();
 ## Miscellaneous
 ### Arm strong number
 
-when the sum of cube of a given number is equal to the given number
+When the sum of cube of a given number is equal to the given number
 
 for example
 

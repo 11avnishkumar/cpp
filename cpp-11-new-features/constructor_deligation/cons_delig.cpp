@@ -1,5 +1,5 @@
 #include<iostream>
-#include<memory>
+// #include<memory>
 using namespace std;    
 /* program for using initializer and delegation of constructors */
 
@@ -14,7 +14,7 @@ public:
         x=a;
         y=b;
     }
-    test():test(1,1) // constructor deligation
+    test():test(1,1) // constructor delegation
     {}
 };
 
