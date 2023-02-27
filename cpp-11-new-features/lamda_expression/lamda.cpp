@@ -31,7 +31,7 @@ int main()
     k();
     
 
-    // Passing lamda as function arguements
+    // Passing lambda as function arguments
     
     int c = 10;
     auto g=[&c](){cout<<c<<endl;};
@@ -41,7 +41,6 @@ int main()
 }
 
 /*
-Syntax of un-named function or lamda expression:
+Syntax of un-named function or lambda expression:
 [capture_list](parameter_list)->return type{ body }
-
 */

@@ -1,6 +1,5 @@
 #include<iostream>
 using namespace std;
-// Introduction to final keyword
 class Parent final {
   virtual void show() final{
     // Now the void function can not be overided in the child class, if we do
@@ -23,9 +22,4 @@ int main(){
 /*
 -The first use of final keyword is to restrict the inheritance procedure
 -The second of use of final keyword is to restrict the overriding of function
-
-
-
-
-
 */

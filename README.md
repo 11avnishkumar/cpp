@@ -59,7 +59,10 @@
     * [Scope resolution operator](#scope-resolution-operator)
   * [Exception Handling](#exception-handling)
   * [C++ New Features](#c-new-features)
+    * [Ellipses](#ellipses)
     * [Smart Pointers](#smart-pointers)
+    * [Final keyword](#final-keyword)
+    * [Constructor Delegation](#constructor-delegation)
   * [Miscellaneous](#miscellaneous)
     * [Arm strong number](#arm-strong-number)
     * [Perfect number](#perfect-number)
@@ -1808,6 +1811,109 @@ cout<<sum(5,1,2,3,4,5)<<endl; // here 5 argument passed to the list
 class Rectangle {
 int area();
 int perimeter();
+}
+```
+### Final keyword
+The first use of final keyword is to restrict the inheritance procedure
+
+The second of use of final keyword is to restrict the overriding of function.
+
+```cpp
+#include<iostream>
+using namespace std;
+class Parent final {
+virtual void show() final{
+// Now the void function can not be overided in the child class, if we do
+// so we get an error.
+}
+};
+
+class Child:Parent{
+void show(){
+// here we have overided a function although,it is not possible because the parent class function marked as final
+}
+};
+
+int main(){
+
+    return 0;
+}
+```
+### Constructor Delegation
+
+In the above program we have delegated the parameterized constructor to non-prameterized constructor
+
+```
+#include<iostream>
+// #include<memory>
+using namespace std;    
+/* program for using initializer and delegation of constructors */
+
+class test
+{
+int x = 10;
+int y = 13;
+
+public:
+test(int a,int b)
+{
+x=a;
+y=b;
+}
+test():test(1,1) // constructor delegation
+{}
+};
+
+int main()
+{
+
+    return 0;
+}
+
+```
+### Lambda Expression
+Syntax of lambda expression:
+``[[capture_list](parameter_list)->return type{ body }``
+```
+#include<iostream>
+using namespace std;
+template<typename T>
+void fun(T p){
+p();
+}
+
+int main()
+{
+[](){cout<<"Hello"<<endl;} ();
+auto f = [](){cout<<"Hello"<<endl;}; // here we have stored the function in an another variable known as f
+f();
+
+// parameter
+ [](int x,int y){cout<<"Sum: "<<x+y<<endl;}(10,5);
+
+ // Lamda function inside cout
+ cout<<[](int x,int y){return x + y;}(10,5)<<endl;
+
+ // parameter with return 
+ int x = [](int x,int y){return x+y;}(10,5);
+ cout<<"The Sum is: "<<x<<endl;
+
+int s=[](int x,int y)-> int{return x+y;}(20,5);
+cout<<"Sum is: "<<s<<endl;
+
+// Accessing z inside the function
+int z = 10;
+auto k = [z](){cout<<z<<endl;};
+k();
+    
+
+// Passing lambda as function arguments
+    
+int c = 10;
+auto g=[&c](){cout<<c<<endl;};
+fun(g);
+
+return 0;
 }
 ```
 

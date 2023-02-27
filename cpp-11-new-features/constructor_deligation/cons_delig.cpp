@@ -24,6 +24,5 @@ int main()
     return 0;
 }
 /*
-- In the above program we have deligated the parameterized constructor to non-prameterized constructor
-
+- In the above program we have delegated the parameterized constructor to non-prameterized constructor
 */
