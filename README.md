@@ -698,7 +698,7 @@ Function template reduce the unnecessary code.
 
 Function template combined the above code in just single function.
 
-example 
+Example 
 
 ```cpp
   #include<iostream>
@@ -713,23 +713,18 @@ example
      
   cout<<maximum(10,5)<<endl;
   cout<<maximum(10.5f,3.2f)<<endl;
-  cout<<maximum(10.5,3.2)<<endl; // This double not float
+  cout<<maximum(10.5,3.2)<<endl; // This is double not float
     
   }
     
-/* 
-    
-  A function templating possible only for those function which are
-  overlaoded.
-    
-  Note: while dealing with function template both the argument given
-  in function call must be same.
-  cout<<max(10.5f,3)<<endl; // this will throw error as one argument 
-  of type float and the other is of type integer, and we have not defined such function above where the function have two different data
-  type arguments.
-    
-*/
 ```
+Points to remember 
+    
+* A function templating possible only for those function which are overloaded.
+    
+* while dealing with function template both the argument given in function call must be same.
+* cout<<max(10.5f,3)<<endl; // this piece of code will throw error as one argument of type float and the other is of type integer, and we have not defined such function above where the function have two different data type arguments.
+
 
 ### Function with default arguments
 
@@ -747,15 +742,14 @@ cout<<add(10,5,4)<<endl;
     
 }
     
-/* 
-Point to note that whenever we define function with default 
-parameters.
-we must do that from the right side only it is manadatory.
-2. if we give argument to the function at the time of calling the
+```
+Points to remember
+
+* whenever we define function with default 
+parameters,we must do that from the right side only it is mandatory.
+* If we give argument to the function at the time of calling the
 default argument get replaced with this one otherwise it will
 take the default.
-*/
-```
 
 ### Function pass by value
 
@@ -771,18 +765,20 @@ int a = 10; int b = 5;
 cout<<multiply(10,5)<<endl;
 return 0;
 }
-/*
-1. In function pass by value the simply the actual 
+```
+Points to remember
+
+* In function pass by value, simply the actual 
 parameters/argument values are copied into the formal parameters 
 varible.
-2. Pass by value function only helpful when the function need to
+* Pass by value function only helpful when the function need to
 perform some task and returns a value.
-*/
-```
+
 
 ### Function pass by reference
 
 ```cpp
+// Program to show the concept of call by reference
 #include<iostream>
 using namespace std;
 int swap(int &a,int &b){
@@ -793,29 +789,26 @@ b = temp;
 return 0;
 }
 int main(){
-// Program to show the concept of call by reference
 int x = 10; int y = 20;
 swap(x,y);
 cout<<x<<" "<<y<<endl;
 return 0;
 }
-/* 
-    
-.A call by refrence works exactly the same as call by value does.
-2.It is also able to change the value of a variable inside other function.
+```
+Points to remember
+
+* It is also able to change the value of a variable inside other function.
    
-3.The way reference function works is that it will not call the function
+* The way reference function works is that it will not call the function
 instead of calling function it copied all the instruction from where it has 
-been called/invoked, that is main function oviously.
+been called/invoked, that is main function ovbiously.
     
-4.we should try to avoid writing any complex logic while dealing with
-function call by refrence even if it is a single parameter function.
+* we should try to avoid writing any complex logic while dealing with
+function call by reference even if it is a single parameter function.
     
-Note: when we call function call by refrence the function automatically
+Note: when we call function call by reference the function automatically
 becomes the inline function.
     
-*/
-```
 
 ### Function pass by address
 
@@ -836,21 +829,21 @@ int main(){
   cout<<x<<" "<<y<<endl;
   return 0;
 }
-/*
-1. directly It is not possible to change the value of a variable inside the function from other function but it can be done through pointer.
-2. A pointer is a very powerful concept.
     
-*/
 ```
+Points to remember
+* Directly, It is not possible to change the value of a variable inside the function from other function but it can be done through pointer.
+* A pointer is a very powerful concept.
 
 ### Function return by address
 
 ```cpp
+// Program to demonstrate the function return address
 #include<iostream>
 using namespace std;
 int  * fun(){
 int x = 10;
-  //return &x; 
+//return &x; 
 /* 
 we can not return the address of local variable
 because once the function execution finished it will get deleted
@@ -864,7 +857,6 @@ automatically.
   return p;
 }
 int main(){
-  // Program to demonstrate the function return address
   // function can also return addresses
   int *q = fun();
   for(int i=0; i<5; i++){
@@ -872,13 +864,17 @@ int main(){
   }
 }
 
-/*
-1.We can return addresses only the variable or function that has 
-Memory allocated in heap.
-2.Heap memory is global to the function which can be accessed from
-any where inside the program.
-*/
 ```
+Points to remember
+
+* we can not return the address of local variable
+because once the function execution finished it will get deleted
+automatically.
+
+* We can return addresses only the variable or function that has memory allocated in heap.
+
+* Heap memory is global to the function which can be accessed from any where inside the program.
+
 
 ### Function return by reference
 
@@ -920,7 +916,7 @@ int main(){
   cout<<s<<endl;
   return 0;
 }
-// The above progaram will also work if we don't mention the size in
+// The above program will also work if we don't mention the size in
 // char s[] = "hello"
 
 ```
@@ -952,7 +948,7 @@ int main(){
 }
 // The output of the above program will 'be ABCDE' it will not print
 // character after that because 0 indicates the null character
-// either we can put 0 or null charcter.
+// either we can put 0 or null character.
 ```
 
 ## Pointer
@@ -965,7 +961,7 @@ There are two type of variable
 Example of pointer through Program.
 
 ```cpp
-include<iostream>
+#include<iostream>
 using namespace std;
 int main(){
     int x = 10;
@@ -992,7 +988,7 @@ int main(){
         int size;
         cout<<"Enter number of elements:";
         cin>>size;
-        int a[size]; //The size of the memeory will be created whatever size the
+        int a[size]; //The size of the memory will be created whatever size the
         //user will provide
         cout<<"This is the size of memory in bytes: "<<sizeof a<<endl;
         /*
@@ -1007,7 +1003,7 @@ int main(){
 int size;
 cout<<"Enter number of elements:";
 cin>>size;
-int a[size]; //The size of the memeory will be created whatever size the
+int a[size]; //The size of the memory will be created whatever size the
 //user will provide
 cout<<"This is the size of memory in bytes: "<<sizeof a<<endl;
 /*
@@ -1048,14 +1044,14 @@ int main(){
 int size;
 cout<<"Enter number of elements:";
 cin>>size;
-int *p = new int[size]; //The size of the memeory will be created whatever size the
+int *p = new int[size]; //The size of the memory will be created whatever size the
 //user will provide
 cout<<"This is the size of memory in bytes: "<<sizeof a<<endl;
 
 /*
 The above-mentioned code will create the array,size will be given by the user
 But before giving or creating array of new size for the array we must delete
-the Previous array memory otherwise it will be waste of memeory
+the Previous array memory otherwise it will be waste of memory
 */
 delete []p; // Delete the memory before creating another memory
 /*
@@ -1067,8 +1063,8 @@ cin>>size;
 p = new int[size];
 
 /*
-The most important thing to remember is whenver we change the size of the array,actully
-the size of the array never change instead it will create an an array of this new size 
+The most important thing to remember is whenever we change the size of the array,actually
+the size of the array never change instead it will create an array of this new size 
 and now the pointer will start to point this newly created array,Therefore it is necessary
 to delete the memory that is allocated for previous array size otherwise it will cause 
 memory leakage which is not good for our project.
@@ -1171,7 +1167,7 @@ In pointer to object:
 * rather then (.)dot operator.
 * It is also known as de-referencing operator.
 * The pointer variable also created in stack section.
-* some examples
+* Examples
     * Rectangle *p; => create object in stack.
     * Rectangle *q = new Rectangle(); => create objects in 'heap memory'.
 
@@ -1197,7 +1193,7 @@ class Rectangle{
 int main(){
   // program to demonstrate the use of class
   // creating object
-  Rectangle *ptr = new Rectangle(); // breacket is not manadatory but still we have used
+  Rectangle *ptr = new Rectangle(); // bracket is not mandatory but still we have used
   ptr->length = 10;
   ptr->breadth = 10;
   cout<<"The are of rectangle "<<ptr->area()<<endl;
@@ -1210,7 +1206,7 @@ int main(){
 * Data hiding is important because it is a way to avoid errors at first place.
 * Sometimes data hiding is also important so the user may not ran into trouble while
 * using the software/applications.
-* That’s all the principle behind data hiding. as name suggest it is only for protecting the data, so it can be used without any errors.
+* That’s all the principle behind data hiding, as name suggest it is only for protecting the data, so it can be used without any errors.
 * In technical terms data hiding is also known as Encapsulation.
 * Example of Data hiding using `private access specifier`
 
@@ -1219,7 +1215,7 @@ int main(){
   using namespace std;
   class Rectangle{
     private:
-    int length; // because length and breadth declared under private access specifer we can not access it directly from the main function,that is outside of the class.
+    int length; // because length and breadth declared under private access specifier we can not access it directly from the main function,that is outside of the class.
     int breadth;
     public:
     void setLength(int l){
@@ -1289,9 +1285,9 @@ In `c++` a constructor have same name as class name.
 
  Parameterized constructor
 
- copy constructor
+ Copy constructor
 
-  Example constructor
+ Example constructor
 
   ```cpp
   // Default constructor
@@ -1308,7 +1304,7 @@ In `c++` a constructor have same name as class name.
   /*__________creating our own constructor/ user-defined-constructor_________ */
   Rectangle(){
     // Note:A constructor must not have any return type i.e a constructor never returns a value
-    // A constructor must have same name as class name it is manadatory in c++
+    // A constructor must have same name as class name it is mandatory in c++
     length=1;
     breadth=1;
     // One more thing to be note that when the user-defined-constructor will be present
@@ -1320,7 +1316,7 @@ In `c++` a constructor have same name as class name.
   /* _______________Parameterized constructor_______________*/
   Rectangle(int l,int b){
   // In parameter constructor it is a chance that user may or may not provide negative value
-  // so we will call the our own method tht is setLength() and setBreadth() to set the value of length
+  // so we will call the our own method that is setLength() and setBreadth() to set the value of length
   // and breadth.
   setLength(l);
   setBreadth(b);
@@ -1389,14 +1385,11 @@ In `c++` a constructor have same name as class name.
   return 0;
   }
   
-  /* 
-  
-  */
-  ```
+```
 
-  Let’s combine the default constructor and parameterized constructor
+Let’s combine the default constructor and parameterized constructor
 
-  ```cpp
+```cpp
   #include<iostream>
   using namespace std;
   class Rectangle{
@@ -1493,10 +1486,7 @@ In `c++` a constructor have same name as class name.
   return 0;
   }
   
-  /* 
-  
-  */
-  ```
+```
 
 ### Types of function available in a class
 
