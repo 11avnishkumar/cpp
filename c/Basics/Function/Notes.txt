@@ -1,0 +1,4 @@
+- if an array will be put inside an structure then it can also be passed
+  as a call by value.
+  
+- an array can only be passed as a call by address if it is outside of an structure.  

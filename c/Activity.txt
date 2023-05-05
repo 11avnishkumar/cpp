@@ -1,0 +1,14 @@
+Topic: Linked List
+Date: 28-08-2022
+* SortedInsert
+* Deletion
+* Sorting
+* Duplicate
+Date: 29-08-2022
+* Reverse Using Array
+* Reverse Using Three Pointers or sliding Pointers
+* Reverse Using Recursive
+* Concatination
+* Merging
+Date: 30-08-2022
+* checking for loop in linked list
