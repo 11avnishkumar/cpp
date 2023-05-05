@@ -1,71 +1,77 @@
 <!-- TOC -->
-* [Introduction To C++](#introduction-to-c)
-  * [Data Types](#data-types)
-    * [Built In Data Types](#built-in-data-types)
-    * [Derived Data Types](#derived-data-types)
-    * [User-defined Data Types](#user-defined-data-types)
-  * [Enumerator Data type](#enumerator-data-type)
-    * [Type Def data type](#type-def-data-type)
-    * [Short Circuit Evaluation](#short-circuit-evaluation)
-  * [Loops](#loops)
-    * [For loop](#for-loop)
-    * [Infinite for loop](#infinite-for-loop)
-    * [while loop](#while-loop)
-    * [do while loop](#do-while-loop)
-  * [Memory Allocation](#memory-allocation)
-      * [Dynamic Memory Allocation](#dynamic-memory-allocation)
-  * [Arrays](#arrays)
-    * [Declaration of array.](#declaration-of-array)
-    * [Initialization and Declaration of array.](#initialization-and-declaration-of-array)
-    * [Exceeding the size of array](#exceeding-the-size-of-array)
-    * [Array without size](#array-without-size)
-    * [For each loop](#for-each-loop)
-      * [Example](#example)
-    * [Advantages of for-each loop over for loop?](#advantages-of-for-each-loop-over-for-loop)
-    * [Another example of for each loop](#another-example-of-for-each-loop)
-    * [Types of arrays element](#types-of-arrays-element)
-    * [The auto keyword in c ++](#the-auto-keyword-in-c-)
-    * [Example of auto keyword with char type array.](#example-of-auto-keyword-with-char-type-array)
-  * [Structure](#structure)
-    * [Structure To Pointer](#structure-to-pointer)
-      * [Point To Remember](#point-to-remember)
-  * [Functions](#functions)
-    * [Function Overloading](#function-overloading)
-    * [Function template](#function-template)
-    * [Function with default arguments](#function-with-default-arguments)
-    * [Function pass by value](#function-pass-by-value)
-    * [Function pass by reference](#function-pass-by-reference)
-    * [Function pass by address](#function-pass-by-address)
-    * [Function return by address](#function-return-by-address)
-    * [Function return by reference](#function-return-by-reference)
-  * [Global and Local variables](#global-and-local-variables)
-  * [String](#string)
-    * [Program demonstrating the use of Null character](#program-demonstrating-the-use-of-null-character)
-    * [Program Demonstrating the use of ASCII character](#program-demonstrating-the-use-of-ascii-character)
-  * [Pointer](#pointer)
-    * [Static Memory Allocation for array](#static-memory-allocation-for-array)
-    * [Dynamic Memory Allocation for array.](#dynamic-memory-allocation-for-array)
-  * [Storage Class](#storage-class)
-  * [Intro To OOPS](#intro-to-oops)
-    * [Class](#class)
-      * [Points to remember](#points-to-remember)
-    * [Creating pointer to object](#creating-pointer-to-object)
-    * [Creating object to pointer inside the heap memory.](#creating-object-to-pointer-inside-the-heap-memory)
-    * [Encapsulation](#encapsulation)
-    * [Accessor and Mutator](#accessor-and-mutator)
-    * [Constructor](#constructor)
-    * [Type of constructor](#type-of-constructor)
-    * [Types of function available in a class](#types-of-function-available-in-a-class)
-    * [Scope resolution operator](#scope-resolution-operator)
-  * [Exception Handling](#exception-handling)
-  * [C++ New Features](#c-new-features)
-    * [Ellipses](#ellipses)
-    * [Smart Pointers](#smart-pointers)
-    * [Final keyword](#final-keyword)
-    * [Constructor Delegation](#constructor-delegation)
-  * [Miscellaneous](#miscellaneous)
-    * [Arm strong number](#arm-strong-number)
-    * [Perfect number](#perfect-number)
+- [Introduction To C++](#introduction-to-c)
+  - [Data Types](#data-types)
+    - [Built In Data Types](#built-in-data-types)
+    - [Derived Data Types](#derived-data-types)
+  - [Enumerator Data type](#enumerator-data-type)
+    - [Type Def data type](#type-def-data-type)
+    - [Short Circuit Evaluation](#short-circuit-evaluation)
+  - [Loops](#loops)
+    - [For loop](#for-loop)
+    - [Infinite for loop](#infinite-for-loop)
+    - [while loop](#while-loop)
+    - [do while loop](#do-while-loop)
+  - [Memory Allocation](#memory-allocation)
+      - [Dynamic Memory Allocation](#dynamic-memory-allocation)
+  - [Arrays](#arrays)
+    - [Declaration of array.](#declaration-of-array)
+    - [Initialization and Declaration of array.](#initialization-and-declaration-of-array)
+    - [Exceeding the size of array](#exceeding-the-size-of-array)
+    - [Array without size](#array-without-size)
+    - [For each loop](#for-each-loop)
+      - [Example](#example)
+    - [Advantages of for-each loop over for loop?](#advantages-of-for-each-loop-over-for-loop)
+    - [Another example of for each loop](#another-example-of-for-each-loop)
+    - [Types of arrays element](#types-of-arrays-element)
+    - [The auto keyword in c ++](#the-auto-keyword-in-c-)
+    - [Example of auto keyword with char type array.](#example-of-auto-keyword-with-char-type-array)
+  - [Structure](#structure)
+    - [Structure To Pointer](#structure-to-pointer)
+      - [Point To Remember](#point-to-remember)
+  - [Functions](#functions)
+    - [Function Overloading](#function-overloading)
+    - [Function template](#function-template)
+    - [Function with default arguments](#function-with-default-arguments)
+    - [Function pass by value](#function-pass-by-value)
+    - [Function pass by reference](#function-pass-by-reference)
+    - [Function pass by address](#function-pass-by-address)
+    - [Function return by address](#function-return-by-address)
+    - [Function return by reference](#function-return-by-reference)
+  - [Global and Local variables](#global-and-local-variables)
+  - [String](#string)
+    - [Program demonstrating the use of Null character](#program-demonstrating-the-use-of-null-character)
+    - [Program Demonstrating the use of ASCII character](#program-demonstrating-the-use-of-ascii-character)
+  - [Pointer](#pointer)
+    - [Static Memory Allocation for array](#static-memory-allocation-for-array)
+    - [Dynamic Memory Allocation for array.](#dynamic-memory-allocation-for-array)
+  - [Storage Class](#storage-class)
+  - [Intro To OOPS](#intro-to-oops)
+    - [Class](#class)
+      - [Points to remember](#points-to-remember)
+    - [Creating pointer to object](#creating-pointer-to-object)
+    - [Creating object to pointer inside the heap memory.](#creating-object-to-pointer-inside-the-heap-memory)
+    - [Encapsulation](#encapsulation)
+    - [Accessor and Mutator](#accessor-and-mutator)
+    - [Constructor](#constructor)
+    - [Type of constructor](#type-of-constructor)
+    - [Types of function available in a class](#types-of-function-available-in-a-class)
+    - [Scope resolution operator](#scope-resolution-operator)
+  - [Exception Handling](#exception-handling)
+  - [C++11 New Features](#c11-new-features)
+    - [Auto](#auto)
+    - [Lamda Expression](#lamda-expression)
+    - [Ellipses](#ellipses)
+    - [Smart Pointers](#smart-pointers)
+      - [Types of smart pointers](#types-of-smart-pointers)
+        - [Unique Pointers](#unique-pointers)
+        - [Shared Pointers](#shared-pointers)
+        - [Weak Pointers](#weak-pointers)
+    - [Final keyword](#final-keyword)
+    - [Constructor Delegation](#constructor-delegation)
+    - [Lambda Expression](#lambda-expression)
+  - [Miscellaneous](#miscellaneous)
+    - [Arm strong number](#arm-strong-number)
+    - [Perfect number](#perfect-number)
 <!-- TOC -->
 # Introduction To C++
 - C++ is a superset of c programming language.
@@ -73,32 +79,22 @@
 - Used to make system application.
 ## Data Types
 ### Built In Data Types
-| Data Types | Sizes | Examples | Descriptions |     |
-|------------|-------|----------|--------------|-----|
-| Int        |       |          |              |     |
-| Float      |       |          |              |     |
-| char       |       |          |              |     |
-| boolean    |       |          |              |     |
-| string     |       |          |              |     |
-| Double     |       |          |              |     |
+
+| Data Type | Size (in bytes) |
+| --- | --- |
+| `bool` | 1 |
+| `char` | 1 |
+| `short` | 2 |
+| `int` | 4 |
+| `long` | 4 or 8 |
+| `long long` | 8 |
+| `float` | 4 |
+| `double` | 8 |
+| `long double` | 16 |
+
+Note that the size of `long` can be either 4 or 8 bytes, depending on the platform and compiler used. Similarly, the size of `long double` can vary as well.
 
 ### Derived Data Types
-| Data Types | Sizes | Examples | Descriptions |     |
-|------------|-------|----------|--------------|-----|
-| Array      |       |          |              |     |
-| Function   |       |          |              |     |
-| Pointers   |       |          |              |     |
-| Double     |       |          |              |     |
-| Double     |       |          |              |     |
-| Double     |       |          |              |     |
-
-### User-defined Data Types
-| Data Types | Sizes | Examples | Descriptions |     |
-|------------|-------|----------|--------------|-----|
-| Double     |       |          |              |     |
-| Double     |       |          |              |     |
-| Double     |       |          |              |     |
-| #          |       |          |              |     |
 
 ## Enumerator Data type
 Enumerator data type is nothing but a set of constants defined by the user.
@@ -196,6 +192,7 @@ if(a < b && ++i <= b){
 }
 cout<<i<<endl;
 return 0;
+}
 ```
 ## Loops
 
@@ -1758,8 +1755,11 @@ return 0;
 }
 ```
 
-## C++ New Features
+## C++11 New Features
 some new features of c++ have introduced in later version and those are given below.
+### Auto
+- `auto` keyword detect datatypes automatically.
+### Lamda Expression
 ### Ellipses
 Ellipses are used to pass variable length arguement to the function.
 
@@ -1803,6 +1803,20 @@ int area();
 int perimeter();
 }
 ```
+#### Types of smart pointers
+##### Unique Pointers
+- can point to only one object at a time.
+- It is not a shared pointer.
+- can pass the control to another pointer.
+##### Shared Pointers
+- An object can have more than two pointers.
+- It maintains reference counter.
+- Used to check how many pointer currently an objec have.
+- We use `count()` to count the number of pointers.
+##### Weak Pointers
+- It does not maintain reference counter.
+- used to prevent deadlock.
+
 ### Final keyword
 The first use of final keyword is to restrict the inheritance procedure
 
