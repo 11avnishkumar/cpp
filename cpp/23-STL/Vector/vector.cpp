@@ -28,6 +28,18 @@ int main(){
     for(int x:v)
         cout<<x<<endl;
 
+
+
+    // Vectors of pairs
+    vector<pair<int,int>>vec;
+    vec.push_back({1,2});
+    vec.emplace_back(1,2);
+    // Ways to initilization and declraration of vectors
+    vector<int> ve(5,100); // declare vector of size 5 and all are filled with 100
+    vector<int>ve(5); //vector of size 5;
+    vector<int>ve(10,52);
+    vector<int>ve1(ve); // copy above vectors
+
     return 0;
 }
 

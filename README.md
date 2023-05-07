@@ -1946,5 +1946,5 @@ n = 6, 2 * n = 12
 factor of n = 1,2,3,6 sum of n = 1 + 2 + 3 + 6 = 12
 Here the given number is perfect number
 
-```
-```
+
+
