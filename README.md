@@ -6,14 +6,14 @@
   - [Enumerator Data type](#enumerator-data-type)
     - [Type Def data type](#type-def-data-type)
     - [Short Circuit Evaluation](#short-circuit-evaluation)
-  - [Loops](#loops)
+  - [07-Loops](#07-loops)
     - [For loop](#for-loop)
     - [Infinite for loop](#infinite-for-loop)
     - [while loop](#while-loop)
     - [do while loop](#do-while-loop)
   - [Memory Allocation](#memory-allocation)
       - [Dynamic Memory Allocation](#dynamic-memory-allocation)
-  - [Arrays](#arrays)
+  - [08-Arrays](#08-arrays)
     - [Declaration of array.](#declaration-of-array)
     - [Initialization and Declaration of array.](#initialization-and-declaration-of-array)
     - [Exceeding the size of array](#exceeding-the-size-of-array)
@@ -45,10 +45,10 @@
     - [Static Memory Allocation for array](#static-memory-allocation-for-array)
     - [Dynamic Memory Allocation for array.](#dynamic-memory-allocation-for-array)
   - [Storage Class](#storage-class)
-  - [Intro To OOPS](#intro-to-oops)
+  - [12-Intro To OOPS](#12-intro-to-oops)
     - [Class](#class)
       - [Points to remember](#points-to-remember)
-    - [Creating pointer to object](#creating-pointer-to-object)
+    - [Pointer to object](#pointer-to-object)
     - [Creating object to pointer inside the heap memory.](#creating-object-to-pointer-inside-the-heap-memory)
     - [Encapsulation](#encapsulation)
     - [Accessor and Mutator](#accessor-and-mutator)
@@ -56,8 +56,10 @@
     - [Type of constructor](#type-of-constructor)
     - [Types of function available in a class](#types-of-function-available-in-a-class)
     - [Scope resolution operator](#scope-resolution-operator)
-  - [Exception Handling](#exception-handling)
-  - [C++11 New Features](#c11-new-features)
+  - [18-Exception Handling](#18-exception-handling)
+  - [🚫 20 Constants,Preprocessors Directives and Namespaces 🚫](#-20-constantspreprocessors-directives-and-namespaces-)
+    - [Constant Qualifiers](#constant-qualifiers)
+  - [24-C++11 New Features](#24-c11-new-features)
     - [Auto](#auto)
     - [Lamda Expression](#lamda-expression)
     - [Ellipses](#ellipses)
@@ -194,7 +196,7 @@ cout<<i<<endl;
 return 0;
 }
 ```
-## Loops
+## 07-Loops
 
 ### For loop
  for loop also known as counter control loop.
@@ -265,7 +267,7 @@ do while loop execute at least one time, whether the condition True or false.
 do{
  //Instruction to process
 }while(condition)
- ```
+```
 
 ```cpp
 #include<iostream>
@@ -280,7 +282,7 @@ i++;
 }while(i<n);
 return 0;
 }
- ```
+```
 
 ## Memory Allocation
 There are two ways of memory allocation.
@@ -293,7 +295,7 @@ It helps us efficiently use of memory.
 It reduces the wastage of memory
 
 
-## Arrays
+## 08-Arrays
 Array is a collection of element of same datatype and stored in  memory at contiguous location.
 
 ### Declaration of array.
@@ -309,7 +311,7 @@ for(int i=0;i<10;i++)
 }
 //The above program will give output but the output will be a garbage value
 //A garbage value is useless value 
-//when we declare a variable but not asssigna a value to the variable then it take garbage value 
+//when we declare a variable but not asssign a value to the variable then it take garbage value 
 //which is present on that particular location  
 ```
 ### Initialization and Declaration of array.
@@ -1074,7 +1076,7 @@ return 0;
 
 
 ## Storage Class
-## Intro To OOPS
+## 12-Intro To OOPS
 Four pillars of object-oriented programming.
  * Abstraction
 
@@ -1127,14 +1129,13 @@ Only variables/data member of the class takes space into memory.
 
 Method of the class never takes memory space into the memory.
 
-### Creating pointer to object
+### Pointer to object
 
 ```cpp
 #include<iostream>
 using namespace std;
 // Rectangle class
 class Rectangle{
-  
   public:
   int length;
   int breadth;
@@ -1147,7 +1148,7 @@ class Rectangle{
   }
 };
 int main(){
-// Program to show the concepts of pointer to objects
+
 Rectangle r1;
 Rectangle *p; // pointer of type rectangle.
 p = &r1; // p stores the address of object/instance of Rectangle class 'r1'
@@ -1165,8 +1166,8 @@ In pointer to object:
 * It is also known as de-referencing operator.
 * The pointer variable also created in stack section.
 * Examples
-    * Rectangle *p; => create object in stack.
-    * Rectangle *q = new Rectangle(); => create objects in 'heap memory'.
+    * `Rectangle *p; => create object in stack.`
+    * `Rectangle *q = new Rectangle(); => create objects in 'heap memory'`.
 
 ### Creating object to pointer inside the heap memory.
 
@@ -1550,7 +1551,7 @@ if We have complex logic in method/function then we must define it outside  the 
       
     //Rectangle(){
       // Note:A constructor must not have any return type i.e a constructor never returns a value
-      // A constructor must have same name as class name it is manadatory in c++
+      // A constructor must have same name as class name it is mandatory in c++
       //length=1;
       //breadth=1;
       // One more thing to be note that when the user-defined-constructor will be present
@@ -1609,9 +1610,9 @@ if We have complex logic in method/function then we must define it outside  the 
     }
     
     int perimeter(); // prototype, we will define this function outside the class using scope
-  //resolution opeator
+  //resolution operator
     
-  //syntax of sope resolution class
+  //syntax of scope resolution class
   //return type <name_of_class> :: <function_name>
     
   };
@@ -1647,14 +1648,14 @@ if We have complex logic in method/function then we must define it outside  the 
   opt to not provide the any argument in this case the default argument provided to the
   constructor will works and still the same constructor will be called/invoked.
     
-  // therfore we can comment out the default constructor/user-defined-constructor
+  // therefore we can comment out the default constructor/user-defined-constructor
   // which we have created.
     
   */
     
 ```
 
-## Exception Handling
+## 18-Exception Handling
 
  Throwing integer type Exception
 
@@ -1670,7 +1671,7 @@ if We have complex logic in method/function then we must define it outside  the 
         cout<<"The result is: "<<z<<endl;    
     }
     catch(int e){
-      // Since we have throw 1 and 1 is integer value that is why we have used int variable e in the catch block,whatever the excepition will be thrown that will be
+      // Since we have throw 1 and 1 is integer value that is why we have used int variable e in the catch block,whatever the exception will be thrown that will be
       // copied into "e".
       cout<<"Divison with zero is not possible "<<e<<endl;
     }
@@ -1754,8 +1755,60 @@ cout<<"Divison with zero is not possible "<<endl;
 return 0;
 }
 ```
+## 🚫 20 Constants,Preprocessors Directives and Namespaces 🚫
+### Constant Qualifiers
+```cpp
+int x = 10;
+x++; // now x became 11
 
-## C++11 New Features
+const int x = 10;
+x++ // now x will give error,because constant Identifier can not modified
+// (2)
+int x = 10;
+int *ptr = &x;
+cout<<*ptr<<endl; // ouptut 10
+++*ptr; // output 11
+cout<<*ptr;
+
+// (2.1)
+const int x = 10;
+int *ptr = &x; // error,address of a constant type can not be assigned to integer pointer
+
+// (2.3)
+const int x = 10;
+const int *ptr = &x; // error,address of a constant type can not be assigned to integer pointer
+
+
+// (3)
+int x = 10;
+const int *ptr = &x; // can not be modified now,only accessible or readable
+// the above line can also be written like this => int const *ptr = &x;
+
+cout<<*ptr<<endl; // ouptut 10
+++*ptr; // Now this line is not allowed,will gives error,due to the reason that now it became the "pointer to a integer constant", this is how we read it from right side 
+cout<<*ptr;
+
+// (4)
+const int *ptr = &x;
+int y = 20;
+ptr = &y; // allowed pointer can point to another variable,but what is not allowed is modification in the value once the pointer start pointing to that value.
+
+++(*ptr); // This is not allowed
+// (5)
+int * const ptr = &x;
+int y = 20;
+ptr = &y; // here pointer can not point to another variable,because here pointer itself is the constant varibale ,but what is  allowed is modification in the value
+
+++(*ptr); // This is allowed
+// (6)
+const int * const ptr = &x;
+int y = 20;
+ptr = &y; // not allowed,as pointer varable itself is constant
+
+++(*ptr); // not allowed,because the datatype is also a constant
+
+```
+## 24-C++11 New Features
 some new features of c++ have introduced in later version and those are given below.
 ### Auto
 - `auto` keyword detect datatypes automatically.
@@ -1811,7 +1864,7 @@ int perimeter();
 ##### Shared Pointers
 - An object can have more than two pointers.
 - It maintains reference counter.
-- Used to check how many pointer currently an objec have.
+- Used to check how many pointer currently an object have.
 - We use `count()` to count the number of pointers.
 ##### Weak Pointers
 - It does not maintain reference counter.
