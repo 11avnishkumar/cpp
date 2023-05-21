@@ -1766,7 +1766,7 @@ x++ // now x will give error,because constant Identifier can not modified
 // (2)
 int x = 10;
 int *ptr = &x;
-cout<<*ptr<<endl; // ouptut 10
+cout<<*ptr<<endl; // output 10
 ++*ptr; // output 11
 cout<<*ptr;
 
@@ -1784,7 +1784,7 @@ int x = 10;
 const int *ptr = &x; // can not be modified now,only accessible or readable
 // the above line can also be written like this => int const *ptr = &x;
 
-cout<<*ptr<<endl; // ouptut 10
+cout<<*ptr<<endl; // output 10
 ++*ptr; // Now this line is not allowed,will gives error,due to the reason that now it became the "pointer to a integer constant", this is how we read it from right side 
 cout<<*ptr;
 
@@ -1803,10 +1803,46 @@ ptr = &y; // here pointer can not point to another variable,because here pointer
 // (6)
 const int * const ptr = &x;
 int y = 20;
-ptr = &y; // not allowed,as pointer varable itself is constant
+ptr = &y; // not allowed,as pointer variable itself is constant
 
 ++(*ptr); // not allowed,because the datatype is also a constant
 
+```
+Constant Method
+
+```cpp
+class Demo{
+    public:
+    int x;
+    int y;
+    void display() const {
+   // This method will 👆 prevent compiler to modify the value
+   // of the Member variable x;
+      x++; // it will give error as method is marked constant
+      cout<<x<<y
+    }
+  }
+  int main(){
+      Demo d;
+      d.display();
+      return 0;
+    }
+```
+Constant Reference
+This is a call by reference program and we will see how to prevent value modification using constants
+```cpp
+// This(const)👇 will prevent modification in value of a 
+  void fun(const int &a,int &b){
+   cout<<a<<b<<endl;
+   a++;
+ }
+int main(){
+   int x=10;
+   int y=20;
+   fun(x,y);
+   cout<<x<<y<<endl;
+   return 0;
+ }
 ```
 ## 24-C++11 New Features
 some new features of c++ have introduced in later version and those are given below.
@@ -1900,7 +1936,7 @@ int main(){
 
 In the above program we have delegated the parameterized constructor to non-prameterized constructor
 
-```
+```cpp
 #include<iostream>
 // #include<memory>
 using namespace std;    
@@ -1931,7 +1967,8 @@ int main()
 ### Lambda Expression
 Syntax of lambda expression:
 ``[[capture_list](parameter_list)->return type{ body }``
-```
+
+```cpp
 #include<iostream>
 using namespace std;
 template<typename T>
